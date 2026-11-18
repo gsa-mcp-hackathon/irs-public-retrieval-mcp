@@ -1,0 +1,9 @@
+{
+  "method": "tools/call",
+  "params": {
+    "name": "get_irm_passage",
+    "arguments": {
+      "citation": "1.11.2.5.2"
+    }
+  }
+}

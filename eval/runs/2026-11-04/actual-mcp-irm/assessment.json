@@ -1,0 +1,71 @@
+{
+  "summary": "Actual local tool retrieval returned source relationships needed to avoid previously observed interpretation errors; new model-answer improvement remains untested",
+  "method": "Complete returned-source reading and relationship comparison against retained November 3 source/expected fields; no generated-answer assessment",
+  "source_findings": [
+    {
+      "relationship": "Requested matching body versus TOC destinations",
+      "state": "returned_and_distinguished",
+      "finding": "Requested body 1.11.2.5.2, Determine IRM Dates, matches #id77. Literal parent TOC route #id44 reaches 1.11.2.3.2, IRM Catalog Number; descendant TOC route #id46 reaches 1.11.2.3.3, Identify the IRM Owner. Both mismatches remain separately attributed source observations",
+      "source_pointers": [
+        "source-result.json#/passages/0",
+        "source-result.json#/navigation",
+        "source-result.json#/notices"
+      ]
+    },
+    {
+      "relationship": "Specified-date applicability and publication processing",
+      "state": "returned_and_applied_in_interpretation",
+      "finding": "Rules 3.A/B apply when IRM section has specific effective date: effective date equals or follows MT date, M&P receives sufficient processing time, August–December filing-season context remains explicit, and specific subsection dates replace wildcards. General table separately permits wildcard formats with publication-time replacement; conditional restriction supplies no unconditional ban. Rule 4 requires specified date in both MT effective-date element and affected subsection dates",
+      "source_pointer": "source-result.json#/passages/0/blocks/2"
+    },
+    {
+      "relationship": "Subsection changes and editorial-only scope",
+      "state": "returned_and_applied_in_interpretation",
+      "finding": "Substantive changes use IRM effective date; editorial changes with substantive changes elsewhere retain existing subsection date. Editorial-only branch requires no substantive changes anywhere else in section and directs dating to linked 1.11.2.8.1. Unfetched linked process supplies no further whole-section date outcome",
+      "source_pointer": "source-result.json#/passages/0/blocks/5"
+    },
+    {
+      "relationship": "Issued IPU/IGM branches",
+      "state": "returned_and_distinguished",
+      "finding": "Issued IPU content without subsequent substantive changes uses IPU issue date; issued IGM content without subsequent substantive changes uses IGM effective date. Either branch with subsequent substantive changes uses IRM effective date",
+      "source_pointer": "source-result.json#/passages/0/blocks/5"
+    },
+    {
+      "relationship": "Source-date attribution versus acquisition clocks",
+      "state": "returned_and_distinguished",
+      "finding": "Page review 10-Jun-2026, Manual Transmittal June 09, 2026, IRM effective 06-09-2026, requested subsection 06-09-2026, and descendant subsection 09-13-2023 retain separate meanings and contexts. Equal effective/subsection values establish no interchangeable attribution; acquisition clocks remain distinct",
+      "source_pointer": "source-result.json#/passages/0/dates"
+    },
+    {
+      "relationship": "Whole returned notices and fetched extent",
+      "state": "retained_with_open_further_use",
+      "finding": "Complete structured response retains transmittal purpose, material changes, supersession/interim-guidance attribution, audience, source dates, mismatch notices, and open etc. remainder. Current interpretation reaches date/navigation case; further notice relationships remain available without inferred downstream application",
+      "source_pointers": ["source-result.json#/notices", "source-result.json#/extent"]
+    }
+  ],
+  "retained_source_comparison": {
+    "comparison_observation": "source-cued-irm-answer-2026-11-03",
+    "source_artifact": "../../2026-11-03/source-cued-irm/source-context.json#/irm",
+    "expected_artifact": "../../2026-11-03/source-cued-irm/expected.json",
+    "matched_identity_equals_expected": true,
+    "both_navigation_records_equal_expected": true,
+    "all_five_date_objects_equal_expected": true,
+    "six_block_kinds_and_texts_equal_retained": true,
+    "passage_fields_equal_after_excluding_added_empty_links": true,
+    "literal_full_passage_equality": false,
+    "literal_difference": "Fresh schema includes empty links arrays absent from retained portable passage blocks",
+    "notices_comparison": "November 3 portable IRM source projection omits notices; current full-notice custody supplies no equality claim",
+    "clock_scope": "Current public acquisition clocks are fresh; retained source acquisition occurred October 26 local / October 27 UTC"
+  },
+  "relationship_to_previous_answer": {
+    "assessment": "../../2026-11-03/source-cued-irm/assessment.json",
+    "finding": "November 3 answer omitted or changed some relationships already present in supplied source. Current retrieved content preserves those qualifications; source availability supplies no proof of corrected model use",
+    "november3_mcp_calls": 0,
+    "current_mcp_calls": 1,
+    "current_model_calls": 0,
+    "changed_return": "Fresh actual tool dispatch plus source-qualified interpretation added to existing case",
+    "remaining_answer_state": "Earlier model-answer findings remain unchanged and independently untested"
+  },
+  "scope": "One actual local call and qualitative returned-source interpretation; no generated-answer score, causal model improvement, aggregate accuracy, hosted acceptance, fresh catalog/PDF inspection, or organizer/judge acceptance",
+  "open_relationships": "Further source use, linked content, broader cases, repeats, controlled comparisons, failure/recovery behavior, and later effects remain open"
+}

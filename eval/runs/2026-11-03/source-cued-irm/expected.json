@@ -1,0 +1,76 @@
+{
+  "originally_declared_at_utc": "2026-11-03T16:22:21.375303+00:00",
+  "portable_projection_compiled_at_utc": "2026-11-03T16:57:53.198749+00:00",
+  "question": "Explain retained IRM 1.11.2.5.2 date rules, every returned parent/descendant navigation relationship, and exact native date fields; retain official Form 1040/2024 catalog and acquisition findings with their inspection limits.",
+  "case_kind": "Targeted source-cued reconsideration; no blind evaluation, controlled baseline, or dispatch test",
+  "declaration_scope": "Expected source relationships declared before native execution; portable projection removes local provenance paths",
+  "matched_passage": [
+    {
+      "citation": "1.11.2.5.2",
+      "title": "Determine IRM Dates",
+      "url": "https://www.irs.gov/irm/part1/irm_01-011-002#id77"
+    }
+  ],
+  "navigation": [
+    {
+      "text": "1.11.2.5.2 Determine IRM Dates",
+      "url": "https://www.irs.gov/irm/part1/irm_01-011-002#id44",
+      "reached_citation": "1.11.2.3.2",
+      "reached_title": "IRM Catalog Number"
+    },
+    {
+      "text": "1.11.2.5.2.1 Determine the Subsection Date",
+      "url": "https://www.irs.gov/irm/part1/irm_01-011-002#id46",
+      "reached_citation": "1.11.2.3.3",
+      "reached_title": "Identify the IRM Owner"
+    }
+  ],
+  "date_fields": [
+    {
+      "value": "10-Jun-2026",
+      "meaning": "Page Last Reviewed or Updated",
+      "context": "Page Last Reviewed or Updated: 10-Jun-2026"
+    },
+    {
+      "value": "June 09, 2026",
+      "meaning": "Manual Transmittal date",
+      "context": "Manual Transmittal\nJune 09, 2026"
+    },
+    {
+      "value": "06-09-2026",
+      "meaning": "IRM effective date",
+      "context": "Effective Date\n(06-09-2026)\nLucia Lykke\nDirector, Data Products and Insights\nResearch, Applied Analytics and Statistics (RAAS)"
+    },
+    {
+      "value": "06-09-2026",
+      "meaning": "Subsection date",
+      "context": "IRM 1.11.2.5.2 Determine IRM Dates: 1.11.2.5.2 (06-09-2026)"
+    },
+    {
+      "value": "09-13-2023",
+      "meaning": "Subsection date",
+      "context": "IRM 1.11.2.5.2.1 Determine the Subsection Date: 1.11.2.5.2.1 (09-13-2023)"
+    }
+  ],
+  "source": {
+    "requested_url": "https://www.irs.gov/irm/part1/irm_01-011-002",
+    "url": "https://www.irs.gov/irm/part1/irm_01-011-002",
+    "retrieved_at_utc": "2026-10-26T19:44:39.505503-06:00",
+    "content_type": "text/html; charset=UTF-8",
+    "status_code": 200
+  },
+  "route_source": {
+    "requested_url": "https://www.irs.gov/irm/part1",
+    "url": "https://www.irs.gov/irm/part1",
+    "retrieved_at_utc": "2026-10-26T19:44:37.682027-06:00",
+    "content_type": "text/html; charset=UTF-8",
+    "status_code": 200
+  },
+  "further_checks": [
+    "Reached specified-date conditions retained",
+    "Editorial-only qualification retains no-substantive-change condition across section",
+    "Linked editorial process extent supplies no unsupported whole-section date outcome",
+    "Catalog revision and retained PDF receipt remain distinct from inspected PDF-content identity"
+  ],
+  "assessment_scope": "Per-relationship findings; whitespace variation alone supplies typography observation, without semantic-error classification or aggregate score"
+}

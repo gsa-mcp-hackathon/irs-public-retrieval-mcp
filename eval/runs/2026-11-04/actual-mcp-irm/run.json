@@ -1,0 +1,71 @@
+{
+  "observation_id": "actual-mcp-irm-2026-11-04",
+  "summary": "Actual local MCP dispatch returned matched IRM date passage, source-qualified rules, both TOC/body mismatches, and independently attributed dates; no new model answer was generated",
+  "question": "Explain IRM 1.11.2.5.2 date rules, both navigation mismatches, and exact source-date fields",
+  "source_proposal": "/proposed_next_cases/0",
+  "source_observation": "native-three-tool-answer-2026-10-27",
+  "comparison_observation": "source-cued-irm-answer-2026-11-03",
+  "method": "One actual MCP stdio invocation of maintained server, followed by complete returned-source reading and comparison with retained November 3 source/expected fields",
+  "case_scope": "Additional retrieval and interpretation evidence for existing IRM case; November 3 model-answer assessment retains independent state",
+  "execution_date_local": "2026-11-04",
+  "execution_timezone": "America/Denver",
+  "date_scope": "Directory and observation ID use local task date; actual call and acquisition clocks fall on November 5 UTC",
+  "started_at_utc": "2026-11-05T00:22:14.084056+00:00",
+  "completed_at_utc": "2026-11-05T00:22:19.437045+00:00",
+  "elapsed_seconds": 5.352989,
+  "timing_scope": "Single tool-call interval; imports, server startup, and cleanup retain separate local execution receipts",
+  "source_commit": "adaf7753cfa422a9cf1c002f8d41731eec51b18a",
+  "versions": {
+    "python": "3.14.7",
+    "fastmcp": "4.0.11",
+    "mcp_sdk": "2.3.0",
+    "httpx": "0.28.1"
+  },
+  "call": {
+    "tool": "get_irm_passage",
+    "arguments": {"citation": "1.11.2.5.2"},
+    "is_error": false,
+    "match_disposition": "matched",
+    "passage_count": 1,
+    "block_count": 6,
+    "navigation_count": 2,
+    "date_count": 5
+  },
+  "mcp_calls": 1,
+  "model_calls": 0,
+  "client_context_closed": true,
+  "caller_exit_code": 0,
+  "source": {
+    "requested_url": "https://www.irs.gov/irm/part1/irm_01-011-002",
+    "url": "https://www.irs.gov/irm/part1/irm_01-011-002",
+    "retrieved_at_utc": "2026-11-05T00:22:18.575187+00:00",
+    "content_type": "text/html; charset=UTF-8",
+    "status_code": 200
+  },
+  "route_source": {
+    "requested_url": "https://www.irs.gov/irm/part1",
+    "url": "https://www.irs.gov/irm/part1",
+    "retrieved_at_utc": "2026-11-05T00:22:17.499761+00:00",
+    "content_type": "text/html; charset=UTF-8",
+    "status_code": 200
+  },
+  "retained_response": {
+    "artifact": "source-result.json",
+    "scope": "Complete public IRS response values and source text preserved from actual call"
+  },
+  "artifacts": {
+    "request": "request.json",
+    "source": "source-result.json",
+    "assessment": "assessment.json",
+    "comparison_run": "../../2026-11-03/source-cued-irm/run.json",
+    "comparison_source": "../../2026-11-03/source-cued-irm/source-context.json",
+    "comparison_expected": "../../2026-11-03/source-cued-irm/expected.json",
+    "comparison_assessment": "../../2026-11-03/source-cued-irm/assessment.json"
+  },
+  "limits": [
+    "Current local tool dispatch and source interpretation only; no new model answer, numeric score, model improvement, or representative accuracy claim",
+    "Linked destinations remain outside fetched passage extent; current call supplies no fresh catalog or PDF validation",
+    "One selected call supplies no broad latency distribution, controlled baseline, adversarial robustness, hosted-platform acceptance, or organizer/judge acceptance"
+  ],
+  "provenance_scope": "Portable public request, complete structured response, and relationship assessment retained here; local command, process, proxy/trust, failed preflight, and fuller execution receipts remain separately retained in Planning task carrier"
+}

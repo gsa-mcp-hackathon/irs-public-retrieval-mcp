@@ -1,0 +1,51 @@
+**IRM Date Rules**  
+- Heading `1.11.2.5.2 (06-09-2026)` provides IRM effective date `06-09-2026`.  
+- Defined IRM date types (quoted table):  
+  - `MT date` definition `This is the date M&P publishes the IRM section and posts in the Core Repository of Published Products (housed on the Electronic Publishing website). Refer to IRM 1.11.2.6.1.1, Manual Transmittal (MT) Date.` format `Month DD, YYYY`.  
+  - `Effective date` definition `This is the date the new or revised IRM section is effective. The IRM effective date can be: A. The same date as the MT date, or B. A specific future date.` format wildcard `(MM-DD-YYYY)` or specific `(01-01-2026)`.  
+  - `Subsection date` definition `This is the effective date of the information in the IRM subsection. The subsection date can be: A. The same date as the revision date, or B. The effective date.` format wildcard `(MM-DD-YYYY)` or specific `(01-01-2026)`.  
+  - `Revision date` definition `This date reflects the MT date. The revision date only appears in PDF versions of the IRM and Document 10988, IRM Index.` format PDF `(MM-DD-YYYY)` and Index `MM-YYYY`.  
+- Rule 3.A (`Effective date` must be same or later than MT date).  
+- Rule 3.B (`Do not use wildcard subsection dates`).  
+- Rule 4 (`When adding or revising information that becomes effective on a specified date, insert the date in both the MT effective date element and the affected subsection date(s)`).  
+- Example (quoted):  
+  | Date Type | Date and Format |  
+  |---|---|  
+  | `MT date` | `December 15, 2025` |  
+  | `IRM Effective date` | `01-01-2026` |  
+  | `Subsection dates` | `01-01-2026` |  
+  | `Revision date` | `- 12-15-2025 in the PDF IRM` `- 12-2025 in the IRM Index` |  
+
+**Subsection Date Rules** (`1.11.2.5.2.1` heading `(09-13-2023)`)  
+- Table (quoted):  
+  - If subsection contains substantive changes → subsection date =`IRM effective date`.  
+  - If changes are editorial but substantive changes exist elsewhere → retain existing subsection date.  
+  - If changes are editorial only → date as instructed in `IRM 1.11.2.8.1, Editorial Update Process`.  
+  - Incorporates content from issued IPU with no subsequent substantive changes → subsection date =`IPU issue date`.  
+  - Incorporates content from issued IPU with subsequent substantive changes → subsection date =`IRM effective date`.  
+  - Incorporates content from issued IGM with no subsequent substantive changes → subsection date =`IGM effective date`.  
+  - Incorporates content from issued IGM with subsequent substantive changes → subsection date =`IRM effective date`.  
+
+**Exact Native Date Fields** (source metadata):  
+- `Page Last Reviewed or Updated` value `10-Jun-2026`.  
+- `Manual Transmittal` value `June 09, 2026`.  
+- `IRM effective date` value `06-09-2026`.  
+- `Subsection date` value `06-09-2026` (heading `1.11.2.5.2`).  
+- `Subsection date` value `09-13-2023` (heading `1.11.2.5.2.1`).  
+
+**Navigation Relationships**  
+- Label `1.11.2.5.2 Determine IRM Dates` → URL `https://www.irs.gov/irm/part1/irm_01-011-002#id44` → reached citation `1.11.2.3.2` → reached title `IRM Catalog Number`.  
+- Label `1.11.2.5.2.1 Determine the Subsection Date` → URL `https://www.irs.gov/irm/part1/irm_01-011-002#id46` → reached citation `1.11.2.3.3` → reached title `Identify the IRM Owner`.  
+
+**Form 1040 2024 Catalog**  
+- Product `Form 1040` title `U.S. Individual Income Tax Return` year `2024` URL `https://www.irs.gov/pub/irs-prior/f1040--2024.pdf` catalog `prior` catalog URL `https://www.irs.gov/prior-year-forms-and-instructions?find=Form+1040+2024&date=2024`.  
+- Date field value `2024` meaning `Revision Date` (context `prior catalog row: Form 1040`).  
+- Inspection limit `catalog rows observed 4 on current page, 25 on prior page; other rows remain unverified`.  
+
+**PDF Acquisition Findings**  
+- Native resource URI `https://www.irs.gov/pub/irs-prior/f1040--2024.pdf` MIME `application/pdf`.  
+- Retrieved `2026-10-26T19:44:48.481605-06:00` status `200`.  
+- Byte count `163287` decoded prefix `%PDF-1.7`.  
+- Observed inspection scope `binary receipt, header, size, source binding only; no page rendering, text extraction, or content‑year verification`.  
+
+*All quoted text reproduced exactly; paraphrases labeled where present.*

@@ -1,0 +1,81 @@
+**1. Retained IRM 1.11.2.5.2 date rules (as written in the public IRM)**  
+
+| IRM Date Type | Definition (from IRM 1.11.2.5.2) | Native format shown in the IRM | Example shown in the IRM |
+|---------------|-----------------------------------|--------------------------------|--------------------------|
+| **MT (Manual Transmittal) date** | “This is the date M&P publishes the IRM section and posts in the Core Repository of Published Products (housed on the Electronic Publishing website).” See IRM 1.11.2.5.2, paragraph 2. | *Month DD, YYYY* (e.g., **June 09, 2026**) | **June 09, 2026** (the MT date for this revision) |
+| **IRM effective date** | “The date the new or revised IRM section is effective. It can be the same as the MT date or a specific future date.” See IRM 1.11.2.5.2, paragraph 2. | Wild‑card format *(MM‑DD‑YYYY)* or a specific date *(01‑01‑2026)*. The wild‑card is replaced by the MT date when published. | **06‑09‑2026** (effective date for this revision) |
+| **Subsection date** | “The effective date of the information in the IRM subsection. It can be the same as the revision date or the effective date.” See IRM 1.11.2.5.2, paragraph 2. | Wild‑card *(MM‑DD‑YYYY)* or a specific date *(01‑01‑2026)*. A wild‑card is updated to the IRM effective date when published. | **06‑09‑2026** (subsection date for this revision) |
+| **Revision date** | “This date reflects the MT date. It appears only in PDF versions of the IRM and Document 10988, IRM Index.” See IRM 1.11.2.5.2, paragraph 2. | PDF IRM *(MM‑DD‑YYYY)* ; IRM Index *MM‑YYYY* | **12‑15‑2025** (PDF) / **12‑2025** (Index) – shown only as an illustrative example in the IRM. |
+
+**Key procedural rules (IRM 1.11.2.5.2, paragraph 3‑5)**  
+
+1. **Effective‑date timing** – The IRM effective date must be the same as or later than the MT date; enough time must be allowed for M&P processing, especially for filing‑season IRMs (August‑December).  
+2. **Wildcard prohibition for specific‑date IRMs** – When an IRM has a specific effective date, wildcard subsection dates may **not** be used; the specific date must appear in both the MT‑effective‑date element and each affected subsection date.  
+3. **Date insertion** – When adding or revising information that becomes effective on a set date, insert that date in **both** the MT effective‑date element **and** the affected subsection date(s).  
+4. **Example supplied** – The IRM shows a case where the MT date is **December 15, 2025** and the procedures become effective on **01‑01‑2026**; the table lists the MT date, IRM effective date, subsection dates, and revision date accordingly.  
+5. **Reference for MT‑date details** – See IRM 1.11.2.6.1, “Required Elements of the Manual Transmittal”.
+
+*Source:* IRM 1.11.2.5.2 “Determine IRM Dates”, https://www.irs.gov/irm/part1/irm_01-011-002#id77 (accessed 2026‑11‑05).  
+
+---
+
+**2. Descendant rule – IRM 1.11.2.5.2.1 “Determine the Subsection Date”**  
+
+| Situation (as listed in the IRM table) | Resulting Subsection Date |
+|------------------------------------------|----------------------------|
+| Subsection contains **substantive** changes | **IRM effective date** |
+| Editorial changes **only**, but substantive changes exist elsewhere in the IRM | **Existing subsection date** (no change) |
+| Editorial changes **only** and **no** substantive changes anywhere in the IRM | Date as instructed in **IRM 1.11.2.8.1** (Editorial Update Process) |
+| Incorporates content from an issued **IPU** with **no** subsequent substantive changes | **IPU issue date** |
+| Incorporates content from an issued **IPU** **with** subsequent substantive changes | **IRM effective date** |
+| Incorporates content from an issued **IGM** with **no** subsequent substantive changes | **IGM effective date** |
+| Incorporates content from an issued **IGM** **with** subsequent substantive changes | **IRM effective date** |
+
+*Source:* IRM 1.11.2.5.2.1 “Determine the Subsection Date”, https://www.irs.gov/irm/part1/irm_01-011-002#id77 (accessed 2026‑11‑05).  
+
+---
+
+**3. Returned navigation relationships (parent ↔ descendant)**  
+
+| Navigation label (as returned) | URL (click target) | Reached citation (the page the link points to) | Reached title (subject of the target) |
+|--------------------------------|--------------------|-----------------------------------------------|----------------------------------------|
+| **1.11.2.5.2 Determine IRM Dates** | https://www.irs.gov/irm/part1/irm_01-011-002#id44 | **1.11.2.3.2** | **IRM Catalog Number** |
+| **1.11.2.5.2.1 Determine the Subsection Date** | https://www.irs.gov/irm/part1/irm_01-011-002#id46 | **1.11.2.3.3** | **Identify the IRM Owner** |
+
+These two navigation items are the only “parent/descendant” links that were returned in the fetched material. They connect the current subsection (1.11.2.5.2 / 1.11.2.5.2.1) to higher‑level catalog entries (1.11.2.3.2 and 1.11.2.3.3).
+
+*Source:* “navigation” array in the supplied JSON (see lines showing the two objects).  
+
+---
+
+**4. Exact native date fields found in the fetched IRM (including their “meaning”)**  
+
+| Native field (as shown) | Value (exact spelling) | Meaning (as labelled in the source) |
+|--------------------------|------------------------|--------------------------------------|
+| **Page Last Reviewed or Updated** | **10‑Jun‑2026** | “Page Last Reviewed or Updated” |
+| **Manual Transmittal date** | **June 09, 2026** | “Manual Transmittal” |
+| **IRM effective date** | **06‑09‑2026** | “Effective Date” (also listed under “IRM effective date”) |
+| **Subsection date – for 1.11.2.5.2** | **06‑09‑2026** | “Subsection date” (shown on the 1.11.2.5.2 heading) |
+| **Subsection date – for 1.11.2.5.2.1** | **09‑13‑2023** | “Subsection date” (shown on the 1.11.2.5.2.1 heading) |
+
+*Source:* “dates” array in the supplied JSON and the IRM passages where each date is displayed.  
+
+---
+
+**5. Official Form 1040 / 2024 catalog and acquisition findings**  
+
+The supplied material **does not contain** any reference to the 2024 Form 1040 catalog, nor does it provide “acquisition findings” or “inspection limits” related to Form 1040. Because the question asks for these items, we must state that they are **unsupported by the provided public IRS source** and cannot be synthesized.
+
+> **Result:** No Form 1040 2024 catalog or inspection‑limit information is available in the extracted IRM passages; therefore it cannot be included.
+
+---
+
+### Summary  
+
+* IRM 1.11.2.5.2 defines four IRM date types (MT, effective, subsection, revision), the required formats, and procedural rules for aligning MT and effective dates, prohibiting wild‑card subsection dates when a specific effective date is used, and inserting dates consistently.  
+* IRM 1.11.2.5.2.1 provides the decision table for determining the appropriate subsection date based on the nature of the change (substantive vs. editorial) and source material (IPU, IGM).  
+* The only navigation relationships returned are links from the 1.11.2.5.2 page to **IRM 1.11.2.3.2 (IRM Catalog Number)** and to **IRM 1.11.2.3.3 (Identify the IRM Owner)**.  
+* The native dates present in the IRM are **10‑Jun‑2026** (page review), **June 09, 2026** (MT), **06‑09‑2026** (effective and subsection dates for 1.11.2.5.2), and **09‑13‑2023** (subsection date for 1.11.2.5.2.1).  
+* No Form 1040 2024 catalog or related acquisition/inspection data is included in the supplied IRS content; consequently, those items cannot be provided.  
+
+All statements are drawn directly from the publicly available IRM pages cited above.

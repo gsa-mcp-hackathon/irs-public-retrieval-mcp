@@ -1,0 +1,228 @@
+{
+  "description": "Silent recorded-case walkthrough of public IRS retrieval using retained requests, interpreted source returns, and separate answer comparisons.",
+  "status": "Local review draft",
+  "video": {
+    "path": "hackathon-visual-draft.mp4",
+    "bytes": 7975729,
+    "sha256": "6a9c45c39ed933e322b74d17d5b5e5bef5b5d31870dc5ba5506938ee8ac2440b",
+    "duration_seconds": 216.13225,
+    "width": 1280,
+    "height": 720,
+    "narration_added": false
+  },
+  "source_presentation": {
+    "path": "hackathon-presentation.pptx",
+    "sha256": "c11e0b6d6140f1f69a58d9b0b906e6b65017556857e06e82fc1deba8c588c93b",
+    "content_metadata": "hackathon-presentation.json",
+    "evidence_through": "2026-11-05",
+    "evidence_date_scope": "Latest executions occurred November 4, America/Denver, and November 5 UTC.",
+    "selected_observations": 13,
+    "slide_count": 12,
+    "source_unchanged_after_export": true
+  },
+  "export": {
+    "renderer": "Microsoft PowerPoint 16.0 CreateVideo",
+    "completed_at_utc": "2026-11-05T08:30:07.1159542Z",
+    "default_slide_duration_seconds": 18,
+    "requested_vertical_resolution": 720,
+    "requested_frames_per_second": 12,
+    "quality": 70,
+    "use_timings_and_narrations": false,
+    "scope": "New native visual export of revised recorded-case slides; fresh live screen recording remains separate."
+  },
+  "recorded_cases": {
+    "basis": "Retained IRM navigation/date comparison, actual stdio retrieval with complete source interpretation, separate public-only answer comparison, catalog continuation, and independently read 2025 PDFs.",
+    "actual_mcp_observation": "actual-mcp-irm-2026-11-04",
+    "public_only_answer_observation": "certara-public-irm-2026-11-04",
+    "evaluation_distinction": "Actual stdio observation used one tool call and zero model calls. Separate public-only answer used one model request, zero MCP calls, and no model tool access. Neither establishes autonomous model tool selection or IBM utilization.",
+    "new_irs_mcp_calls": 0,
+    "new_model_calls": 0,
+    "new_calls_scope": "Presentation and video production only; retained evaluation executions keep original clocks and source records.",
+    "live_screen_recording": false
+  },
+  "validation": {
+    "native_done_observed": true,
+    "local_copy_byte_equality": true,
+    "document_package_checks_passed": 55,
+    "source_claim_review": "Independent bounded review cleared current source claims, normalized UTC register, selected-observation scope, and earlier catalog/PDF credit.",
+    "visual_review": {
+      "method": "Full-size final native slides 1, 5, 6, 9, and 11 inspected.",
+      "observed": "Useful findings, source-native date meanings, separate retrieval/answer outcomes, and remaining work fit without observed crop or overlap.",
+      "scope": "Changed visible slides, independently from video decoding; slide 10 changes affect notes only."
+    },
+    "local_decoding": {
+      "state": "changed_frames_decoded_and_brief_playback_observed",
+      "completed_at_utc": "2026-11-05T08:30:42.655Z",
+      "selected_slide_numbers": [
+        1,
+        5,
+        6,
+        9,
+        10,
+        11,
+        12
+      ],
+      "decoded_media_times_seconds": [
+        8.964,
+        80.925,
+        98.936,
+        152.969,
+        170.98,
+        188.991,
+        206.919
+      ],
+      "input_metadata_equal": true,
+      "scope": "Selected changed frames and brief playback for current video bytes; full-duration current playback remains unperformed."
+    },
+    "brief_playback": {
+      "before_seconds": 0,
+      "after_seconds": 1.2064,
+      "advance_seconds": 1.2064,
+      "frame_callbacks": 13,
+      "media_errors_observed": []
+    },
+    "decoded_visual_review": {
+      "method": "Independent producer inspected full captured changed frames 1, 5, 6, 9, 10, 11, and 12.",
+      "observed": "Current source/answer distinctions and recorded-case labels remain readable without observed crop or overlap.",
+      "scope": "Selected current frames; audience comprehension and full-duration viewing retain separate evidence."
+    },
+    "owned_office_cleanup": "Exact newly owned presentations closed, applications quit, and all three original process identities independently observed absent. Recycled PID belongs to SearchProtocolHost and received no control.",
+    "owned_browser_cleanup": {
+      "observed": "Owned Chrome process absent; zero selected task-profile process matches.",
+      "observed_at_utc": "2026-11-05T08:31:04.9714447Z",
+      "profiles": "Retained and released",
+      "scope": "Exact current decoder process and isolated task-profile path.",
+      "original_process_id": 38392
+    }
+  },
+  "packaging": {
+    "kind": "PPTX with relative sibling-video hyperlink",
+    "slide_number": 12,
+    "target": "hackathon-visual-draft.mp4",
+    "media_embedded": false,
+    "viewer_hyperlink_invocation": "Unobserved",
+    "instruction": "Keep PPTX and MP4 together under docs/."
+  },
+  "evaluation": {
+    "path": "../eval/observations.json",
+    "observations_at_filing": 13,
+    "relationship": "November 3 repaired coverage and November 4 local actual retrieval/separate public-only comparison now reach presentation. Earlier catalog/PDF achievements retain source credit; latest IRM-only packet absence stays input-local."
+  },
+  "delivery": {
+    "audience_acceptance": "Unassessed",
+    "submission": "Unperformed"
+  },
+  "previous_revision": {
+    "source_commit": "69214474124ae25c014120328cb68b4255a88759",
+    "video": {
+      "path": "hackathon-visual-draft.mp4",
+      "bytes": 8018805,
+      "sha256": "91f540607d9a2f96ebc6dc8ed36a05073d7a86946332a3f36781f93a223638ae",
+      "duration_seconds": 216.13225,
+      "width": 1280,
+      "height": 720,
+      "narration_added": false
+    },
+    "source_presentation": {
+      "path": "hackathon-presentation.pptx",
+      "sha256": "e6e89a61cc5c616d8e2aeeca4d5fcd4d61b2ab2800986cc16bb58320f0ce176a",
+      "content_metadata": "hackathon-presentation.json",
+      "evidence_through": "2026-10-30",
+      "selected_observations": 10,
+      "slide_count": 12,
+      "source_unchanged_after_export": true
+    },
+    "export": {
+      "renderer": "Microsoft PowerPoint 16.0 CreateVideo",
+      "completed_at_utc": "2026-11-03T07:45:40.0074985Z",
+      "default_slide_duration_seconds": 18,
+      "requested_vertical_resolution": 720,
+      "requested_frames_per_second": 12,
+      "quality": 70,
+      "use_timings_and_narrations": false,
+      "scope": "Native visual export of recorded-case slides; fresh live screen recording remains separate."
+    },
+    "validation": {
+      "native_done_observed": true,
+      "local_copy_byte_equality": true,
+      "document_package_checks_passed": 49,
+      "source_claim_review": "Independent revised-claim review cleared printed identity, selected current/prior overlap, and locally qualified model-understanding scope.",
+      "visual_review": {
+        "method": "Full-size native slides 1, 8, and 12 inspected after refinement.",
+        "observed": "Useful Form 1040 / 2025 result and route overlap lead; byte counts remain in notes; text and link labels fit.",
+        "scope": "Changed native slides, independently from video decoding."
+      },
+      "local_decoding": {
+        "state": "changed_frames_decoded_and_brief_playback_observed",
+        "completed_at_utc": "2026-11-03T07:47:48.027Z",
+        "selected_slide_numbers": [
+          1,
+          8,
+          12
+        ],
+        "decoded_media_times_seconds": [
+          8.964,
+          134.958,
+          206.919
+        ],
+        "input_metadata_equal": true,
+        "scope": "Changed frames and brief playback for current video revision."
+      },
+      "brief_playback": {
+        "before_seconds": 0,
+        "after_seconds": 1.204,
+        "advance_seconds": 1.204,
+        "frame_callbacks": 13,
+        "media_errors_observed": []
+      },
+      "decoded_visual_review": {
+        "method": "Full captured changed frames 1, 8, and 12 visually inspected.",
+        "observed": "Expected meaningful PDF result, route-overlap explanation, and recorded-case labels; no observed crop or overlap.",
+        "scope": "Selected changed frames; current full-duration playback remains unperformed."
+      },
+      "owned_office_cleanup": "Exact newly owned presentations closed, applications quit, and two task process IDs independently observed absent.",
+      "owned_browser_cleanup": {
+        "observed": "Owned Chrome process absent; zero selected task-profile process matches.",
+        "observed_at_utc": "2026-11-03T07:48:49.9790268Z",
+        "profiles": "Retained and released",
+        "scope": "Exact current decoder process and reused explicit task-profile path."
+      }
+    },
+    "evaluation": {
+      "path": "../eval/observations.json",
+      "observations_at_filing": 10,
+      "relationship": "Later catalog/document observations now reach presentation; older 2024 results retain separate source credit."
+    },
+    "scope": "November 3 changed-frame and brief-playback receipts remain bound to previous source/video hashes."
+  },
+  "prior_revision_validation": {
+    "source_commit": "cc3d88c84a6daa76c06190830bc02052ea47e006",
+    "video_sha256": "6756dab644f2b95e67ada15055d93819f712c0255b171ac18dc103adc08d1d25",
+    "presentation_sha256": "7aed2575745969055b567115d9ba34ec0761f56071598f824371f310d59c02e4",
+    "decoded_frames": 12,
+    "full_playback": {
+      "state": "ended",
+      "started_at_seconds": 0,
+      "ended_at_seconds": 216.13225,
+      "natural_end_observed": true,
+      "frame_callbacks": 2422,
+      "media_errors_observed": [],
+      "scope": "Uninterrupted local playback through natural end; audience comprehension remains unassessed."
+    },
+    "completed_at_utc": "2026-11-03T07:31:50.069Z",
+    "scope": "Earlier full playback retains earlier video bytes and source revision; current refinement uses changed-frame and brief-playback checks."
+  },
+  "local_receipts": {
+    "base": "../.cache/public-mcp-presentation-20261105-session01a0f3cc/",
+    "paths": [
+      "material-checks.json",
+      "native-slides-final/export-receipt.json",
+      "native-video-final/export-receipt.json",
+      "canonical-video-copy.json",
+      "office-identity-readback.json",
+      "decode-final/RESULT.json",
+      "decode-final/cleanup-readback.json"
+    ],
+    "scope": "Ignored local execution evidence; portable public findings and clocks remain in this sidecar and retained evaluation artifacts."
+  }
+}

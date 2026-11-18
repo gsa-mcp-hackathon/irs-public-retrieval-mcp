@@ -1,0 +1,72 @@
+{
+  "compiled_at_utc": "2026-11-03T16:57:53.198749+00:00",
+  "method": "Complete final-answer comparison against predeclared relationships and supplied retained public source fields; private reasoning excluded",
+  "semantic_findings": [
+    {
+      "relationship": "Requested matching body versus TOC destinations",
+      "state": "partial",
+      "finding": "Requested heading appears, but matched body URL ending #id77 and matched-title relationship remain absent beside navigation",
+      "source_pointer": "source-context.json#/irm/passages/0"
+    },
+    {
+      "relationship": "Specified-date qualifications",
+      "state": "partial",
+      "finding": "Rule 3.A/B appear without shared specific-effective-date applicability condition, allowing unconditional reading of no-wildcard subsection rule despite general table permitting wildcard forms; required M&P processing-time qualification and filing-season context also remain omitted. Rule 4 insertion in both MT effective element and affected subsection dates appears separately",
+      "source_pointer": "source-context.json#/irm/passages/0/blocks/2"
+    },
+    {
+      "relationship": "Editorial-only condition",
+      "state": "compressed",
+      "finding": "Editorial-only branch omits explicit condition requiring no substantive changes anywhere else in IRM section; unsupported whole-section date assignment remains absent",
+      "source_pointer": "source-context.json#/irm/passages/0/blocks/5"
+    },
+    {
+      "relationship": "Heading-date attribution",
+      "state": "changed_attribution",
+      "finding": "Opening heading date receives IRM effective date attribution, while source heading context identifies subsection date; separately attributed effective-date field has coincident value",
+      "source_pointers": [
+        "source-context.json#/irm/passages/0/dates/2",
+        "source-context.json#/irm/passages/0/dates/3"
+      ]
+    },
+    {
+      "relationship": "Literal parent and descendant TOC relationships",
+      "state": "preserved",
+      "finding": "Both labels, literal URLs, reached citations, and reached titles appear, including previously omitted descendant #id46 to 1.11.2.3.3 relationship",
+      "source_pointer": "source-context.json#/irm/navigation",
+      "comparison_scope": "Earlier source-cued-reconsideration-2026-10-28 records descendant omission; changed task instructions, context, and runtime variables preclude causal model-improvement attribution"
+    },
+    {
+      "relationship": "Issued IPU/IGM branches",
+      "state": "preserved",
+      "finding": "Both subsequent-substantive-change and no-subsequent-substantive-change outcomes appear for IPU and IGM",
+      "source_pointer": "source-context.json#/irm/passages/0/blocks/5"
+    },
+    {
+      "relationship": "Catalog and PDF acquisition boundaries",
+      "state": "useful_with_partial_extent",
+      "finding": "Official Form 1040/2024 catalog locator, prior PDF receipt, acquisition clock, MIME, status, byte count, and receipt-only inspection limit remain; prior Next route and source-reported 70-row extent remain omitted, with observed 4/25 row counts and further-unverified rows retained",
+      "source_pointers": [
+        "source-context.json#/catalog",
+        "source-context.json#/document_receipt"
+      ],
+      "qualification": "No PDF-content-year or native model-understanding claim appears; earlier independent PDF reading retains its separate observation scope"
+    }
+  ],
+  "typography_and_assurance": {
+    "classification": "Typography and literal-assurance assessment, separate from semantic findings",
+    "spacing_observation": "ASCII spaces in displayed Manual Transmittal date become U+202F; date meaning remains unchanged by spacing alone",
+    "label_observation": "Exact Native Date Fields section shortens source meaning Manual Transmittal date to Manual Transmittal",
+    "answer_assurance": "All quoted text reproduced exactly; paraphrases labeled where present.",
+    "assurance_assessment": "Exact-reproduction assurance is unsupported: quoted table rows include paraphrases and quoted forms change despite explicit exact-form request. Whitespace variation alone supplies no broad semantic-defect conclusion.",
+    "source_pointer": "expected.json#/date_fields"
+  },
+  "tool_use": {
+    "current_mcp_calls": 0,
+    "current_command_events": 0,
+    "current_project_skill_invocation": "No independent native project-skill invocation evidence",
+    "retained_dispatch_credit": "native-three-tool-answer-2026-10-27 completed get_irm_passage, find_irs_products, and get_irs_document"
+  },
+  "scope": "One targeted source-cued answer; no blind test, controlled baseline, new IRS retrieval, current MCP dispatch, PDF-content inspection, hosted acceptance, causal model improvement, or representative accuracy claim",
+  "open_relationships": "Further source relationships, cases, failure/recovery behavior, repeated measurements, and later effects remain open"
+}

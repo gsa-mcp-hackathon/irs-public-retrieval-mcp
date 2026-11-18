@@ -1,0 +1,4 @@
+datasets:
+  irs-public-retrieval:
+    path: datasets/irs-public-retrieval.csv
+    description: Public IRM source identity, conditional rules, and catalog/document chaining.

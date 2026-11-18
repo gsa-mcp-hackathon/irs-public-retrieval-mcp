@@ -1,0 +1,204 @@
+{
+  "scope": "Retained official public IRS tool-result fields and document-receipt facts supplied during source-cued task; original acquisition clocks retained",
+  "irm": {
+    "requested_citation": "1.11.2.5.2",
+    "match_disposition": "matched",
+    "passages": [
+      {
+        "citation": "1.11.2.5.2",
+        "title": "Determine IRM Dates",
+        "url": "https://www.irs.gov/irm/part1/irm_01-011-002#id77",
+        "blocks": [
+          {
+            "kind": "heading",
+            "text": "1.11.2.5.2 (06-09-2026)"
+          },
+          {
+            "kind": "heading",
+            "text": "Determine IRM Dates"
+          },
+          {
+            "kind": "ordered_list",
+            "text": "1. The IRM process requires authors to specify various IRM dates when publishing procedural changes in each revision. The types of IRM dates include:\n   \n   - Manual Transmittal (MT) date\n   - IRM effective date\n   - Subsection date\n   - Revision date\n2. The table below defines each type of IRM date and the proper date format:\n   \n   | [th] IRM Date Type | [th] Definition | [th] Date |\n   | [td] MT date | [td] This is the date M&P publishes the IRM section and posts in the Core Repository of Published Products (housed on the Electronic Publishing website). Refer to IRM 1.11.2.6.1.1, Manual Transmittal (MT) Date. | [td] Month DD, YYYY<br>Note:<br><br>M&P inserts the MT date in the IRM XML file. |\n   | [td] Effective date | [td] This is the date the new or revised IRM section is effective. The IRM effective date can be:<br>A. The same date as the MT date, or<br>B. A specific future date.<br><br><br>Refer to IRM 1.11.2.6.1.6, Effective Date. | [td] - (MM-DD-YYYY) - wildcard date format. The wildcard date reflects the MT date.<br>- (01-01-2026) - a specific date.<br><br>Reminder:<br><br>A filing season IRM requires a specific effective date. If a wildcard date format is used, M&P will update the effective date to the IRM’s MT date when the IRM is published. |\n   | [td] Subsection date | [td] This is the effective date of the information in the IRM subsection. The subsection date can be:<br>A. The same date as the revision date, or<br>B. The effective date.<br><br>Note:<br><br>When you substantially revise the information in a subsection, change the date. Refer to IRM 1.11.2.5.2.1, Determine the Subsection Date. | [td] (MM-DD-YYYY) - wildcard date format.<br>Specific Date: (01-01-2026)<br>Reminder:<br><br>When a wildcard date format is used, M&P will update the subsection date to the IRM’s effective date when the IRM is published. |\n   | [td] Revision date | [td] This date reflects the MT date. The revision date only appears in PDF versions of the IRM and Document 10988, IRM Index. | [td] - PDF IRM: (MM-DD-YYYY)<br>- IRM Index: MM-YYYY |\n3. Follow these rules when the IRM section is effective on a specific date:\n   \n   A. The IRM effective date must be the same date as, or a later date than, the MT date. To meet the effective date, you must provide M&P with enough time to process the IRM. This is especially critical for IRMs published during filing season, between August through December.\n   B. Do not use wildcard subsection dates. Instead, use the specific date the IRM is to be effective.\n   \n      Note:\n   \n      If a wildcard date is used, M&P will update the subsection date to the IRM’s effective date when the IRM is published.\n4. When adding or revising information that becomes effective on a specified date, insert the date in both the MT effective date element and the affected subsection date(s).\n   \n   Example:\n   \n   M&P publishes an IRM section on December 15, 2025, but the procedures are not effective until January 1, 2026.\n   \n   | [th] Date Type | [th] Date and Format |\n   | [td] MT date | [td] December 15, 2025 |\n   | [td] IRM Effective date | [td] 01-01-2026 |\n   | [td] Subsection dates | [td] 01-01-2026 |\n   | [td] Revision date | [td] - 12-15-2025 in the PDF IRM<br>- 12-2025 in the IRM Index |\n5. For additional information on MT dates, refer to IRM 1.11.2.6.1, Required Elements of the Manual Transmittal."
+          },
+          {
+            "kind": "heading",
+            "text": "1.11.2.5.2.1 (09-13-2023)"
+          },
+          {
+            "kind": "heading",
+            "text": "Determine the Subsection Date"
+          },
+          {
+            "kind": "ordered_list",
+            "text": "1. When you make a substantive change to an IRM section, change the subsection date to the date the change is effective. A change is considered substantive if it involves a procedural or operational matter. Refer to IRM 1.11.2.6.1.6, Effective Date for the definition.\n2. The table below provides the rules for determining the subsection date:\n   \n   | [th] If the subsection | [th] Then the subsection date is the |\n   | [td] Contains substantive changes | [td] IRM effective date. |\n   | [td] Changes are editorial but there are substantive changes in other subsections | [td] Existing subsection date. Do not change the subsection date for these editorial changes since they have no effect on the content itself. |\n   | [td] Changes are editorial and the IRM is being updated only for editorial reasons (there are no substantive changes anywhere else in the IRM section) | [td] Date as instructed in IRM 1.11.2.8.1, Editorial Update Process. |\n   | [td] Incorporates content from an issued IPU with no subsequent substantive changes | [td] IPU issue date. |\n   | [td] Incorporates content from an issued IPU with subsequent substantive changes | [td] IRM effective date. |\n   | [td] Incorporates content from an IGM with no subsequent substantive changes | [td] IGM effective date. |\n   | [td] Incorporates content from an IGM with subsequent substantive changes | [td] IRM effective date. |"
+          }
+        ],
+        "dates": [
+          {
+            "value": "10-Jun-2026",
+            "meaning": "Page Last Reviewed or Updated",
+            "context": "Page Last Reviewed or Updated: 10-Jun-2026"
+          },
+          {
+            "value": "June 09, 2026",
+            "meaning": "Manual Transmittal date",
+            "context": "Manual Transmittal\nJune 09, 2026"
+          },
+          {
+            "value": "06-09-2026",
+            "meaning": "IRM effective date",
+            "context": "Effective Date\n(06-09-2026)\nLucia Lykke\nDirector, Data Products and Insights\nResearch, Applied Analytics and Statistics (RAAS)"
+          },
+          {
+            "value": "06-09-2026",
+            "meaning": "Subsection date",
+            "context": "IRM 1.11.2.5.2 Determine IRM Dates: 1.11.2.5.2 (06-09-2026)"
+          },
+          {
+            "value": "09-13-2023",
+            "meaning": "Subsection date",
+            "context": "IRM 1.11.2.5.2.1 Determine the Subsection Date: 1.11.2.5.2.1 (09-13-2023)"
+          }
+        ]
+      }
+    ],
+    "navigation": [
+      {
+        "text": "1.11.2.5.2 Determine IRM Dates",
+        "url": "https://www.irs.gov/irm/part1/irm_01-011-002#id44",
+        "reached_citation": "1.11.2.3.2",
+        "reached_title": "IRM Catalog Number"
+      },
+      {
+        "text": "1.11.2.5.2.1 Determine the Subsection Date",
+        "url": "https://www.irs.gov/irm/part1/irm_01-011-002#id46",
+        "reached_citation": "1.11.2.3.3",
+        "reached_title": "Identify the IRM Owner"
+      }
+    ],
+    "extent": "Document route selected from observed public part index links. Current fetched public HTML; matched body sections include nested citation descendants in native order without passage truncation. TOC navigation remains separately attributed. Linked destinations and unavailable content remain outside fetched passage extent.",
+    "document_citation": "1.11.2",
+    "source": {
+      "requested_url": "https://www.irs.gov/irm/part1/irm_01-011-002",
+      "url": "https://www.irs.gov/irm/part1/irm_01-011-002",
+      "retrieved_at_utc": "2026-10-26T19:44:39.505503-06:00",
+      "content_type": "text/html; charset=UTF-8",
+      "status_code": 200
+    },
+    "route_source": {
+      "requested_url": "https://www.irs.gov/irm/part1",
+      "url": "https://www.irs.gov/irm/part1",
+      "retrieved_at_utc": "2026-10-26T19:44:37.682027-06:00",
+      "content_type": "text/html; charset=UTF-8",
+      "status_code": 200
+    },
+    "document_route": {
+      "text": "1.11.2 Internal Revenue Manual (IRM) Process",
+      "url": "https://www.irs.gov/irm/part1/irm_01-011-002",
+      "reached_citation": "1.11.2",
+      "reached_title": "Internal Revenue Manual (IRM) Process"
+    },
+    "selection_note": "Complete matched passage includes nested descendant body blocks and all returned date metadata; broader document notices remain in original structured result"
+  },
+  "catalog": {
+    "query": "Form 1040 2024",
+    "tax_year": 2024,
+    "catalog": "both",
+    "catalog_failures": {},
+    "notices": [
+      "Years reflect annual catalog Revision Date labels; tax-year applicability and document-body identity remain unverified.",
+      "current: 4 observed rows have month-dated or unqualified revision labels; tax-year applicability remains unverified. Requested annual-year matching excludes those rows.",
+      "Year matching covers observed annual revision labels only; empty matches do not establish unavailable products."
+    ],
+    "extent": "Observed catalog pages only; source summaries and Next links retain pagination extent. Document bodies/PDF covers, linked instruction/correction bodies, and exhaustive correction coverage remain unverified.",
+    "pages": [
+      {
+        "source": {
+          "requested_url": "https://www.irs.gov/forms-instructions-and-publications?find=Form+1040+2024",
+          "url": "https://www.irs.gov/forms-instructions-and-publications?find=Form+1040+2024",
+          "retrieved_at_utc": "2026-10-26T19:44:44.162901-06:00",
+          "content_type": "text/html; charset=UTF-8",
+          "status_code": 200
+        },
+        "catalog": "current",
+        "rows_observed": 4,
+        "source_extent": "Showing 1 - 4 of 4",
+        "catalog_structure_recognized": true,
+        "next": null
+      },
+      {
+        "source": {
+          "requested_url": "https://www.irs.gov/prior-year-forms-and-instructions?find=Form+1040+2024&date=2024",
+          "url": "https://www.irs.gov/prior-year-forms-and-instructions?find=Form+1040+2024&date=2024",
+          "retrieved_at_utc": "2026-10-26T19:44:44.317587-06:00",
+          "content_type": "text/html; charset=UTF-8",
+          "status_code": 200
+        },
+        "catalog": "prior",
+        "rows_observed": 25,
+        "source_extent": "Showing 1 - 25 of 70",
+        "catalog_structure_recognized": true,
+        "next": {
+          "url": "https://www.irs.gov/prior-year-forms-and-instructions?find=Form+1040+2024&date=2024&page=1",
+          "source_url": "https://www.irs.gov/prior-year-forms-and-instructions?find=Form%201040%202024&date=2024&page=1",
+          "catalog": "prior",
+          "query": "Form 1040 2024",
+          "tax_year": 2024
+        }
+      }
+    ],
+    "selected_exact_product_rows": [
+      {
+        "product": "Form 1040",
+        "title": "U.S. Individual Income Tax Return",
+        "year": "2024",
+        "url": "https://www.irs.gov/pub/irs-prior/f1040--2024.pdf",
+        "catalog": "prior",
+        "catalog_url": "https://www.irs.gov/prior-year-forms-and-instructions?find=Form+1040+2024&date=2024",
+        "dates": [
+          {
+            "value": "2024",
+            "meaning": "Revision Date",
+            "context": "prior catalog row: Form 1040"
+          }
+        ],
+        "related_links": [],
+        "identity_basis": "Catalog product number, title, revision label, and document link; document body unverified.",
+        "catalog_fields": {
+          "Product Number": "Form 1040",
+          "Title": "U.S. Individual Income Tax Return",
+          "Revision Date": "2024"
+        }
+      }
+    ],
+    "selection_note": "One exact Form1040/2024 row selected from25returned matches; both page clocks, coverage, notices, and Next route retained; other product rows remain in original result"
+  },
+  "document_receipt": {
+    "native_resource_uri": "https://www.irs.gov/pub/irs-prior/f1040--2024.pdf",
+    "native_resource_mime_type": "application/pdf",
+    "native_encoded_characters": 217716,
+    "decoded_byte_count": 163287,
+    "decoded_prefix": "%PDF-1.7",
+    "returned_acquisition_metadata": {
+      "source": {
+        "requested_url": "https://www.irs.gov/pub/irs-prior/f1040--2024.pdf",
+        "url": "https://www.irs.gov/pub/irs-prior/f1040--2024.pdf",
+        "retrieved_at_utc": "2026-10-26T19:44:48.481605-06:00",
+        "content_type": "application/pdf",
+        "status_code": 200
+      },
+      "byte_count": 163287
+    },
+    "observed_inspection_scope": "Native embedded binary receipt, decoding, header, size, source binding, and hash only; no page rendering/text extraction/content-year inspection",
+    "provider_payload_capture": "Not enabled by existing maintained helper; native receipt and answer use observed separately",
+    "this_followthrough_representation": "Text-only acquisition/receipt summary; embedded binary, PDF pages, and extracted PDF text are not included"
+  },
+  "selection_limits": [
+    "Complete supplied matched IRM passage, nested body blocks, navigation, date fields, route, source metadata, and extent retained",
+    "Catalog retains selected exact Form 1040/2024 row, both observed pages, notices, failures, and extent; other product rows remain outside supplied selection",
+    "Document representation retains acquisition/receipt text only, without embedded binary, extracted PDF pages, or provider payload capture",
+    "Actual task also supplied historical generated answer as interpretation to reconsider; portable source carrier excludes that generated answer and local filesystem locators",
+    "Portable case supports expected-source and actual-answer review; it does not reproduce complete native execution context"
+  ]
+}

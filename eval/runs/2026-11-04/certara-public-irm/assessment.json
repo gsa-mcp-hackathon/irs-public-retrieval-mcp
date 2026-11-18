@@ -1,0 +1,293 @@
+{
+  "summary": "Useful seven-case rule coverage and input-local Form1040 qualification coexist with directly evidenced navigation, omitted-condition, quotation, and exact-form gaps",
+  "method": "Existing primary-source assessment of supplied public IRS result and final answer; no historical expected answers or prior assessments supplied to evaluated model",
+  "disposition": "Useful partial coverage with source-fidelity and condition gaps; no quality acceptance or controlled-improvement claim",
+  "source": {
+    "artifact": "../actual-mcp-irm/source-result.json",
+    "public_url": "https://www.irs.gov/irm/part1/irm_01-011-002",
+    "retrieved_at_utc": "2026-11-05T00:22:18.575187+00:00",
+    "extent_pointer": "/extent"
+  },
+  "assessed_output": {
+    "answer": "answer.txt",
+    "request": "request.json",
+    "run": "run.json"
+  },
+  "findings": [
+    {
+      "id": "navigation_attribution",
+      "answer_lines": [
+        42,
+        43,
+        45,
+        77
+      ],
+      "source_pointers": [
+        "/navigation/0",
+        "/navigation/1",
+        "/notices/7",
+        "/notices/8",
+        "/passages/0/blocks/3",
+        "/passages/0/blocks/5"
+      ],
+      "supported": "Table preserves navigation labels, URLs, reached citations, and reached titles",
+      "gap": "Following prose invents parent/descendant relationships to higher-level catalog entries instead of preserving mismatched TOC labels versus reached bodies",
+      "correction": "Retain exact TOC label-to-target mappings as navigation mismatches; matched body is parent1.11.2.5.2 with nested descendant1.11.2.5.2.1"
+    },
+    {
+      "id": "filing_season_requirement",
+      "answer_lines": [
+        6,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "source_pointers": [
+        "/passages/0/blocks/2/text"
+      ],
+      "source_wording": "A filing season IRM requires a specific effective date.",
+      "gap": "Answer discusses processing time and chosen specific-date conditions but omits mandatory filing-season specific-effective-date requirement"
+    },
+    {
+      "id": "substantive_change_definition",
+      "answer_lines": [
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "source_pointers": [
+        "/passages/0/blocks/5/text"
+      ],
+      "source_wording": "A change is considered substantive if it involves a procedural or operational matter.",
+      "gap": "Decision-table cases are present, while supplied substantive-change definition is absent"
+    },
+    {
+      "id": "exact_native_date_values",
+      "answer_lines": [
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "source_pointers": [
+        "/passages/0/dates/0/value",
+        "/passages/0/dates/1/value",
+        "/passages/0/dates/2/value",
+        "/passages/0/dates/3/value",
+        "/passages/0/dates/4/value"
+      ],
+      "supported": "Calendar values and distinct date meanings remain recognizable",
+      "gap": "All five claimed exact spellings substitute U+2011 hyphens or U+202F spaces for source ASCII characters",
+      "comparisons": [
+        {
+          "source_pointer": "/passages/0/dates/0/value",
+          "answer_line": 55,
+          "source_value": "10-Jun-2026",
+          "answer_value": "10‑Jun‑2026",
+          "exact_equal": false,
+          "source_codepoints": [
+            "U+0031",
+            "U+0030",
+            "U+002D",
+            "U+004A",
+            "U+0075",
+            "U+006E",
+            "U+002D",
+            "U+0032",
+            "U+0030",
+            "U+0032",
+            "U+0036"
+          ],
+          "answer_codepoints": [
+            "U+0031",
+            "U+0030",
+            "U+2011",
+            "U+004A",
+            "U+0075",
+            "U+006E",
+            "U+2011",
+            "U+0032",
+            "U+0030",
+            "U+0032",
+            "U+0036"
+          ]
+        },
+        {
+          "source_pointer": "/passages/0/dates/1/value",
+          "answer_line": 56,
+          "source_value": "June 09, 2026",
+          "answer_value": "June 09, 2026",
+          "exact_equal": false,
+          "source_codepoints": [
+            "U+004A",
+            "U+0075",
+            "U+006E",
+            "U+0065",
+            "U+0020",
+            "U+0030",
+            "U+0039",
+            "U+002C",
+            "U+0020",
+            "U+0032",
+            "U+0030",
+            "U+0032",
+            "U+0036"
+          ],
+          "answer_codepoints": [
+            "U+004A",
+            "U+0075",
+            "U+006E",
+            "U+0065",
+            "U+202F",
+            "U+0030",
+            "U+0039",
+            "U+002C",
+            "U+202F",
+            "U+0032",
+            "U+0030",
+            "U+0032",
+            "U+0036"
+          ]
+        },
+        {
+          "source_pointer": "/passages/0/dates/2/value",
+          "answer_line": 57,
+          "source_value": "06-09-2026",
+          "answer_value": "06‑09‑2026",
+          "exact_equal": false,
+          "source_codepoints": [
+            "U+0030",
+            "U+0036",
+            "U+002D",
+            "U+0030",
+            "U+0039",
+            "U+002D",
+            "U+0032",
+            "U+0030",
+            "U+0032",
+            "U+0036"
+          ],
+          "answer_codepoints": [
+            "U+0030",
+            "U+0036",
+            "U+2011",
+            "U+0030",
+            "U+0039",
+            "U+2011",
+            "U+0032",
+            "U+0030",
+            "U+0032",
+            "U+0036"
+          ]
+        },
+        {
+          "source_pointer": "/passages/0/dates/3/value",
+          "answer_line": 58,
+          "source_value": "06-09-2026",
+          "answer_value": "06‑09‑2026",
+          "exact_equal": false,
+          "source_codepoints": [
+            "U+0030",
+            "U+0036",
+            "U+002D",
+            "U+0030",
+            "U+0039",
+            "U+002D",
+            "U+0032",
+            "U+0030",
+            "U+0032",
+            "U+0036"
+          ],
+          "answer_codepoints": [
+            "U+0030",
+            "U+0036",
+            "U+2011",
+            "U+0030",
+            "U+0039",
+            "U+2011",
+            "U+0032",
+            "U+0030",
+            "U+0032",
+            "U+0036"
+          ]
+        },
+        {
+          "source_pointer": "/passages/0/dates/4/value",
+          "answer_line": 59,
+          "source_value": "09-13-2023",
+          "answer_value": "09‑13‑2023",
+          "exact_equal": false,
+          "source_codepoints": [
+            "U+0030",
+            "U+0039",
+            "U+002D",
+            "U+0031",
+            "U+0033",
+            "U+002D",
+            "U+0032",
+            "U+0030",
+            "U+0032",
+            "U+0033"
+          ],
+          "answer_codepoints": [
+            "U+0030",
+            "U+0039",
+            "U+2011",
+            "U+0031",
+            "U+0033",
+            "U+2011",
+            "U+0032",
+            "U+0030",
+            "U+0032",
+            "U+0033"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quotation_fidelity",
+      "answer_lines": [
+        6,
+        7,
+        8
+      ],
+      "source_pointers": [
+        "/passages/0/blocks/2/text"
+      ],
+      "gap": "Paraphrased definitions appear within quotation marks; quoted wording is not source-exact",
+      "qualification": "Definitions broadly preserve meaning; quote attribution and exact wording remain separate from semantic similarity"
+    }
+  ],
+  "supported_coverage": [
+    "Seven descendant decision-table cases preserve source conditions and results",
+    "Effective dates retain same-or-later-than MT condition",
+    "Specific-date IRMs retain affected-subsection wildcard prohibition and date insertion",
+    "Section and subsection wildcard replacements retain distinct target dates",
+    "Revision dates remain illustrative examples rather than claimed observed PDF/IRM Index fields",
+    "Form1040/2024 catalog/acquisition/inspection evidence remains explicitly unavailable within supplied input; no wider absence claim"
+  ],
+  "question_wording": {
+    "wording": "every returned parent/descendant navigation relationship",
+    "hypothesis": "Question wording may prime hierarchical reading; it also permits selecting parent/descendant relationships among further returned forms",
+    "evidence_boundary": "Wording supplies no independent evidence for actual edge types. Matched body nesting and TOC-label/target mismatches retain separate source support",
+    "causal_contribution": "Unmeasured; hypothesis accompanies independently evidenced output defects",
+    "future_use": "Further questions can request source-supported navigation relationships while leaving types open; original question and answer remain retained"
+  },
+  "exactness_scope": "Serializer newline/BOM variations do not change decoded JSON values. Evaluated exact-date claim concerns changed U+2011/U+202F characters inside answer values explicitly labelled exact; recognizable calendar meaning and literal fidelity retain separate findings",
+  "scope_limits": [
+    "Only supplied already-retrieved official public IRS response and original composite question informed this model request",
+    "No native Codex context, model tool access, new IRS acquisition, linked-destination bodies, or fresh Form1040 artifacts supplied",
+    "One changed client/route/context observation supports no controlled improvement over November 3, autonomous tool-use result, or aggregate accuracy",
+    "Original internal-code review retains independent state; public-only observation establishes no completion of that review"
+  ],
+  "open_relationships": "Further source-supported use, questions, contexts, repeats, controlled comparisons, and later effects remain open"
+}

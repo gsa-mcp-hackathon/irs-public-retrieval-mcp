@@ -1,0 +1,17 @@
+{
+  "format": "upstream-source-reference/v1",
+  "upstream_repository": "https://github.com/GSA-TTS/mcp-hackathon-template",
+  "upstream_revision": "2e6161b59e4c80cbfccbfaa04ed62126dcf6d334",
+  "retained_archive": {
+    "repository": "esp-ai-evidence",
+    "commit": "9b0a318b6f53c04ea72e8d57ffa582c7213653f5",
+    "path": "github/captures/2026-10-22/gsa-fastmcp-starter/outside-official-archive.response.zip"
+  },
+  "materialized_at_utc": "2026-10-22T18:26:49.374745+00:00",
+  "upstream_regular_files": 64,
+  "upstream_bytes": 550397,
+  "authored_additions": [
+    "UPSTREAM-SOURCE.json"
+  ],
+  "source_role": "Exact upstream starter members; local source reference remains separately authored."
+}

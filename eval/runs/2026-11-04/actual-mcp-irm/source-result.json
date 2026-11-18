@@ -1,0 +1,117 @@
+{
+  "requested_citation": "1.11.2.5.2",
+  "match_disposition": "matched",
+  "passages": [
+    {
+      "citation": "1.11.2.5.2",
+      "title": "Determine IRM Dates",
+      "url": "https://www.irs.gov/irm/part1/irm_01-011-002#id77",
+      "blocks": [
+        {
+          "kind": "heading",
+          "text": "1.11.2.5.2 (06-09-2026)",
+          "links": []
+        },
+        {
+          "kind": "heading",
+          "text": "Determine IRM Dates",
+          "links": []
+        },
+        {
+          "kind": "ordered_list",
+          "text": "1. The IRM process requires authors to specify various IRM dates when publishing procedural changes in each revision. The types of IRM dates include:\n   \n   - Manual Transmittal (MT) date\n   - IRM effective date\n   - Subsection date\n   - Revision date\n2. The table below defines each type of IRM date and the proper date format:\n   \n   | [th] IRM Date Type | [th] Definition | [th] Date |\n   | [td] MT date | [td] This is the date M&P publishes the IRM section and posts in the Core Repository of Published Products (housed on the Electronic Publishing website). Refer to IRM 1.11.2.6.1.1, Manual Transmittal (MT) Date. | [td] Month DD, YYYY<br>Note:<br><br>M&P inserts the MT date in the IRM XML file. |\n   | [td] Effective date | [td] This is the date the new or revised IRM section is effective. The IRM effective date can be:<br>A. The same date as the MT date, or<br>B. A specific future date.<br><br><br>Refer to IRM 1.11.2.6.1.6, Effective Date. | [td] - (MM-DD-YYYY) - wildcard date format. The wildcard date reflects the MT date.<br>- (01-01-2026) - a specific date.<br><br>Reminder:<br><br>A filing season IRM requires a specific effective date. If a wildcard date format is used, M&P will update the effective date to the IRM’s MT date when the IRM is published. |\n   | [td] Subsection date | [td] This is the effective date of the information in the IRM subsection. The subsection date can be:<br>A. The same date as the revision date, or<br>B. The effective date.<br><br>Note:<br><br>When you substantially revise the information in a subsection, change the date. Refer to IRM 1.11.2.5.2.1, Determine the Subsection Date. | [td] (MM-DD-YYYY) - wildcard date format.<br>Specific Date: (01-01-2026)<br>Reminder:<br><br>When a wildcard date format is used, M&P will update the subsection date to the IRM’s effective date when the IRM is published. |\n   | [td] Revision date | [td] This date reflects the MT date. The revision date only appears in PDF versions of the IRM and Document 10988, IRM Index. | [td] - PDF IRM: (MM-DD-YYYY)<br>- IRM Index: MM-YYYY |\n3. Follow these rules when the IRM section is effective on a specific date:\n   \n   A. The IRM effective date must be the same date as, or a later date than, the MT date. To meet the effective date, you must provide M&P with enough time to process the IRM. This is especially critical for IRMs published during filing season, between August through December.\n   B. Do not use wildcard subsection dates. Instead, use the specific date the IRM is to be effective.\n   \n      Note:\n   \n      If a wildcard date is used, M&P will update the subsection date to the IRM’s effective date when the IRM is published.\n4. When adding or revising information that becomes effective on a specified date, insert the date in both the MT effective date element and the affected subsection date(s).\n   \n   Example:\n   \n   M&P publishes an IRM section on December 15, 2025, but the procedures are not effective until January 1, 2026.\n   \n   | [th] Date Type | [th] Date and Format |\n   | [td] MT date | [td] December 15, 2025 |\n   | [td] IRM Effective date | [td] 01-01-2026 |\n   | [td] Subsection dates | [td] 01-01-2026 |\n   | [td] Revision date | [td] - 12-15-2025 in the PDF IRM<br>- 12-2025 in the IRM Index |\n5. For additional information on MT dates, refer to IRM 1.11.2.6.1, Required Elements of the Manual Transmittal.",
+          "links": []
+        },
+        {
+          "kind": "heading",
+          "text": "1.11.2.5.2.1 (09-13-2023)",
+          "links": []
+        },
+        {
+          "kind": "heading",
+          "text": "Determine the Subsection Date",
+          "links": []
+        },
+        {
+          "kind": "ordered_list",
+          "text": "1. When you make a substantive change to an IRM section, change the subsection date to the date the change is effective. A change is considered substantive if it involves a procedural or operational matter. Refer to IRM 1.11.2.6.1.6, Effective Date for the definition.\n2. The table below provides the rules for determining the subsection date:\n   \n   | [th] If the subsection | [th] Then the subsection date is the |\n   | [td] Contains substantive changes | [td] IRM effective date. |\n   | [td] Changes are editorial but there are substantive changes in other subsections | [td] Existing subsection date. Do not change the subsection date for these editorial changes since they have no effect on the content itself. |\n   | [td] Changes are editorial and the IRM is being updated only for editorial reasons (there are no substantive changes anywhere else in the IRM section) | [td] Date as instructed in IRM 1.11.2.8.1, Editorial Update Process. |\n   | [td] Incorporates content from an issued IPU with no subsequent substantive changes | [td] IPU issue date. |\n   | [td] Incorporates content from an issued IPU with subsequent substantive changes | [td] IRM effective date. |\n   | [td] Incorporates content from an IGM with no subsequent substantive changes | [td] IGM effective date. |\n   | [td] Incorporates content from an IGM with subsequent substantive changes | [td] IRM effective date. |",
+          "links": []
+        }
+      ],
+      "dates": [
+        {
+          "value": "10-Jun-2026",
+          "meaning": "Page Last Reviewed or Updated",
+          "context": "Page Last Reviewed or Updated: 10-Jun-2026"
+        },
+        {
+          "value": "June 09, 2026",
+          "meaning": "Manual Transmittal date",
+          "context": "Manual Transmittal\nJune 09, 2026"
+        },
+        {
+          "value": "06-09-2026",
+          "meaning": "IRM effective date",
+          "context": "Effective Date\n(06-09-2026)\nLucia Lykke\nDirector, Data Products and Insights\nResearch, Applied Analytics and Statistics (RAAS)"
+        },
+        {
+          "value": "06-09-2026",
+          "meaning": "Subsection date",
+          "context": "IRM 1.11.2.5.2 Determine IRM Dates: 1.11.2.5.2 (06-09-2026)"
+        },
+        {
+          "value": "09-13-2023",
+          "meaning": "Subsection date",
+          "context": "IRM 1.11.2.5.2.1 Determine the Subsection Date: 1.11.2.5.2.1 (09-13-2023)"
+        }
+      ]
+    }
+  ],
+  "navigation": [
+    {
+      "text": "1.11.2.5.2 Determine IRM Dates",
+      "url": "https://www.irs.gov/irm/part1/irm_01-011-002#id44",
+      "reached_citation": "1.11.2.3.2",
+      "reached_title": "IRM Catalog Number"
+    },
+    {
+      "text": "1.11.2.5.2.1 Determine the Subsection Date",
+      "url": "https://www.irs.gov/irm/part1/irm_01-011-002#id46",
+      "reached_citation": "1.11.2.3.3",
+      "reached_title": "Identify the IRM Owner"
+    }
+  ],
+  "notices": [
+    "Manual Transmittal\nJune 09, 2026",
+    "Purpose\n(1) This transmits revised IRM 1.11.2, Internal Management Documents System, Internal Revenue Manual (IRM) Process.",
+    "Material Changes\n(1) IRM 1.11.2.1.4, Program Management and Review\n- Paragraph (1) - Updated the table to include accurate reports and data that reflect how the SPDER monitors the IMD program.\n(2) IRM 1.11.2.1.6, Terms and Acronyms\n- Paragraph (1) - Added Employee Relations (ER) to table and removed Labor/Employee Relations & Negotiations (LERN) to reflect their reorganization.\n(3) IRM 1.11.2.2.4, Address Management and Internal Controls\n- Paragraph (1) - Clarified the purpose of IRM internal controls to align with IRM 1.4.2, Monitoring and Improving Internal Control. Provided a reference to IRM 1.11.2.2.4.1, Required Internal Control Components, to inform authors of the required internal control elements that must be addressed in IRM sections.\n- Paragraph (2) - Reinforced IRM internal controls must comply with federal standards.\n- Paragraph (5) - Moved prior IRM Internal Control Components and Descriptions table to subsequent subsection.\n(4) IRM 1.11.2.2.4.1, Required Internal Control Components\n- Added a new subsection outlining the required IRM internal control components, their descriptions, and the required order.\n(5) IRM 1.11.2.4.1.1, Receive a Catalog Number, Incorporated procedures for reinstating obsoleted IRMs from IGM RAAS-01-0725-0002, Updates to IRM 1.11.2, Internal Revenue Manual (IRM) Process, dated 07-22-2025:\n- Paragraph (2) - Added requirements for program director approval.\n- Paragraph (3) - Added instructions to request IRM reinstatement from SPDER.\n- Paragraph (4) (not from IGM RAAS-01-0725-0002) - Provided contact to request obsolete IRM files.\n- Paragraph (5) - Provided a reference for offices to review before reinstating an IRM section owned by another office.\n(6) IRM 1.11.2.5.1, Authoring Process - First Steps and Training, Incorporated training information from IGM RAAS-01-0725-0002, Updates to IRM 1.11.2, Internal Revenue Manual (IRM) Process, dated 07-22-2025:\n- Paragraph (2) Table - Added ITM 75053 (Virtual), IRM Authoring Tool Training (Arbortext Editor) and ITM 85248, Overview of the IRM Process as SPDER course offerings.\n- Paragraph (3) - Clarified IRM Authoring Tool Training is offered in-person and virtually.\n- Paragraph (3) (not from IGM RAAS-01-0725-0002) - Added ITM 85248 as a third prerequisite for IRM Authoring Tool Training.\n- Removed from subsection references to ITM 15770, (Classroom), IRM Authoring Tool Training (Arbortext Editor), because training is now delivered virtually.\n(7) IRM 1.11.2.5.1.2, Writing Rules\n- Paragraph (1)(b) - Updated reference to IRM 1.11.2.2.4.1, Required Internal Control Components.\n- Paragraph (1)(g) - Updated reference to IRM 1.11.2.5.8.1, Citation Requirements.\n(8) IRM 1.11.2.5.1.4, IRM Changes Affecting Conditions of Employment\n- Revised subsection title and all procedures to align with changes and policies impacted by Executive Order 14251, Exclusions from Federal Labor-Management Relations Programs, issued in March 2025.\n- Updated the program office title throughout from Labor/Employee Relations & Negotiations (LERN) to Employee Relations (ER) to reflect their reorganization.\n- Replaced obsolete Form 14036, Notice to National NTEU with Form 15730, Change in Working Condition Consult Request.\n(9) IRM 1.11.2.5.2, Determine IRM Dates\n- Paragraph (2) Table - Added IRM references for the manual transmittal and effective dates. Clarified which date M&P will use for publishing when the effective date or subsection dates are wildcards.\n- Paragraph (3)(b) - Prohibited the use of wildcard dates when an IRM section has a specific effective date.\n(10)  IRM 1.11.2.5.6.1, Personally Identifiable Information (PII) or Federal Tax Information (FTI) Breach Actions\n- Paragraph (2)(b) - Added the PII mailbox for applicable breach inquiries.\n(11) IRM 1.11.2.5.8, Standard Citation Rules\n- Updated entire subsection to clarify and standardize citation guidance.\n(12) IRM 1.11.2.5.8.1, Citation Requirements\n- Changed title from “Cite the IRM” to “Citation Requirements”.\n- Consolidated and added content to streamline citation guidance and improve usability from prior subsections:\n  - IRM 1.11.2.5.8.1, Cite the IRM\n  - IRM 1.11.2.5.8.2, Cite Legal Sources\n  - IRM 1.11.2.5.8.3, Cite Other IRS Published Products\n(13) IRM 1.11.2.5.8.3, Create Hyperlinks\n- Paragraph (2) Table - Removed reference to <c> tag.\n- Paragraph (5) - Incorporated procedures identifying and correcting broken hyperlinks from IGM RAAS-01-0725-0002, Updates to IRM 1.11.2, Internal Revenue Manual (IRM) Process, dated 07-22-2025.\n- Paragraph (7) - Added a note explaining how to update broken links for SERP IRMs.\n(14) IRM 1.11.2.6.1, Required Elements of the Manual Transmittal\n- Paragraph (2) Table - Updated purpose terminology from “reissued” to “reinstated” to accurately describe IRM sections restored from obsolete status.\n(15) IRM 1.11.2.6.1.2, Manual Transmittal Purpose\n- Paragraphs (1) and (2) - Updated purpose terminology from “reissued” to “reinstated” to accurately describe IRM sections restored from obsolete status.\n(16) IRM 1.11.2.6.1.3, Manual Transmittal Material Changes\n- Paragraph (2) List Item 2 - Added guidance and note requiring authors to review updated IRM content, IGMs, and IPUs issued since the last publication and to draft a material change for each identified substantive revision.\n- Paragraph (2) List Item 8 - Added guidance requiring a disclosure statement in the material changes section when artificial intelligence (AI) tools assist with IRM drafting and revisions. Clarified that authors must review and verify all AI-assisted content.\n(17) IRM 1.11.2.6.1.5, Audience\n- Paragraph (1) - Incorporated procedures for audience and user tag information requirements in IRM XML files from IGM RAAS-01-0725-0002, Updates to IRM 1.11.2, Internal Revenue Manual (IRM) Process, dated 07-22-2025.\n- Paragraph (1) Table - Added new example language for a job category or group.\n(18) IRM 1.11.2.6.1.7, Signature of Approving Official\n- Paragraph (1) - Defined who may serve as the approving official, including their general occupational series. Clarified that IRM documents must be updated when the approving official changes after clearance but before publication. Added a reminder the approving official’s name must appear in the signature block in the manual transmittal.\n(19) IRM 1.11.2.7, Conduct an Informal Review\n- Paragraph (3) - Removed “requiring negotiations between LERN and the union” to align with policies impacted by Executive Order 14251, Exclusions from Federal Labor-Management Relations Programs, issued in March 2025.\n(20) IRM 1.11.2.7.2, Initiate an Informal Review\n- Paragraph (1) - Removed Note to Reviewer as an option for informal review because email is sufficient. Added IMD Electronic Clearance is not to be used.\n(21) IRM 1.11.2.8, Editorial Updates\n- Paragraph (1) - Added a requirement to include the business unit IMD/IRM coordinator on emails to *SPDER when requesting minor IRM editorial updates.\n(22) IRM 1.11.2.9, Rules to Obsolete an IRM Section, Incorporated procedures for obsoleting IRMs from IGM RAAS-01-0725-0002, Updates to IRM 1.11.2, Internal Revenue Manual (IRM) Process, dated 07-22-2025:\n- Paragraph (1) - Added a reminder that business units must include employee and managerial instructions in the IRM and not solely in an internal source.\n- Paragraph (2) - Provided step-by-step instruction for reviewing the impact of obsoleting an IRM section.\n- Paragraph (3) - Added a requirement for SPDER review before obsoleting an IRM section.\n- Paragraph (3) (not from IGM RAAS-01-0725-0002) - Added “Obsolete Existing IRM” application instructions.\n- Paragraph (4) - Specified the time frame SPDER will respond to requests to obsolete an IRM section.\n- Paragraph (5) - Reinforced obsoleting an IRM requires review by impacted offices and specialized reviewers.\n- Paragraph (6) - Added IRM content can be fully relocated, partially relocated, or fully obsoleted. Moved applicable information to subsequent subsections.\n- Paragraph (7) Table - Updated to clarify IMD/IRM coordinator’s role for obsoleting IRMs.\n(23) IRM 1.11.2.9.1, Obsoleting an IRM - Full Relocation of Content\n- Added new subsection providing instructions for obsoleting an IRM section when all content is incorporated into other IRM section(s).\n(24) IRM 1.11.2.9.2, Obsoleting an IRM - Partial Relocation of Content\n- Added new subsection providing instructions for obsoleting an IRM section when only part of the content is incorporated into other IRM section(s).\n(25) IRM 1.11.2.9.3, Obsoleting an IRM - Full Obsolescence\n- Added new subsection providing instructions for obsoleting an IRM section when none of the content is incorporated into another IRM section.\n(26) IRM 1.11.2.10, Use of Artificial Intelligence (AI) for IRM Authoring\n- Added new subsection to provide guidance and requirements for the appropriate use of IRS authorized AI tools in drafting and revising IRM content.\n(27) IRM 1.11.2.11.1, SPDER Communications\n- Paragraph (3) - Added SPDER’s Microsoft Team’s Channel as a communication method.\n(28) Exhibit 1.11.2-2, Most Common Reasons to Review the IRM\n- Updated entire table to clarify IRM review explanations, identify what to review, and explain how to update the IRM.\n(29) Exhibit 1.11.2-3, IRM Web Resources\n- Removed “Other IMD Sites” from the table because it is no longer a reference. Added the IRM Author Curriculum and new options available in the IRM Requests and Author Changes Form.\n(30) Exhibit 1.11.2-4, Required Citation and Reference Formats\n- Added new exhibit of required standard citation and reference formats for legal citations and other IRS reference types used in IRM sections.\n(31) Used assisted AI to make editorial changes throughout including:\n- Updating titles and organization names.\n- Incorporating plain writing techniques including active voice and present tense.\n- Updating web addresses and references.\n- Correcting capitalization, typos, grammar, etc.",
+    "Effect on Other Documents\nIRM 1.11.2, dated July 31, 2025, is superseded. This IRM incorporates interim guidance memorandum (IGM) RAAS-01-0725-0002, Updates to IRM 1.11.2, Internal Revenue Manual (IRM) Process, dated July 22, 2025.",
+    "Audience\nAll business unit program directors, IMD/IRM coordinators, authors, managers, and reviewers who develop, review or approve IRM procedural content.",
+    "Effective Date\n(06-09-2026)\nLucia Lykke\nDirector, Data Products and Insights\nResearch, Applied Analytics and Statistics (RAAS)",
+    "Page Last Reviewed or Updated: 10-Jun-2026",
+    "TOC label '1.11.2.5.2 Determine IRM Dates' links to body IRM 1.11.2.3.2 (IRM Catalog Number) at https://www.irs.gov/irm/part1/irm_01-011-002#id44. Body citations govern matching.",
+    "TOC label '1.11.2.5.2.1 Determine the Subsection Date' links to body IRM 1.11.2.3.3 (Identify the IRM Owner) at https://www.irs.gov/irm/part1/irm_01-011-002#id46. Body citations govern matching."
+  ],
+  "extent": "Document route selected from observed public part index links. Current fetched public HTML; matched body sections include nested citation descendants in native order without passage truncation. TOC navigation remains separately attributed. Linked destinations and unavailable content remain outside fetched passage extent.",
+  "document_citation": "1.11.2",
+  "source": {
+    "requested_url": "https://www.irs.gov/irm/part1/irm_01-011-002",
+    "url": "https://www.irs.gov/irm/part1/irm_01-011-002",
+    "retrieved_at_utc": "2026-11-05T00:22:18.575187+00:00",
+    "content_type": "text/html; charset=UTF-8",
+    "status_code": 200
+  },
+  "route_source": {
+    "requested_url": "https://www.irs.gov/irm/part1",
+    "url": "https://www.irs.gov/irm/part1",
+    "retrieved_at_utc": "2026-11-05T00:22:17.499761+00:00",
+    "content_type": "text/html; charset=UTF-8",
+    "status_code": 200
+  },
+  "document_route": {
+    "text": "1.11.2 Internal Revenue Manual (IRM) Process",
+    "url": "https://www.irs.gov/irm/part1/irm_01-011-002",
+    "reached_citation": "1.11.2",
+    "reached_title": "Internal Revenue Manual (IRM) Process"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "observation_id": "certara-public-irm-2026-11-04",
+  "summary": "Public-source answer preserves useful seven-case coverage and supplied-input Form1040 qualification, alongside navigation misattribution, omitted conditions, and literal-fidelity gaps",
+  "question": "Explain retained IRM 1.11.2.5.2 date rules, every returned parent/descendant navigation relationship, and exact native date fields; retain official Form 1040/2024 catalog and acquisition findings with their inspection limits.",
+  "source_proposal": "/proposed_next_cases/0",
+  "source_observation": "actual-mcp-irm-2026-11-04",
+  "comparison_observation": "source-cued-irm-answer-2026-11-03",
+  "method": "One generic direct Chat Completions request using explicit public-only question/source context, followed by primary-source comparison of final answer",
+  "case_scope": "Additional source-cued answer evidence for existing IRM case; original composite question retained while client, instructions, supplied context, and route differ",
+  "execution_date_local": "2026-11-04",
+  "execution_timezone": "America/Denver",
+  "date_scope": "Directory and observation ID retain local task date; client/request interval falls on November 5 UTC",
+  "started_at_utc": "2026-11-05T00:40:07.5103196Z",
+  "completed_at_utc": "2026-11-05T00:40:29.4082600Z",
+  "elapsed_seconds": 21.8979404,
+  "timing_scope": "Observed generic-client/request interval, including client work; no isolated model-compute latency claim",
+  "model_selection": {
+    "requested_alias": "gpt-oss-120b-codex",
+    "configured_upstream_model": "openai/gpt-oss-120b",
+    "completion_reported_model": "gpt-oss-120b-codex",
+    "reported_identity_scope": "Returned model field supplies no independent provider/model identity attestation"
+  },
+  "context": {
+    "supplied": [
+      "Generic authored system instructions",
+      "Original composite public IRM question",
+      "Complete already-retrieved official public IRS response"
+    ],
+    "historical_expected_answers_and_assessments_supplied": false,
+    "native_codex_context": "Not invoked; generic client sends explicit serialized request only",
+    "automatic_repository_context": "Absent from actual client request",
+    "model_tool_access": false,
+    "provider_default_context": "Unobserved",
+    "source_fields_and_original_question_preserved": true
+  },
+  "model_requests": 1,
+  "mcp_calls_during_model_run": 0,
+  "client_exit_code": 0,
+  "finish_reason": "stop",
+  "reported_usage": {
+    "completion_tokens": 2619,
+    "prompt_tokens": 5687,
+    "total_tokens": 8306
+  },
+  "source": {
+    "requested_url": "https://www.irs.gov/irm/part1/irm_01-011-002",
+    "url": "https://www.irs.gov/irm/part1/irm_01-011-002",
+    "retrieved_at_utc": "2026-11-05T00:22:18.575187+00:00",
+    "content_type": "text/html; charset=UTF-8",
+    "status_code": 200
+  },
+  "artifacts": {
+    "request": "request.json",
+    "answer": "answer.txt",
+    "assessment": "assessment.json",
+    "assessment_notes": "assessment.md",
+    "source": "../actual-mcp-irm/source-result.json",
+    "source_run": "../actual-mcp-irm/run.json",
+    "comparison_run": "../../2026-11-03/source-cued-irm/run.json",
+    "comparison_assessment": "../../2026-11-03/source-cued-irm/assessment.json"
+  },
+  "limits": [
+    "One source-cued answer with changed client, route, instructions, and supplied context; no controlled improvement or aggregate pass claim",
+    "No model tool access or autonomous tool-use evaluation; earlier actual MCP observations retain separate execution evidence",
+    "Supplied packet contains public IRM material only; Form1040 catalog/acquisition absence stays input-local",
+    "No new source acquisition, linked-destination inspection, hosted acceptance, or internal-code-review completion follows"
+  ],
+  "provenance_scope": "Portable artifacts retain exact final answer characters, complete decoded public request/source values, reported model metadata, and qualitative assessment; local auth/proxy/path receipts and hidden reasoning remain outside public artifacts"
+}

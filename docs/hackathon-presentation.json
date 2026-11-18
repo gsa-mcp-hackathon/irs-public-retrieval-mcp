@@ -1,0 +1,931 @@
+{
+  "schema": "irs-public-mcp-hackathon-presentation/v1",
+  "status": "DRAFT",
+  "evidence_through": "2026-11-16",
+  "purpose": "GSA MCP Hackathon presentation review",
+  "build": {
+    "library": "python-pptx",
+    "native_shapes_and_text": true,
+    "slide_size": "16:9",
+    "preview": "Local Pillow layout approximation.",
+    "generator": "../tools/build_presentation.py"
+  },
+  "scope": "Recorded server, agent, source-comparison, media, verification, and authored source-checked guidance keep execution/source clocks; November 16 organizer instructions update delivery.",
+  "sources": [
+    {
+      "id": "readme",
+      "label": "Implemented tools and reader guidance",
+      "path": "../README.md",
+      "detail": "Available tools; IRM passage identity; product and edition identity; PDF document acquisition; catalog continuation; evaluation observations."
+    },
+    {
+      "id": "implementation",
+      "label": "Domain implementation",
+      "path": "../src/example_server/",
+      "detail": "app.py; models.py; utils.py; tools/irm.py; tools/products.py; tools/documents.py."
+    },
+    {
+      "id": "observations",
+      "label": "Evaluation observations",
+      "path": "../eval/observations.json",
+      "detail": "13 selected observations, supporting verification, security considerations, lessons, partially exercised proposal cases, and unmeasured metrics. Counts describe retained observations, without independent-case denominator."
+    },
+    {
+      "id": "live",
+      "label": "Public retrieval and navigation",
+      "path": "../eval/observations.json",
+      "pointer": "/observations/0",
+      "observation_id": "live-public-reads-2026-10-22"
+    },
+    {
+      "id": "native",
+      "label": "Recorded three-tool caller run",
+      "path": "../eval/observations.json",
+      "pointer": "/observations/5",
+      "observation_id": "native-three-tool-answer-2026-10-27",
+      "started_at_utc": "2026-10-27T01:44:07.7099282Z",
+      "completed_at_utc": "2026-10-27T01:44:58.3903986Z",
+      "source_commit": "42c7ca28f0fdda1835bc4bd6cd7a2115cb1bbdd6",
+      "versions": {
+        "codex_cli": "0.164.0-alpha.11.1",
+        "configured_model": "gpt-oss-120b"
+      }
+    },
+    {
+      "id": "reading",
+      "label": "Independent retained-PDF reading",
+      "path": "../eval/observations.json",
+      "pointer": "/observations/3",
+      "observation_id": "retained-pdf-local-reading-2026-10-27",
+      "source_binding": {
+        "document_url": "https://www.irs.gov/pub/irs-prior/f1040--2024.pdf",
+        "retrieved_at": "2026-10-26T19:44:48.481605-06:00",
+        "http_status": 200,
+        "mime_type": "application/pdf",
+        "retained_bytes": 163287
+      },
+      "extraction": {
+        "started_at_utc": "2026-10-27T13:26:07.654128Z",
+        "completed_at_utc": "2026-10-27T13:26:08.228784Z",
+        "page_index_basis": "zero_based_pdf_page_order",
+        "selected_indices": [
+          0,
+          1
+        ],
+        "document_page_count": 2,
+        "pages": [
+          {
+            "page_index": 0,
+            "unicode_codepoints": 4947
+          },
+          {
+            "page_index": 1,
+            "unicode_codepoints": 3536
+          }
+        ]
+      }
+    },
+    {
+      "id": "repair",
+      "label": "Source-cued partial answer repair",
+      "path": "../eval/observations.json",
+      "pointer": "/observations/7",
+      "observation_id": "source-cued-reconsideration-2026-10-28",
+      "started_at_utc": "2026-10-28T01:11:38.9434813Z",
+      "completed_at_utc": "2026-10-28T01:12:04.4617850Z"
+    },
+    {
+      "id": "checks",
+      "label": "Historical implementation and package checks",
+      "path": "../eval/observations.json",
+      "pointer": "/supporting_verification",
+      "records": [
+        {
+          "scope": "Implementation and protocol regression checks at commit 7627994667c98966d907512161cc4b7c91b8ca1c",
+          "observed": "120 tests and 41 subtests passed; Ruff lint and formatting passed",
+          "limits": "Regression checks do not establish representative agent answer accuracy"
+        },
+        {
+          "scope": "Noneditable installed-package validation for candidate landed as commit 5f3aa3ec88f080891fcf9c337d44a1c3221ccdfe",
+          "versions": {
+            "python": "3.14.7",
+            "fastmcp": "4.0.11",
+            "mcp_sdk": "2.3.0"
+          },
+          "observed": "Locked/offline export and hash-required runtime installation succeeded; 72 installed packages compatible; isolated site-packages imports, HTTP health 200, MCP initialization, and complete three-tool discovery passed",
+          "limits": "Native mirror-overridden locked sync refused lock update; successful export/install route remains distinct. No IRS tools called during packaging check; Linux Python 3.11 container build remains unexecuted."
+        },
+        {
+          "scope": "Later combined feature/interface verification, before diagnostic-only addition",
+          "source_commit": "ab6ef65eed490a2c693f121e72c2f3b5ea5cb32d",
+          "observed": "147 tests passed, 41 subtests passed, and three offline IBM-registration cases timed out after 60 seconds; combined duration 527.87 seconds",
+          "limits": "Synthetic/local targets selected, not IBM service endpoints. Failures retain registration scope rather than implying failed IRS retrieval. No complete suite rerun followed diagnostic-only addition."
+        },
+        {
+          "scope": "Diagnostic-only timeout capture and two later replays",
+          "source_commit": "8dc0befd5136feb3160f891c859122df40d0d473",
+          "observed": "Diagnostic check passed 1/1. File-backed and captured replays passed original assertions in 50.737 and 47.804 seconds",
+          "limits": "Later successes do not replace earlier three-timeout combined result. Launchers, original 60-second allowance, and captured-pipe behavior stayed unchanged."
+        }
+      ]
+    },
+    {
+      "id": "irm",
+      "label": "Official IRM source",
+      "url": "https://www.irs.gov/irm/part1/irm_01-011-002",
+      "detail": "Source clocks retain individual observation scope; no new IRS retrieval for slides."
+    },
+    {
+      "id": "pdf",
+      "label": "Official Form 1040 PDF locator",
+      "url": "https://www.irs.gov/pub/irs-prior/f1040--2024.pdf",
+      "detail": "Recorded native acquisition and later local reading remain separate events."
+    },
+    {
+      "id": "gsa",
+      "label": "GSA Hackathon deliverables and prototype scope",
+      "url": "https://www.gsa.gov/super-intelligence/si-community-of-practice/events-and-training/mcp-server-and-si-agent-government-hackathon",
+      "retained_locator": "Planning/.cache/hackathon-vimeo-source-20261019/open-data-visual-followthrough-20261027/current-official-gsa-event.html:429",
+      "detail": "Official page, read November 16, requires problem, solution, technical approach/key decisions, functionality demonstration, documented code, and evaluation documentation. Judging includes methods, inputs, server performance, error handling, and useful agent-facing design. Sandbox public-data prototypes remain published event scope."
+    },
+    {
+      "id": "catalog-followthrough",
+      "label": "Selected catalog continuation",
+      "path": "../eval/observations.json",
+      "pointer": "/observations/8",
+      "observation_id": "catalog-continuation-2026-10-30",
+      "started_at_utc": "2026-10-30T05:21:55.683906+00:00",
+      "completed_at_utc": "2026-10-30T05:22:30.294722+00:00",
+      "source_commit": "7d5cea3290e284a09ef52422246fc30f08916733"
+    },
+    {
+      "id": "pdf-followthrough",
+      "label": "Selected current/prior PDF reading",
+      "path": "../eval/observations.json",
+      "pointer": "/observations/9",
+      "observation_id": "two-locator-pdf-reading-2026-10-30",
+      "started_at_utc": "2026-10-30T05:36:45.880256+00:00",
+      "completed_at_utc": "2026-10-30T05:43:05.854Z",
+      "source_commit": "7d5cea3290e284a09ef52422246fc30f08916733"
+    },
+    {
+      "id": "walkthrough",
+      "label": "Selected 4:40 captioned recorded workflow",
+      "path": "irs-public-mcp-recorded-workflow.mp4",
+      "detail": "Captioned replay of recorded October 26 MCP requests/results, independent retained-PDF inspection, and November 3 source-cued answer comparison. Original clocks remain source-local; rendering adds no fresh IRS/model call."
+    },
+    {
+      "id": "source-cued-nov3",
+      "label": "November 3 source-cued answer comparison",
+      "path": "../eval/observations.json",
+      "pointer": "/observations/10",
+      "observation_id": "source-cued-irm-answer-2026-11-03",
+      "artifacts": {
+        "run": "../eval/runs/2026-11-03/source-cued-irm/run.json",
+        "answer": "../eval/runs/2026-11-03/source-cued-irm/answer.txt",
+        "source": "../eval/runs/2026-11-03/source-cued-irm/source-context.json",
+        "expected": "../eval/runs/2026-11-03/source-cued-irm/expected.json",
+        "assessment": "../eval/runs/2026-11-03/source-cued-irm/assessment.json"
+      },
+      "started_at_utc": "2026-11-03T16:27:41.7176947Z",
+      "completed_at_utc": "2026-11-03T16:29:28.6424360Z",
+      "detail": "Zero MCP/command calls; descendant navigation restored, with remaining source-use and literal-assurance findings."
+    },
+    {
+      "id": "actual-mcp-nov4",
+      "label": "November 4 local actual MCP retrieval and source interpretation",
+      "path": "../eval/observations.json",
+      "pointer": "/observations/11",
+      "observation_id": "actual-mcp-irm-2026-11-04",
+      "artifacts": {
+        "run": "../eval/runs/2026-11-04/actual-mcp-irm/run.json",
+        "request": "../eval/runs/2026-11-04/actual-mcp-irm/request.json",
+        "source": "../eval/runs/2026-11-04/actual-mcp-irm/source-result.json",
+        "assessment": "../eval/runs/2026-11-04/actual-mcp-irm/assessment.json"
+      },
+      "execution_date_local": "2026-11-04",
+      "execution_timezone": "America/Denver",
+      "normalized_utc_clocks": {
+        "source": "../eval/runs/2026-11-04/actual-mcp-irm/run.json",
+        "started_at_utc": "2026-11-05T00:22:14.084056+00:00",
+        "completed_at_utc": "2026-11-05T00:22:19.437045+00:00"
+      },
+      "source_commit": "adaf7753cfa422a9cf1c002f8d41731eec51b18a",
+      "detail": "One stdio tool call, zero model calls, complete returned-source reading; source availability and model use retain separate evidence."
+    },
+    {
+      "id": "public-answer-nov4",
+      "label": "November 4 local separate public-only answer comparison",
+      "path": "../eval/observations.json",
+      "pointer": "/observations/12",
+      "observation_id": "certara-public-irm-2026-11-04",
+      "artifacts": {
+        "run": "../eval/runs/2026-11-04/certara-public-irm/run.json",
+        "request": "../eval/runs/2026-11-04/certara-public-irm/request.json",
+        "answer": "../eval/runs/2026-11-04/certara-public-irm/answer.txt",
+        "assessment": "../eval/runs/2026-11-04/certara-public-irm/assessment.json",
+        "assessment_notes": "../eval/runs/2026-11-04/certara-public-irm/assessment.md"
+      },
+      "execution_date_local": "2026-11-04",
+      "execution_timezone": "America/Denver",
+      "normalized_utc_clocks": {
+        "source": "../eval/runs/2026-11-04/certara-public-irm/run.json",
+        "started_at_utc": "2026-11-05T00:40:07.5103196Z",
+        "completed_at_utc": "2026-11-05T00:40:29.4082600Z"
+      },
+      "model_selection": {
+        "requested_alias": "gpt-oss-120b-codex",
+        "configured_upstream_model": "openai/gpt-oss-120b",
+        "completion_reported_model": "gpt-oss-120b-codex",
+        "reported_identity_scope": "Returned model field supplies no independent provider/model identity attestation"
+      },
+      "detail": "One generic Chat Completions request with public-only context; zero MCP calls, no model tool access, changed client/route/context, and no controlled improvement claim."
+    },
+    {
+      "id": "walkthrough-draft",
+      "label": "Earlier 3:36 silent slide walkthrough",
+      "path": "hackathon-visual-draft.mp4",
+      "detail": "Earlier 216.13225-second draft retains October 30 evidence scope and separate validation."
+    },
+    {
+      "id": "stdio-nov12",
+      "label": "November 12 local three-tool workflow",
+      "path": "../eval/README.md",
+      "source_commit": "8dc0befd5136feb3160f891c859122df40d0d473",
+      "local_window": "2026-11-12 approximately 17:42–17:47 MST",
+      "recorded_outcomes": [
+        {
+          "tool": "get_irm_passage",
+          "citation": "1.11.2.5.2",
+          "matched_title": "Determine IRM Dates",
+          "body_url": "https://www.irs.gov/irm/part1/irm_01-011-002#id77"
+        },
+        {
+          "tool": "find_irs_products",
+          "query": "1040",
+          "tax_year": "2024",
+          "catalog": "prior",
+          "returned_matches": 25,
+          "source_display": "Showing 1–25 of 73",
+          "pagination_disposition": "available"
+        },
+        {
+          "tool": "get_irs_document",
+          "url": "https://www.irs.gov/pub/irs-prior/f1040--2024.pdf",
+          "http_status": 200,
+          "mime_type": "application/pdf",
+          "bytes": 163287
+        }
+      ],
+      "detail": "Later local integration supplements 13 portable observation records. Client selected tools explicitly; no autonomous model-selection or fresh PDF-understanding claim."
+    },
+    {
+      "id": "organizer-nov16",
+      "label": "November 16 final-submission instructions",
+      "source_kind": "organizer_correspondence",
+      "source_date": "2026-11-16",
+      "public_context_url": "https://www.gsa.gov/super-intelligence/si-community-of-practice/events-and-training/mcp-server-and-si-agent-government-hackathon",
+      "detail": "Organizer email supplies final Qualtrics route, one entry per team/individual, and November 20 2026 11:59 PM EST / 9:59 PM MST. Email also requests usernames for repository provisioning, alongside final form's separate code-submission options. Personalized submission URL remains outside public materials. Selected 4:40 video measures 7,606,350 bytes against 50 MB media cap."
+    },
+    {
+      "id": "procedural-guidance",
+      "label": "Published procedural-skill example",
+      "url": "https://github.com/prefectlabs/fastmcp-201/blob/30b48d9eb78b75983a60f75c929ba4fd20b076ab/skills/rain-outlook/SKILL.md",
+      "detail": "Existing example motivates proposed guidance-and-tool-selection comparisons; current IRS prototype has no claimed skill-intervention experiment."
+    },
+    {
+      "id": "final-form-nov16",
+      "label": "November 16 final-submission form reading",
+      "source_kind": "personalized_submission_form",
+      "source_date": "2026-11-16",
+      "detail": "Required fields mark video under 50 MB (MP4/ZIP) and Evaluation Report PDF. Form introduction says “Please note all questions require a response.” Slide deck and code fields lack individual Required markers; submission validation is unobserved, so optionality is not established. Code submission accepts PDF containing public repository link, or key MCP primitive/core launcher/type-model screenshots as PDF when public repository cannot be used. Form supplies no repository-provisioning prerequisite. Personalized locator remains outside public materials."
+    },
+    {
+      "id": "checked-answer-nov16",
+      "label": "November 16 source-checked IRM answer and contributing-model comparison",
+      "path": "../eval/README.md#source-checked-answer-irm-date-selection",
+      "source_path": "../eval/runs/2026-11-04/actual-mcp-irm/source-result.json",
+      "source_retrieved_at": "2026-11-04T17:22:18.575187-07:00",
+      "authored_date": "2026-11-16",
+      "method": "Two generic public-source model invocations and owning source comparison; zero new MCP calls or fresh IRS lookups. Authored reference supplements unchanged 13-record historical dataset.",
+      "contributions": [
+        {
+          "role": "draft",
+          "configured_model": "openai/gpt-oss-120b",
+          "client_started_at_utc": "2026-11-16T15:03:25.7097018Z",
+          "client_completed_at_utc": "2026-11-16T15:03:56.279153Z",
+          "client_elapsed_seconds": 30.5694512,
+          "observed": "Previously omitted conditions restored; literal-date and practical-step errors required owning source repair."
+        },
+        {
+          "role": "audit",
+          "configured_model": "openai/Llama-4-Scout-17B-16E-Instruct-quantized.w4a16",
+          "client_started_at_utc": "2026-11-16T15:07:03.314434Z",
+          "client_completed_at_utc": "2026-11-16T15:08:18.5277914Z",
+          "client_elapsed_seconds": 75.2133574,
+          "observed": "False missing-content and literal-fidelity verdicts coexist with useful corrected ASCII dates."
+        }
+      ],
+      "scope": "Changed prompts, criteria, contexts, and routes supply no controlled-improvement, model-ranking, autonomous-tool-use, or backend-identity result."
+    },
+    {
+      "id": "live-agent-nov16",
+      "label": "November 16 actual agent-through-MCP suite",
+      "path": "../eval/observations.json",
+      "pointer": "/agent_through_mcp_runs/0",
+      "detail": "Three separate public cases, actual source/artifact returns, two generated IRM answers, upstream 413 with empty PDF-case answer, independent source checks, and same-route judge disagreement. Earlier 13 observations retain original scope."
+    }
+  ],
+  "slides": [
+    {
+      "id": "purpose",
+      "section": "Purpose",
+      "layout": "cover",
+      "title": "Public IRS guidance\nand document retrieval",
+      "subtitle": "GSA MCP Hackathon · Prototype draft",
+      "lead": "Help research assistants reach cited IRS guidance, select official form revisions, and inspect acquired documents.",
+      "cards": [
+        {
+          "title": "Primary demonstration · 4:40",
+          "body": "Captioned recorded requests/results show IRM retrieval, catalog selection, PDF identity, and answer comparison."
+        },
+        {
+          "title": "Supplemental methods and outcomes",
+          "body": "Following slides explain implementation, exercised tests, useful results, and questions those results expose."
+        }
+      ],
+      "scope": "Anonymous public reads · Recorded demo next · Supplemental technical slides afterward",
+      "source_refs": [
+        "readme",
+        "observations"
+      ],
+      "notes": [
+        "Primary presentation route: brief purpose introduction, then selected 4:40 captioned workflow on next slide. Remaining slides support questions and detailed review. Existing video has no voice narration; organizer wording inspected November 16 supplies no voice requirement.",
+        "Lead with useful retrieval and its practical limits. Prototype serves public-information research; observed runs establish local capability, without user-acceptance or hosted-service claims.",
+        "This deck addresses GSA Hackathon presentation requirements. Separate tentative SIAD model-selection presentation retains independent scope.",
+        "Selected 4:40 captioned workflow is embedded on slide 2. Recorded request/result and PDF-inspection clocks remain original; earlier 216-second silent draft remains separately available.",
+        "Latest retained observations add actual stdio retrieval with interpreted source use and separate public-only model comparison. Thirteen observations remain selected records, without thirteen independent benchmark cases."
+      ]
+    },
+    {
+      "id": "recorded-workflow",
+      "section": "Recorded demonstration",
+      "layout": "media",
+      "title": "Play 4:40 captioned workflow",
+      "media": {
+        "path": "irs-public-mcp-recorded-workflow.mp4",
+        "mime_type": "video/mp4",
+        "name": "Selected recorded MCP workflow",
+        "caption": "Click to play · 4:40\nCaptioned recorded workflow; no narration"
+      },
+      "scope": "Recorded October 26–November 3 source states · Embedded MP4 · Review draft",
+      "source_refs": [
+        "walkthrough",
+        "native",
+        "reading",
+        "source-cued-nov3",
+        "walkthrough-draft"
+      ],
+      "notes": [
+        "Embedded recording preserves selected November 3 media bytes and 280.04225-second duration. Captioned replay joins recorded MCP requests/results, retained PDF inspection, and separately dated source-cued evaluation.",
+        "Acquisition clocks and source interpretation retain original scopes; current packaging supplies no fresh IRS/model call, hosted-runtime result, audience acceptance, or submission claim.",
+        "Playback requires compatible presentation viewer. Native rendering/open checks and full original-video playback retain separate scopes. Direct repository MP4 remains available independently.",
+        "Earlier silent slide walkthrough remains historical artifact under docs/hackathon-visual-draft.mp4."
+      ]
+    },
+    {
+      "id": "problem",
+      "section": "Problem",
+      "layout": "cards",
+      "title": "Public links can conceal distinct identities",
+      "lead": "Questions about guidance dates and form editions need more than plausible links.",
+      "cards": [
+        {
+          "title": "Guidance research",
+          "body": "IRM citations can point through mismatched TOC fragments. Page review, transmittal, effectivity, and subsection dates describe different events."
+        },
+        {
+          "title": "Form selection",
+          "body": "Broad catalog searches can mix forms, instructions, schedules, and language variants. Revision labels leave document-content questions open."
+        },
+        {
+          "title": "Document use",
+          "body": "Official PDF receipt proves acquisition. Printed product/year identity and model understanding require their own inspection evidence."
+        }
+      ],
+      "scope": "Practical callers: policy researchers and public-information assistants; adoption remains unmeasured.",
+      "source_refs": [
+        "readme",
+        "live",
+        "native",
+        "reading"
+      ],
+      "notes": [
+        "Caller roles illustrate intended usefulness rather than observed adoption. Recorded caller tasks ask for IRM 1.11.2.5.2 date meanings and official Form 1040 associated with catalog revision 2024. Preserve those caller purposes through demonstration and evaluation."
+      ]
+    },
+    {
+      "id": "solution",
+      "section": "Solution",
+      "layout": "tools",
+      "title": "Expose IRS research goals through MCP",
+      "lead": "Caller-selected inputs drive anonymous HTTPS GET reads of public IRS.gov sources.",
+      "tools": [
+        {
+          "name": "get_irm_passage",
+          "input": "citation",
+          "output": "Ordered body passages, native dates, notices, and separate TOC/body identity."
+        },
+        {
+          "name": "find_irs_products",
+          "input": "query · tax_year (annual Revision Date) · catalog · continuation",
+          "output": "Catalog-attributed product identity, official links, and per-catalog continuation. Tax-year applicability unverified."
+        },
+        {
+          "name": "get_irs_document",
+          "input": "document_url",
+          "output": "Embedded application/pdf resource, exact response bytes, and acquisition metadata."
+        }
+      ],
+      "scope": "Caller / MCP client → Python FastMCP server → supported public IRS HTTPS sources",
+      "source_refs": [
+        "readme",
+        "implementation"
+      ],
+      "notes": [
+        "Tools represent caller goals rather than arbitrary endpoint names. Supported origins are https://www.irs.gov and https://irs.gov. Tool scope excludes submissions and authenticated IRS operations.",
+        "Document retrieval accepts selected catalog URLs or other supported IRS.gov document URLs. Returned bytes establish acquisition; parsing remains separate.",
+        "tax_year filters complete four-digit annual catalog Revision Date labels; month-dated revisions do not qualify. Tax-year applicability remains unverified."
+      ]
+    },
+    {
+      "id": "approach",
+      "section": "Technical approach",
+      "layout": "pairs",
+      "title": "Design around source relationships",
+      "pairs": [
+        {
+          "title": "Reuse maintained building blocks",
+          "body": "Python, FastMCP, HTTPX, Pydantic, and standard-library HTML parsing retain existing package structure."
+        },
+        {
+          "title": "Resolve body identity explicitly",
+          "body": "Public part indexes choose document routes; body hierarchy chooses citation matches. Literal navigation remains separately inspectable."
+        },
+        {
+          "title": "Preserve catalog context",
+          "body": "Current/prior catalogs retain independent pages and next links. Continuations bind query, year, and catalog context."
+        },
+        {
+          "title": "Carry acquisition evidence",
+          "body": "Requested/final URLs, retrieval clocks, response metadata, and byte counts stay attached. Structured failures preserve successful sibling reads."
+        }
+      ],
+      "scope": "Existing example_server package/import identity retained; hosting choices need target-specific validation.",
+      "source_refs": [
+        "readme",
+        "implementation",
+        "checks"
+      ],
+      "notes": [
+        "Implementation entry point registers only implemented IRS tools from tools/irm.py, tools/products.py, and tools/documents.py. Pydantic structures support validated results and continuation context; transport selection remains upstream-compatible.",
+        "Source metadata records acquisition time separately from source-native date meanings. Month-dated catalog revisions retain uncertainty. Runtime packaging and source parsing remain distinct concerns."
+      ]
+    },
+    {
+      "id": "demo-irm",
+      "section": "Demonstration · IRM",
+      "layout": "navigation",
+      "title": "Find cited guidance despite misleading navigation",
+      "code": "get_irm_passage({\"citation\":\"1.11.2.5.2\"})",
+      "lead": "IRM 1.11.2.5.2 → body #id77; TOC differs.",
+      "table": {
+        "headers": [
+          "TOC label",
+          "Linked fragment",
+          "Reached body citation"
+        ],
+        "rows": [
+          [
+            "1.11.2.5.2",
+            "#id44",
+            "1.11.2.3.2"
+          ],
+          [
+            "1.11.2.5.2.1",
+            "#id46",
+            "1.11.2.3.3"
+          ]
+        ]
+      },
+      "takeaway": "Cite passages[].citation, title, body URL, and ordered blocks together. Keep navigation discrepancies alongside useful passage content.",
+      "scope": "Recorded source comparison; November 12 stdio again matched Determine IRM Dates",
+      "source_refs": [
+        "live",
+        "native",
+        "source-cued-nov3",
+        "actual-mcp-nov4",
+        "public-answer-nov4",
+        "irm",
+        "stdio-nov12"
+      ],
+      "notes": [
+        "Navigation rows reproduce retained live-public-reads-2026-10-22 output. Requested body URL: https://www.irs.gov/irm/part1/irm_01-011-002#id77. Parent TOC label links #id44 to body 1.11.2.3.2; descendant TOC label links #id46 to body 1.11.2.3.3.",
+        "October 27 native three-tool answer contradicted first mismatch and omitted descendant mismatch. October 28 source-cued repair retained descendant omission. November 3 source-cued answer restored both mismatch relationships; matched body #id77 and title remained absent beside navigation. Historical findings retain their respective observations.",
+        "Actual stdio get_irm_passage invocation ran November 4 local / November 5 UTC, from 2026-11-05T00:22:14.084056+00:00 through 2026-11-05T00:22:19.437045+00:00. One successful call returned requested body, six ordered blocks, both mismatch records, and five date objects; zero model calls followed within that retrieval observation. Single 5.352989-second tool interval supplies no broad latency claim.",
+        "Matched identity, navigation records, five dates, and six block texts equal retained November 3 source; added empty links arrays keep literal full-passage equality false. Complete returned-source reading interpreted source qualifications. Linked destinations remained outside fetched extent; source availability establishes no corrected model use.",
+        "Separate November 4 public-only answer preserved correct navigation table, then invented parent/descendant links to higher-level catalog entries. Returned body nesting and TOC-label/target mismatches retain distinct relationships. Original question wording may prime hierarchical reading among further possible readings; causal contribution remains unmeasured."
+      ]
+    },
+    {
+      "id": "demo-dates",
+      "section": "Demonstration · Source meaning",
+      "layout": "dates",
+      "title": "Keep date meanings attached to their scopes",
+      "lead": "Date values retain different scopes and conditions.",
+      "table": {
+        "headers": [
+          "Source meaning",
+          "Literal value",
+          "Scope"
+        ],
+        "rows": [
+          [
+            "Page Last Reviewed or Updated",
+            "10-Jun-2026",
+            "Document/page"
+          ],
+          [
+            "Manual Transmittal date",
+            "June 09, 2026",
+            "Document/page"
+          ],
+          [
+            "IRM effective date",
+            "06-09-2026",
+            "Document/page"
+          ],
+          [
+            "Subsection date",
+            "06-09-2026",
+            "1.11.2.5.2"
+          ],
+          [
+            "Subsection date",
+            "09-13-2023",
+            "1.11.2.5.2.1"
+          ]
+        ]
+      },
+      "takeaway": "Returned rules retain specified-date conditions, editorial-only scope, and IPU/IGM branches. Answers still need source-faithful use.",
+      "scope": "Fresh acquisition: 2026-11-05T00:22:18.575187+00:00 · Source meanings stay distinct",
+      "source_refs": [
+        "native",
+        "repair",
+        "source-cued-nov3",
+        "actual-mcp-nov4",
+        "public-answer-nov4",
+        "irm"
+      ],
+      "notes": [
+        "Five labels and literal values reproduce native-three-tool-answer-2026-10-27 source_observations.date_fields and match November 4 returned date objects. Earlier acquisition clock remains 2026-10-26T19:44:39.505503-06:00; fresh acquisition clock belongs to November 4 local / November 5 UTC. Coincident effective/subsection values retain distinct source meanings.",
+        "Actual returned-source interpretation preserves specific-effective-date applicability, same-or-later-than MT condition, sufficient M&P processing time, mandatory filing-season specific-effective-date requirement, and insertion in MT effective-date element and affected subsection dates. General wildcard formats and conditional affected-subsection wildcard prohibition retain distinct scopes.",
+        "Editorial-only branch requires no substantive changes anywhere else in IRM section. Issued IPU/IGM branches preserve outcomes with and without subsequent substantive changes. Unfetched linked editorial process supplies no further whole-section date outcome.",
+        "November 3 source-cued answer restored both navigation mismatches and IPU/IGM outcomes, with remaining specific-date applicability, editorial-only condition, processing-time/filing-season, source-attribution, and literal-assurance findings. Those findings stay attached to that answer.",
+        "Separate November 4 public-only answer preserved seven descendant decision-table cases, editorial-only condition, specific-date applicability, wildcard constraints, and date insertion. Mandatory filing-season requirement and substantive-change definition remained omitted. Claimed exact dates changed ASCII hyphens/spaces into U+2011/U+202F forms; quoted definitions included paraphrases. Recognizable calendar meaning, source attribution, literal fidelity, and semantic effects retain separate evidence."
+      ]
+    },
+    {
+      "id": "demo-catalog",
+      "section": "Demonstration · Product selection",
+      "layout": "catalog",
+      "title": "Follow catalog pages; compare product identities",
+      "code": "find_irs_products({\"query\":\"1040\",\"catalog\":\"both\"})",
+      "lead": "Observed Form 1040 revisions: current 2025; prior 2024 and 2025",
+      "table": {
+        "headers": [
+          "Reached catalog",
+          "Observed query rows",
+          "Further pages"
+        ],
+        "rows": [
+          [
+            "current",
+            "50 across 2 pages",
+            "Next available"
+          ],
+          [
+            "prior",
+            "50 across 2 pages",
+            "Next available"
+          ]
+        ]
+      },
+      "takeaway": "Current/prior membership overlaps. Inspect product, revision, posted date, and printed document year together.",
+      "scope": "Recorded October 29, 23:22 MDT · Initial request plus one continuation per catalog",
+      "source_refs": [
+        "catalog-followthrough",
+        "readme",
+        "implementation"
+      ],
+      "notes": [
+        "Recorded catalog-continuation-2026-10-30 used query 1040 and catalog both, then one returned continuation per catalog: three calls total. Selected source commit 7d5cea3290e284a09ef52422246fc30f08916733; source clocks preserve October 29 local date and October 30 UTC date.",
+        "Observed 50 query rows per catalog across initial and next pages. Further Next links remained; source summaries reported 83 current and 2,329 prior query rows. Counts include related products and supply no exhaustive exact-Form-1040 inventory.",
+        "Current catalog selected Form 1040 revision 2025. Prior catalog selected revision 2024 and also listed revision 2025. Revision Date, Posted Date, catalog membership, and printed document year keep distinct meanings.",
+        "Earlier native three-tool query Form 1040 2024 produced four current rows and initial 25 of 70 prior rows. Those older extents remain in retained observation and belong to that narrower query; current slide uses later broad-query observation."
+      ]
+    },
+    {
+      "id": "demo-pdf",
+      "section": "Demonstration · PDF",
+      "layout": "pdf",
+      "title": "Identify Form 1040 / 2025 across catalog routes",
+      "code": "get_irs_document({\"document_url\":\n  \"https://www.irs.gov/pub/irs-pdf/f1040.pdf\"})",
+      "cards": [
+        {
+          "title": "Form 1040 / 2025 identified",
+          "body": "Complete reading of both retained page texts identified product and year. Native model PDF understanding remains unassessed."
+        },
+        {
+          "title": "Current/prior routes overlap",
+          "body": "Selected current and prior 2025 routes returned matching Form 1040 content. Prior-catalog membership alone does not establish distinct edition."
+        }
+      ],
+      "takeaway": "Inspect document year before treating catalog routes as distinct editions.",
+      "scope": "Current/prior 2025 responses: October 29, 23:36 MDT · Subsequent retained-text reading",
+      "source_refs": [
+        "pdf-followthrough",
+        "catalog-followthrough",
+        "reading"
+      ],
+      "notes": [
+        "Recorded two-locator-pdf-reading-2026-10-30 called get_irs_document twice: https://www.irs.gov/pub/irs-pdf/f1040.pdf and https://www.irs.gov/pub/irs-prior/f1040--2025.pdf. Each returned 220237 bytes; selected retained responses matched directly. Equality applies to recorded responses, without future URL-equality claim.",
+        "Complete extracted-text reading of both pages identified printed Form 1040 and 2025; source attests reading at 2026-10-30T05:43:05.854Z. Acquisition, later content reading, visual rendering, and native model PDF understanding remain separately evidenced.",
+        "Earlier 163287-byte prior 2024 acquisition and independent two-page reading remain attained under their original observation IDs and clocks. Current slide extends evaluation through later 2025 responses without replacing earlier source credit."
+      ]
+    },
+    {
+      "id": "methods",
+      "section": "Evaluation methods",
+      "layout": "pairs",
+      "title": "Test execution and source use through multiple methods",
+      "pairs": [
+        {
+          "title": "Functional and protocol fixtures",
+          "body": "Controlled HTML/PDF/HTTP cases exercise identity, continuation, validation, failures, and MCP serialization."
+        },
+        {
+          "title": "Actual agent and stdio workflows",
+          "body": "Recorded agent and November 12 stdio reached all three tools. November 16 agent suite adds actual IRM answers and catalog/PDF delivery."
+        },
+        {
+          "title": "Independent answer comparisons",
+          "body": "Compare source claims and exact fields independently from model verdicts; inspect actual returned PDF bytes separately from answer generation."
+        },
+        {
+          "title": "Catalog and document inspection",
+          "body": "Follow Next, compare revisions, and inspect complete retained PDF page texts for printed product/year identity."
+        }
+      ],
+      "scope": "Inputs and expected behavior documented in eval/README.md · Recorded methods, not representative benchmark",
+      "source_refs": [
+        "checks",
+        "native",
+        "observations",
+        "public-answer-nov4",
+        "stdio-nov12",
+        "live-agent-nov16"
+      ],
+      "notes": [
+        "Deterministic functional/protocol fixtures use retained public HTML spans, controlled routing/HTTP responses, real FastMCP serialization, and ASGI protocol fixtures. They cover supported contracts and failure paths, separately from live-site sampling and generated-answer quality.",
+        "Historical implementation/protocol run passed 120 tests plus 41 subtests. Later combined feature/interface run returned 147 passed, 41 subtests, and three offline IBM-registration 60-second timeouts in 527.87 seconds. Synthetic/local targets were used; these failures do not establish failed IRS retrieval.",
+        "Diagnostic-only source addition passed its selected check 1/1. Two later replays passed original assertions in 50.737 and 47.804 seconds, without replacing earlier combined failures or establishing complete-suite rerun.",
+        "Native agent execution used get_irm_passage, find_irs_products, and get_irs_document on October 26 MDT / October 27 UTC, followed by independent source-to-answer comparison. November 12 explicit stdio calls supplied later local integration evidence; they did not measure autonomous selection.",
+        "Thirteen portable observations remain selected records, not thirteen independent benchmark cases. Later local checks supplement their attained results without silently changing observations.json or its denominator.",
+        "November 16 live suite keeps three cases separate from earlier 13 selected observations. PydanticAI uses actual stdio MCP; generation excludes retained reference answers. Independent checks and source review qualify same-alias/endpoint judge labels. Raw source records and model requests remain retained privately; portable case summaries omit internal runtime metadata and redundant binary payloads."
+      ]
+    },
+    {
+      "id": "evaluation",
+      "section": "Evaluation",
+      "layout": "evaluation",
+      "title": "Source-checked answers extend useful retrieval",
+      "cards": [
+        {
+          "title": "Demonstrated research workflow",
+          "body": "Agent selected all three tools. Later stdio again reached requested IRM body, selected Form 1040/2024, and acquired official PDF."
+        },
+        {
+          "title": "Completed source-grounded repair",
+          "body": "Checked reference now applies all seven subsection cases, filing-season requirements, date conditions, and exact fields. Source comparison corrected draft/audit errors."
+        }
+      ],
+      "metrics": "Oct 26 MDT agent task: 50.68 s (tools + answer)\nPrior combined: 147 passed + 41 subtests; 3 offline registration timeouts",
+      "takeaway": "Use checked reference in evaluation guide; review verdicts and useful model output need their respective source checks.",
+      "scope": "13 portable observations plus November 16 source-checked reference · Changed prompts/routes; no controlled-model-improvement claim",
+      "source_refs": [
+        "observations",
+        "native",
+        "repair",
+        "source-cued-nov3",
+        "actual-mcp-nov4",
+        "public-answer-nov4",
+        "checks",
+        "catalog-followthrough",
+        "pdf-followthrough",
+        "stdio-nov12",
+        "checked-answer-nov16"
+      ],
+      "notes": [
+        "Thirteen observations retain earlier public reads, local HTTP invocation, PDF acquisition/reading, native answers, source-cued reconsiderations, catalog continuation, and current/prior PDF checks. November 3 answer comparison, November 4 actual stdio retrieval, and separate public-only answer comparison extend retained evidence through November 5 UTC. Counts describe selected records, without independent-case denominator.",
+        "Historical 120-test/41-subtest run and package/discovery results retain original scopes. Later combined feature/interface run returned 147 passed, 41 subtests, and three offline IBM-registration TimeoutExpired(60) failures. Diagnostic 1/1 and two successful later replays retain separate evidence; complete suite was not rerun after diagnostic-only addition.",
+        "Actual retrieval supplies one get_irm_passage call, zero model calls, complete returned-source interpretation, source status 200, successful caller exit, and closed client context. Source run binds commit adaf7753cfa422a9cf1c002f8d41731eec51b18a and Python 3.14.7, FastMCP 4.0.11, MCP SDK 2.3.0, and HTTPX 0.28.1. Returned qualifications establish source availability and interpreted tool utilization, without generated-answer pass.",
+        "Separate public-only generic Chat Completions request ran 2026-11-05T00:40:07.5103196Z through 2026-11-05T00:40:29.4082600Z: one model request, zero MCP calls, and no model tool access. Explicit request supplied original public question and complete already-retrieved IRS response, excluding historical expected answers/assessments and automatic repository context. Provider-default context remains unobserved.",
+        "Public-only answer preserved seven decision-table cases, key date conditions, and input-local Form 1040/2024 absence qualification. Correct navigation table coexists with unsupported later hierarchy claims. Mandatory filing-season specific-date requirement and substantive-change definition remain omitted. Exact-date/quotation findings concern literal claims separately from recognizable calendar semantics.",
+        "Requested alias gpt-oss-120b-codex, configured upstream openai/gpt-oss-120b, and returned model field gpt-oss-120b-codex describe reported selection without independent identity attestation. Client/request interval 21.8979404 seconds includes client work; reported usage totals 8306 tokens, comprising 5687 prompt and 2619 completion tokens. No isolated model-compute latency or cost claim follows.",
+        "Changed client, route, instructions, supplied context, and unisolated model/provider factors prevent controlled-improvement claims. November 4 public-only answer has no autonomous tool access. Earlier catalog/PDF achievements retain independent credit; absence within latest IRM-only packet establishes no wider absence. Aggregate accuracy, repeated controlled baselines, adversarial robustness, visual PDF reading, native model PDF understanding, and hosted acceptance remain open.",
+        "Native three-tool end-to-end task ran 2026-10-27T01:44:07.7099282Z to 2026-10-27T01:44:58.3903986Z, approximately 50.68 seconds including client, tool calls, model work, and overhead. This is one selected task interval, not isolated server latency or performance distribution.",
+        "November 12 explicit stdio workflow, approximately 17:42–17:47 MST, matched IRM 1.11.2.5.2, returned 25 prior-catalog matches from source display Showing 1–25 of 73 with Next, and acquired 163,287 official Form 1040/2024 PDF bytes. Portable source summary appears in editable JSON and evaluation guide; full later local receipts remain separately retained.",
+        "November 16 source comparison adopts complete checked reference in eval/README.md: four date roles, mandatory filing-season requirement, specified-date conditions including equality with MT, all seven subsection cases, separate TOC/body relationships, and five character-exact returned date fields. Existing visible date/navigation tables remain valid. This fills current authored answer while preserving earlier generated-answer findings.",
+        "Configured GPT-OSS draft restored earlier missing conditions but changed all five claimed-verbatim date rows and narrowed practical instructions. Distinct configured Llama audit falsely marked present material missing and approved changed dates; its ASCII date rewrite was useful. Owning source checks repaired practical conditions and ordering. Two public-source generic client invocations completed naturally with stop/exit0; zero new MCP calls or IRS lookups. Source register retains client intervals and route/identity qualifications.",
+        "Later November 16 actual agent-through-MCP suite appears separately on following slide and agent_through_mcp_runs register. Earlier 13-record dataset and checked-reference production retain original credit and denominators."
+      ]
+    },
+    {
+      "id": "live-agent-outcomes",
+      "section": "Actual agent evaluation",
+      "layout": "evaluation",
+      "title": "Useful retrieval can coexist with answer failures",
+      "cards": [
+        {
+          "title": "Two IRM answers: useful rules, visible defects",
+          "body": "Date meanings and scenario values survive. Source checks expose changed verbatim characters, wrong nested URL, invented citations, and unsupported operational claims."
+        },
+        {
+          "title": "Five complete PDFs; empty generated answer",
+          "body": "Correct Form 1040/2024 selection and five 163,287-byte deliveries precede upstream HTTP 413. Printed edition and model inspection stay unassessed."
+        }
+      ],
+      "metrics": "November 16: 3 selected cases · 8 returned tool results\nCorrectness labels say correct; source review finds answer defects",
+      "takeaway": "Follow attained source use through generated answers and failures, checking claims against returned evidence.",
+      "scope": "Separate suite alongside 13 earlier records · No answer-pass rate or statistical model ranking",
+      "source_refs": [
+        "live-agent-nov16",
+        "checked-answer-nov16",
+        "observations"
+      ],
+      "notes": [
+        "Actual run occurred November 16 MST / November 17 UTC. Two IRM cases each returned one source passage. Form case returned catalog plus five identical complete PDF artifacts. Experiment/cleanup completion is execution evidence, without three-case answer-accuracy finding.",
+        "Verbatim IRM query: five native values preserve recognizable calendar meanings and separate roles, but ASCII hyphens/spaces change to Unicode alternatives. Wrong nested URL id46 reaches Identify the IRM Owner, despite answer reporting mismatch elsewhere. Parent body id77 is supported; separate nested anchor is not supplied.",
+        "Hypothetical date query: December 15, 2026 publication and January 1, 2027 effectiveness produce supported MT/effective/affected-specific-subsection/PDF/index values. Invented line references, two-week processing sufficiency, publication after MT, XML authoring sequence, and automatic revision population exceed returned guidance.",
+        "Form query: prior annual catalog Revision Date 2024 row selects official f1040--2024.pdf. Five HTTP 200/application/pdf responses contain complete 163,287-byte PDFs. Independent decoding confirms matching lengths, URI, and PDF signature. Integrity and receipt establish neither printed edition nor successful model inspection.",
+        "Installed SDK mapping omits resource URI and structured acquisition metadata from model-facing BinaryContent while raw records retain both. Upstream 413 establishes request-size rejection. Largest successful PDF-stage prompt reports 5,276 tokens; context-window exhaustion, universal request cap, PDF-modality rejection, and repeated-retrieval cause remain unestablished.",
+        "Agent and judges use same configured alias/endpoint; backend revision is unattested. Correctness labels all say correct with null numeric scores. Scope labels disagree or introduce their own source/input confusions. No independent-model validation, aggregate accuracy, or statistical ranking follows.",
+        "Agent execution spans approximate 12.42, 19.31, and 26.48 seconds; judge work is separate. Later offline metadata/evaluator repairs do not rerun or repair recorded answers. Existing primary 4:40 demonstration remains unchanged."
+      ]
+    },
+    {
+      "id": "security",
+      "section": "Security and operating scope",
+      "layout": "pairs",
+      "title": "Keep prototype boundaries explicit",
+      "pairs": [
+        {
+          "title": "Public, anonymous, read-only",
+          "body": "Supported IRS HTTPS origins and source-linked redirects receive validation. Tools perform GET reads without IRS client credentials."
+        },
+        {
+          "title": "Deployment-local controls",
+          "body": "HTTPX retains proxy/TLS configuration. Optional timeout and byte budgets apply per request; unset values impose no shared cap."
+        },
+        {
+          "title": "Untrusted retrieved text",
+          "body": "Public source content supplies evidence, without instruction authority. Source-faithfulness comparisons leave adversarial resistance unmeasured."
+        },
+        {
+          "title": "Local execution and delivery",
+          "body": "Local stdio/HTTP workflows and package checks support prototype review. Judges receive documented code, recorded demonstration, and evaluation."
+        }
+      ],
+      "scope": "Sandbox public-data prototype · Anonymous source retrieval · Deployment-specific hosting controls",
+      "source_refs": [
+        "readme",
+        "implementation",
+        "observations",
+        "checks",
+        "gsa",
+        "actual-mcp-nov4",
+        "public-answer-nov4"
+      ],
+      "notes": [
+        "Controls preserve deployment scope. IRS_HTTP_TIMEOUT_SECONDS and IRS_HTTP_MAX_BYTES are optional positive settings. HTTP, TLS/transport, media, and budget failures remain distinct from successful zero-match parsing.",
+        "Administrative hosting authentication and model-provider credentials serve separate roles. Current GSA retained scope: “Exploration within sandbox environments and only with government data that are already publicly available. Hackathon deliverables will exist as prototypes and will not be publicly deployed.” Quotation preserves source wording; sandbox scope does not imply universal no-cloud prohibition.",
+        "November 16 organizer email supplies repository-provisioning route. Final form also accepts key-code screenshots PDF when public repository cannot be used. Repository publication, hosted endpoint, final submission, and judge acceptance retain independent states. Public deployment is outside described Hackathon prototype scope; local demonstration remains usable.",
+        "November 4 actual stdio execution and separate public-only answer request retain independent routes. Successful local transport and model completion establish neither IBM integration nor externally accessible judge execution. Public request artifacts exclude local authentication/proxy/path receipts and hidden reasoning."
+      ]
+    },
+    {
+      "id": "next",
+      "section": "Next work",
+      "layout": "next",
+      "title": "Extend tests where observed questions lead",
+      "pairs": [
+        {
+          "title": "Faithful explanation",
+          "body": "Reuse checked seven-case reference when scoring further generated answers; compare source conditions, navigation claims, and literal fields."
+        },
+        {
+          "title": "Catalog and PDF use",
+          "body": "Extend selected continuation and two-locator checks across further products/editions; tie content judgments to actual inspection."
+        },
+        {
+          "title": "Failure and adversarial cases",
+          "body": "Exercise unsupported origins, retrieval failures, sibling-result preservation, and instruction-like source text."
+        },
+        {
+          "title": "Tool selection and comparable repeats",
+          "body": "Compare selected tasks with controlled tool access and procedural guidance; observe choices, source use, recovery, and further effects."
+        }
+      ],
+      "takeaway": "Extend selected cases and comparable runs while retaining useful retrieval and independently observed answer gaps.",
+      "scope": "Final entry: November 20, 11:59 PM EST / 9:59 PM MST · Evaluation Report PDF required",
+      "source_refs": [
+        "observations",
+        "gsa",
+        "checks",
+        "catalog-followthrough",
+        "pdf-followthrough",
+        "source-cued-nov3",
+        "actual-mcp-nov4",
+        "public-answer-nov4",
+        "organizer-nov16",
+        "procedural-guidance",
+        "final-form-nov16",
+        "checked-answer-nov16"
+      ],
+      "notes": [
+        "Existing proposal cases remain expandable. Selected IRM retrieval/interpretation, source-cued answer comparison, catalog-continuation, and PDF receipt/inspection extents have executions. Broader products, repeated controlled comparisons, scoring, failure/recovery behavior, autonomous model tool use, and model-understanding checks retain their respective open states.",
+        "GSA event guidance describes documented code, presentation, and evaluation documentation. November 16 actual final form marks video under 50 MB and Evaluation Report PDF required; Form introduction says “Please note all questions require a response.” Slide deck and code fields lack individual Required markers; submission validation is unobserved, so optionality is not established. Code submission accepts public-repository-link PDF, or key-code screenshots PDF when public repository cannot be used. Email's username/provisioning route remains available alongside these form options. Final email supplies November 20 final hour; Week 6 specifies EST. Actual submission and judge acceptance require their own observations.",
+        "November 4 public-only answer supplies no controlled no-tool baseline: client, route, instructions, and supplied context changed concurrently. Future benchmark wording can request source-supported navigation relationships while leaving relationship types open; original wording and response remain retained for comparison.",
+        "Potential further comparison can vary explicit procedural guidance while observing actual tool selection and subsequent source use. Existing FastMCP 201 skill example supplies reusable procedural guidance; availability alone establishes no application or outcome. No IRS skill intervention or controlled benefit experiment is claimed by this deck.",
+        "November 16 selected source/character checks now have adopted reference and distinct draft/audit findings. Reuse that completed work for further model-output comparisons; broader evaluation remains available with its own criteria and runs."
+      ]
+    },
+    {
+      "id": "sources",
+      "section": "Evidence and reviewer navigation",
+      "layout": "sources",
+      "title": "Review code, observations, and official sources",
+      "links": [
+        {
+          "label": "Play selected 4:40 recorded workflow",
+          "target": {
+            "slide_id": "recorded-workflow"
+          }
+        },
+        {
+          "label": "Implemented tools and local use — README",
+          "target": "../README.md"
+        },
+        {
+          "label": "Checked IRM answer, methods, and recorded outcomes",
+          "target": "../eval/README.md#source-checked-answer-irm-date-selection"
+        },
+        {
+          "label": "IRS tool implementation",
+          "target": "../src/example_server/"
+        },
+        {
+          "label": "Official IRM — date roles and navigation",
+          "target": "https://www.irs.gov/irm/part1/irm_01-011-002"
+        },
+        {
+          "label": "Official Form 1040 PDF — current locator",
+          "target": "https://www.irs.gov/pub/irs-pdf/f1040.pdf"
+        },
+        {
+          "label": "GSA Hackathon — deliverables and scope",
+          "target": "https://www.gsa.gov/super-intelligence/si-community-of-practice/events-and-training/mcp-server-and-si-agent-government-hackathon"
+        }
+      ],
+      "takeaway": "Embedded workflow is slide 2. Repository MP4 also supports direct playback.",
+      "scope": "DRAFT · Local review artifact · External delivery and acceptance remain open.",
+      "source_refs": [
+        "readme",
+        "implementation",
+        "observations",
+        "gsa",
+        "walkthrough",
+        "checked-answer-nov16"
+      ],
+      "notes": [
+        "Repository hyperlinks resolve relative to docs/. Official links identify underlying sources, without asserting fresh retrieval during slide production.",
+        "Editable source: docs/hackathon-presentation.json. Exact source register and per-slide source_refs preserve navigation. Source-native names, code, dates, and quoted wording retain original form.",
+        "Draft uses editable PowerPoint shapes and text. Local Pillow preview approximates layout.",
+        "First link jumps to embedded playback on slide 2. Selected MP4 bytes travel inside PPTX; viewer media support and playback outcomes retain separate evidence. Direct repository MP4 remains available."
+      ]
+    }
+  ],
+  "evidence_date_scope": "Portable observation records extend through November 5 UTC; later local three-tool workflow occurred November 12 MST. November 16 public-source drafting/audit and authored reference use retained source. Delivery instructions updated November 16. Individual execution scopes remain explicit.",
+  "author": "IRS Public MCP prototype"
+}

@@ -1,0 +1,39 @@
+{
+  "observation_id": "source-cued-irm-answer-2026-11-03",
+  "question": "Explain retained IRM 1.11.2.5.2 date rules, every returned parent/descendant navigation relationship, and exact native date fields; retain official Form 1040/2024 catalog and acquisition findings with their inspection limits.",
+  "method": "One native source-cued answer using retained public results and historical generated interpretation, followed by source-to-answer assessment",
+  "declared_at_utc": "2026-11-03T16:22:21.375303+00:00",
+  "started_at_utc": "2026-11-03T16:27:41.7176947Z",
+  "completed_at_utc": "2026-11-03T16:29:28.6424360Z",
+  "exit_code": 0,
+  "prompt_delivery": {
+    "completed": true,
+    "succeeded": true,
+    "status": "written_and_closed",
+    "byte_count": 19859,
+    "error_type": null
+  },
+  "configured_model": "gpt-oss-120b",
+  "version_scope": "Native CLI version not recorded for current run; configured model describes selection rather than independent provider identity",
+  "native_reported_usage": [
+    {
+      "input_tokens": 12536,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 2351,
+      "reasoning_output_tokens": 853
+    }
+  ],
+  "mcp_calls": 0,
+  "command_events": 0,
+  "source_observation": "native-three-tool-answer-2026-10-27",
+  "comparison_observation": "source-cued-reconsideration-2026-10-28",
+  "answer_sha256": "febced83940b580e8d4471ad67bbbecd1090d1b7c6c93d8150562bc661cbd6d4",
+  "artifacts": {
+    "answer": "answer.txt",
+    "source": "source-context.json",
+    "expected": "expected.json",
+    "assessment": "assessment.json"
+  },
+  "provenance_scope": "Public source and final answer projected for portable review; fuller execution/authentication provenance remains separate local evidence, without credentials, internal endpoints, private session bodies, or unrelated traces in this carrier"
+}

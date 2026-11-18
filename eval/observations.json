@@ -1,0 +1,1214 @@
+{
+  "purpose": "Selected IRS retrieval, document-reading, and answer-quality observations for evaluation documentation",
+  "compiled_on_utc": "2026-10-28",
+  "follow_through_on_utc": "2026-11-05",
+  "follow_through_scope": "Original proposal_scope describes 2026-10-28 documentation. October 30 records implement selected catalog/document checks only; broader cases, repeats, controlled baselines, scored measurements, and native model understanding retain open scope. November 3 record adds one targeted source-cued answer comparison using retained public returns; no fresh IRS acquisition or MCP dispatch occurred in that run. November 4 local / November 5 UTC follow-through adds one actual get_irm_passage call and returned-source interpretation for existing IRM case; earlier model-answer assessment remains independently unchanged. Further November 4 local / November 5 UTC follow-through adds one public-only generic Chat Completions answer and primary-source assessment for existing IRM case, without native Codex context or model tool access; changed route/context supplies no controlled-improvement claim.",
+  "question_wording": "Questions summarize retained caller tasks; tool arguments preserve actual selected inputs.",
+  "scope": "Selected local executions and source comparisons; no representative benchmark, aggregate accuracy score, or human-review completion claim",
+  "observations": [
+    {
+      "id": "live-public-reads-2026-10-22",
+      "questions": [
+        "Which date meanings and subsection rules appear in IRM 1.11.2.5.2?",
+        "Which official Form 1040 catalog entry has revision label 2024?"
+      ],
+      "method": "FastMCP in-memory client invoking registered tools against anonymous public IRS HTTPS sources",
+      "started_at_utc": "2026-10-22T23:11:30.565036+00:00",
+      "completed_at_utc": "2026-10-22T23:11:35.341508+00:00",
+      "source_commit": "6800ae6dd37ddf70e916bfd99279915fd1ea30c9",
+      "versions": {
+        "python": "3.14.7",
+        "fastmcp": "4.0.11",
+        "mcp_sdk": "2.3.0"
+      },
+      "calls": [
+        {
+          "tool": "get_irm_passage",
+          "arguments": {"citation": "1.11.2.5.2"},
+          "started_at_utc": "2026-10-22T23:11:30.668564+00:00",
+          "completed_at_utc": "2026-10-22T23:11:33.555868+00:00",
+          "is_error": false,
+          "observed": {
+            "matched_citation": "1.11.2.5.2",
+            "body_url": "https://www.irs.gov/irm/part1/irm_01-011-002#id77",
+            "retrieved_at_utc": "2026-10-22T23:11:33.083331+00:00",
+            "route_index_retrieved_at_utc": "2026-10-22T23:11:32.113318+00:00",
+            "navigation": [
+              {"label_citation": "1.11.2.5.2", "url": "https://www.irs.gov/irm/part1/irm_01-011-002#id44", "reached_citation": "1.11.2.3.2"},
+              {"label_citation": "1.11.2.5.2.1", "url": "https://www.irs.gov/irm/part1/irm_01-011-002#id46", "reached_citation": "1.11.2.3.3"}
+            ]
+          }
+        },
+        {
+          "tool": "find_irs_products",
+          "arguments": {"query": "1040", "tax_year": 2024},
+          "started_at_utc": "2026-10-22T23:11:33.562606+00:00",
+          "completed_at_utc": "2026-10-22T23:11:35.335252+00:00",
+          "is_error": false,
+          "observed": {
+            "product": "Form 1040",
+            "title": "U.S. Individual Income Tax Return",
+            "revision_label": "2024",
+            "catalog": "prior",
+            "document_url": "https://www.irs.gov/pub/irs-prior/f1040--2024.pdf",
+            "pages": [
+              {"catalog": "current", "retrieved_at_utc": "2026-10-22T23:11:34.515593+00:00", "rows_observed": 25, "source_extent": "Showing 1 - 25 of 83", "next_present": true},
+              {"catalog": "prior", "retrieved_at_utc": "2026-10-22T23:11:35.277430+00:00", "rows_observed": 25, "source_extent": "Showing 1 - 25 of 73", "next_present": true}
+            ]
+          }
+        }
+      ],
+      "limits": [
+        "Observed current HTML and catalog pages only; historical/as-of selection and exhaustive continuation were not tested here",
+        "Catalog revision label and document URL did not establish PDF-content identity or tax-year applicability",
+        "Successful structured retrieval did not score generated answers"
+      ]
+    },
+    {
+      "id": "http-irm-call-2026-10-22",
+      "question": "Can local Streamable HTTP deliver requested IRM dates passage while retaining mismatched navigation?",
+      "method": "MCP initialization followed by actual get_irm_passage invocation over owned loopback HTTP service",
+      "protocol_version": "2025-11-25",
+      "started_at_utc": "2026-10-22T23:51:39.370782+00:00",
+      "completed_at_utc": "2026-10-22T23:51:43.771815+00:00",
+      "arguments": {"citation": "1.11.2.5.2"},
+      "observed": {
+        "is_error": false,
+        "matched_body_url": "https://www.irs.gov/irm/part1/irm_01-011-002#id77",
+        "retrieved_at_utc": "2026-10-22T23:51:43.316867+00:00",
+        "navigation_mismatches_retained": 2,
+        "client_session_transport_closed": true
+      },
+      "limits": ["Local HTTP invocation, without hosted-platform acceptance or agent answer-quality scoring"]
+    },
+    {
+      "id": "pdf-acquisition-2026-10-27",
+      "question": "Can selected official Form 1040 PDF bytes reach MCP clients with source binding?",
+      "method": "Actual get_irs_document invocation and embedded-resource acceptance checks",
+      "arguments": {"document_url": "https://www.irs.gov/pub/irs-prior/f1040--2024.pdf"},
+      "observed": {
+        "is_error": false,
+        "http_status": 200,
+        "retrieved_at_utc": "2026-10-27T01:14:02.925009+00:00",
+        "resource_uri": "https://www.irs.gov/pub/irs-prior/f1040--2024.pdf",
+        "mime_type": "application/pdf",
+        "decoded_bytes": 163287,
+        "checks": ["Requested/final/resource URL binding", "Strict base64 decoding", "Decoded length matches returned byte count"]
+      },
+      "limits": ["Binary acquisition and resource acceptance; PDF parsing, cover/year inspection, and model understanding were not established by this check"],
+      "version_scope": "Selected acceptance receipt did not record runtime versions"
+    },
+    {
+      "id": "retained-pdf-local-reading-2026-10-27",
+      "question": "Which printed product and year appear in retained official Form 1040 PDF?",
+      "method": "Local text extraction followed by complete reading of both extracted page strings; earlier MCP-acquired bytes reused",
+      "source_observation": "native-three-tool-answer-2026-10-27",
+      "versions": {"python": "3.14.7", "pypdf": "6.18.0"},
+      "source_binding": {
+        "document_url": "https://www.irs.gov/pub/irs-prior/f1040--2024.pdf",
+        "retrieved_at": "2026-10-26T19:44:48.481605-06:00",
+        "http_status": 200,
+        "mime_type": "application/pdf",
+        "retained_bytes": 163287
+      },
+      "extraction": {
+        "started_at_utc": "2026-10-27T13:26:07.654128Z",
+        "completed_at_utc": "2026-10-27T13:26:08.228784Z",
+        "page_index_basis": "zero_based_pdf_page_order",
+        "selected_indices": [0, 1],
+        "document_page_count": 2,
+        "pages": [
+          {"page_index": 0, "unicode_codepoints": 4947},
+          {"page_index": 1, "unicode_codepoints": 3536}
+        ]
+      },
+      "observed": {
+        "complete_extracted_strings_read": true,
+        "printed_product": "Form 1040",
+        "printed_title": "U.S. Individual Income Tax Return",
+        "printed_year": "2024",
+        "identity_evidence": "First-page tax-year header and Form 1040 (2024) footer; second-page Form 1040 (2024) Page 2 header",
+        "opened_handle_metadata_unchanged": true,
+        "mcp_calls": 0,
+        "model_calls": 0,
+        "warnings": ["Missing optional fontTools for embedded CFF fonts; coherent identifying text recovered"]
+      },
+      "limits": [
+        "Extraction clocks date local processing; complete reading followed extraction without separately retained reading timestamp",
+        "Selected extracted content confirms printed product/year identity; rendering, layout fidelity, font encoding, and model PDF understanding require separate assessment",
+        "Later independent reading changes no earlier model-run inspection or understanding claim; no IRS reacquisition occurred"
+      ]
+    },
+    {
+      "id": "native-two-tool-answer-2026-10-23",
+      "questions": ["Explain IRM 1.11.2.5.2 dates and navigation differences", "Find official Form 1040 for 2024"],
+      "method": "Native Codex client using two IRS MCP tools through configured model bridge, followed by independent source-to-answer comparison",
+      "versions": {"codex_cli": "0.162.0-alpha.17.2", "configured_model": "gpt-oss-120b"},
+      "started_at_utc": "2026-10-23T13:44:34.1244168Z",
+      "completed_at_utc": "2026-10-23T13:47:11.3084421Z",
+      "observed": {
+        "completed_tools": ["get_irm_passage", "find_irs_products"],
+        "tool_errors": 0,
+        "useful_results": ["Requested dates passage at body #id77", "Exact Form 1040 catalog row and official PDF locator"],
+        "answer_findings": [
+          "Both returned TOC/body mismatches omitted",
+          "Mixed editorial versus whole-section editorial-only conditions compressed",
+          "Catalog revision label promoted into tax-year/PDF-content certainty",
+          "Universal no-inference assurance exceeded supported source use"
+        ]
+      },
+      "limits": ["Single selected task; successful dispatch and useful output did not establish complete source-faithful composition"]
+    },
+    {
+      "id": "native-three-tool-answer-2026-10-27",
+      "questions": ["Explain IRM 1.11.2.5.2 dates and navigation differences", "Find and acquire official Form 1040 PDF associated with catalog revision 2024"],
+      "method": "Native Codex client calling all three IRS tools, followed by independent source-to-answer comparison",
+      "source_commit": "42c7ca28f0fdda1835bc4bd6cd7a2115cb1bbdd6",
+      "versions": {"codex_cli": "0.164.0-alpha.11.1", "configured_model": "gpt-oss-120b"},
+      "started_at_utc": "2026-10-27T01:44:07.7099282Z",
+      "completed_at_utc": "2026-10-27T01:44:58.3903986Z",
+      "calls": [
+        {"tool": "get_irm_passage", "arguments": {"citation": "1.11.2.5.2"}, "completed": true, "error": null},
+        {"tool": "find_irs_products", "arguments": {"query": "Form 1040 2024", "tax_year": "2024", "catalog": "both"}, "completed": true, "error": null},
+        {"tool": "get_irs_document", "arguments": {"document_url": "https://www.irs.gov/pub/irs-prior/f1040--2024.pdf"}, "completed": true, "error": null}
+      ],
+      "source_observations": {
+        "irm_url": "https://www.irs.gov/irm/part1/irm_01-011-002",
+        "irm_retrieved_at": "2026-10-26T19:44:39.505503-06:00",
+        "date_fields": [
+          {"value": "10-Jun-2026", "meaning": "Page Last Reviewed or Updated"},
+          {"value": "June 09, 2026", "meaning": "Manual Transmittal date"},
+          {"value": "06-09-2026", "meaning": "IRM effective date"},
+          {"value": "06-09-2026", "meaning": "Subsection date", "citation": "1.11.2.5.2"},
+          {"value": "09-13-2023", "meaning": "Subsection date", "citation": "1.11.2.5.2.1"}
+        ],
+        "catalog_pages": [
+          {"catalog": "current", "retrieved_at": "2026-10-26T19:44:44.162901-06:00", "rows_observed": 4, "source_extent": "Showing 1 - 4 of 4", "next_present": false},
+          {"catalog": "prior", "retrieved_at": "2026-10-26T19:44:44.317587-06:00", "rows_observed": 25, "source_extent": "Showing 1 - 25 of 70", "next_present": true}
+        ],
+        "pdf_url": "https://www.irs.gov/pub/irs-prior/f1040--2024.pdf",
+        "pdf_retrieved_at": "2026-10-26T19:44:48.481605-06:00",
+        "pdf_decoded_bytes": 163287
+      },
+      "observed": {
+        "useful_answer_behavior": ["Both requested subjects answered", "Catalog revision label separated from PDF-content identity", "PDF acquisition metadata used while cover/year inspection remained unresolved"],
+        "answer_findings": ["Contradictory claims about first TOC/body mismatch", "Descendant mismatch omitted", "Unsupported whole-section editorial-only date outcome"],
+        "native_reported_tokens": {"input": 51873, "output": 1478, "reasoning_output": 425}
+      },
+      "limits": [
+        "Embedded PDF receipt did not establish provider-visible binary representation, rendering, extraction, or model PDF understanding",
+        "Single selected native task; no aggregate correctness, latency, or cost claim",
+        "Model-alias metadata fallback warning occurred; actual performance effects remained unmeasured"
+      ]
+    },
+    {
+      "id": "source-cued-reconsideration-2026-10-27",
+      "question": "Can supplied prior public results and answer support more faithful explanation without new retrieval?",
+      "method": "Isolated reconstructed public context, without configured MCP server, followed by independent source comparison",
+      "started_at_utc": "2026-10-27T01:51:47.4147971Z",
+      "completed_at_utc": "2026-10-27T01:52:07.8927337Z",
+      "source_observation": "native-three-tool-answer-2026-10-27",
+      "observed": {
+        "mcp_calls": 0,
+        "improvements": ["First parent TOC/body mismatch consistently recognized", "No-later-change IPU issue date and IGM effective date supplied", "Catalog/PDF inspection limits retained"],
+        "remaining_findings": ["Descendant navigation mismatch omitted", "Later-substantive-change IPU/IGM branches omitted", "Specified-date constraints omitted", "Unsupported whole-section date outcome and universal assurance remained"],
+        "native_reported_tokens": {"input": 21518, "output": 1424}
+      },
+      "limits": ["Source-cued reconsideration rather than blind evaluation; no fresh source acquisition, PDF inspection, or new tool-dispatch evidence"]
+    },
+    {
+      "id": "source-cued-reconsideration-2026-10-28",
+      "question": "Can complete supplied date rules and navigation support repair while retaining both IRS subjects and PDF limits?",
+      "method": "One source-cued native reconsideration with complete matched passage/navigation fields verified equal to original returned source, followed by independent source comparison",
+      "started_at_utc": "2026-10-28T01:11:38.9434813Z",
+      "completed_at_utc": "2026-10-28T01:12:04.4617850Z",
+      "source_observation": "native-three-tool-answer-2026-10-27",
+      "version_scope": "Current execution assessment did not record native CLI version; earlier recorded versions remain attached to earlier runs",
+      "observed": {
+        "mcp_calls": 0,
+        "command_calls": 0,
+        "improvements": [
+          "IPU and IGM branches with subsequent substantive changes explicitly use IRM effective date",
+          "Unsupported whole-section date assignment removed",
+          "Universal no-inference assurance removed",
+          "Five source-date fields surfaced separately"
+        ],
+        "retained_useful_results": ["Requested passage and first parent navigation mismatch", "Mixed/substantive subsection rules", "Positive catalog and prior PDF-acquisition facts with uninspected-content boundary"],
+        "remaining_findings": [
+          "Descendant label 1.11.2.5.2.1 -> #id46 -> body 1.11.2.3.3 omitted",
+          "Specified-date processing time, prohibition on wildcard subsection dates, and date insertion in MT effective element plus affected subsections omitted",
+          "Editorial-only condition requiring no substantive changes anywhere else compressed",
+          "Same-as-MT specified-date equality scope unsurfaced",
+          "Page Last Reviewed or Updated label narrowed",
+          "Exact-looking source dates/timestamp offsets replaced ASCII hyphens with U+2011; some spaces became U+202F"
+        ],
+        "native_reported_tokens": {"input": 12757, "output": 1074, "reasoning_output": 168}
+      },
+      "limits": [
+        "No new IRS acquisition, tool dispatch, or PDF-content inspection",
+        "Prompt, context size, runtime, endpoint behavior, and model characteristics were not isolated experimentally",
+        "Changed claims establish local partial repair rather than causal model improvement or universal transfer",
+        "Model-alias metadata fallback warning remained; performance effects unmeasured"
+      ]
+    },
+    {
+      "id": "catalog-continuation-2026-10-30",
+      "question": "Which exact Form 1040 current-catalog edition and prior revision 2024 appear in observed catalog pages, and what does one observed continuation hop per catalog preserve about source identity and coverage?",
+      "method": "FastMCP in-memory client invoking registered find_irs_products against anonymous public IRS HTTPS catalogs",
+      "declared_at_utc": "2026-10-30T05:17:29.434Z",
+      "started_at_utc": "2026-10-30T05:21:55.683906+00:00",
+      "completed_at_utc": "2026-10-30T05:22:30.294722+00:00",
+      "source_commit": "7d5cea3290e284a09ef52422246fc30f08916733",
+      "versions": {
+        "python": "3.14.7",
+        "fastmcp": "4.0.11",
+        "mcp_sdk": "2.3.0",
+        "httpx": "0.28.1"
+      },
+      "source_proposal": "/proposed_next_cases/1",
+      "selected_scope": {
+        "query": "1040",
+        "tax_year": null,
+        "catalog": "both",
+        "selected_editions": "Exact current Form 1040 edition as observed, plus prior revision label 2024",
+        "continuation_hops_per_catalog": 1
+      },
+      "calls": [
+        {
+          "tool": "find_irs_products",
+          "arguments": {
+            "query": "1040",
+            "catalog": "both"
+          },
+          "started_at_utc": "2026-10-30T05:22:03.595427+00:00",
+          "completed_at_utc": "2026-10-30T05:22:26.779054+00:00",
+          "elapsed_seconds": 23.183547399996314,
+          "is_error": false,
+          "catalog_failures": {}
+        },
+        {
+          "tool": "find_irs_products",
+          "arguments": {
+            "query": "1040",
+            "catalog": "both",
+            "continuation": {
+              "url": "https://www.irs.gov/forms-instructions-and-publications?find=1040&page=1",
+              "source_url": "https://www.irs.gov/forms-instructions-and-publications?find=1040&page=1",
+              "catalog": "current",
+              "query": "1040",
+              "tax_year": null
+            }
+          },
+          "started_at_utc": "2026-10-30T05:22:26.911806+00:00",
+          "completed_at_utc": "2026-10-30T05:22:28.991617+00:00",
+          "elapsed_seconds": 2.0798183000006247,
+          "is_error": false,
+          "catalog_failures": {}
+        },
+        {
+          "tool": "find_irs_products",
+          "arguments": {
+            "query": "1040",
+            "catalog": "both",
+            "continuation": {
+              "url": "https://www.irs.gov/prior-year-forms-and-instructions?find=1040&page=1",
+              "source_url": "https://www.irs.gov/prior-year-forms-and-instructions?find=1040&page=1",
+              "catalog": "prior",
+              "query": "1040",
+              "tax_year": null
+            }
+          },
+          "started_at_utc": "2026-10-30T05:22:29.021162+00:00",
+          "completed_at_utc": "2026-10-30T05:22:30.266783+00:00",
+          "elapsed_seconds": 1.2452143999980763,
+          "is_error": false,
+          "catalog_failures": {}
+        }
+      ],
+      "observed": {
+        "selected_products": [
+          {
+            "product": "Form 1040",
+            "title": "U.S. Individual Income Tax Return",
+            "revision_label": "2025",
+            "catalog": "current",
+            "document_url": "https://www.irs.gov/pub/irs-pdf/f1040.pdf",
+            "catalog_url": "https://www.irs.gov/forms-instructions-and-publications?find=1040",
+            "dates": [
+              {
+                "value": "2025",
+                "meaning": "Revision Date",
+                "context": "current catalog row: Form 1040"
+              },
+              {
+                "value": "01/02/2026",
+                "meaning": "Posted Date",
+                "context": "current catalog row: Form 1040"
+              }
+            ],
+            "catalog_fields": {
+              "Product Number": "Form 1040",
+              "Title": "U.S. Individual Income Tax Return",
+              "Revision Date": "2025",
+              "Posted Date": "01/02/2026"
+            },
+            "identity_basis": "Catalog product number, title, revision label, and document link; document body unverified."
+          },
+          {
+            "product": "Form 1040",
+            "title": "U.S. Individual Income Tax Return",
+            "revision_label": "2024",
+            "catalog": "prior",
+            "document_url": "https://www.irs.gov/pub/irs-prior/f1040--2024.pdf",
+            "catalog_url": "https://www.irs.gov/prior-year-forms-and-instructions?find=1040",
+            "dates": [
+              {
+                "value": "2024",
+                "meaning": "Revision Date",
+                "context": "prior catalog row: Form 1040"
+              }
+            ],
+            "catalog_fields": {
+              "Product Number": "Form 1040",
+              "Title": "U.S. Individual Income Tax Return",
+              "Revision Date": "2024"
+            },
+            "identity_basis": "Catalog product number, title, revision label, and document link; document body unverified."
+          }
+        ],
+        "same_revision_other_catalog": {
+          "product": "Form 1040",
+          "title": "U.S. Individual Income Tax Return",
+          "revision_label": "2025",
+          "catalog": "prior",
+          "document_url": "https://www.irs.gov/pub/irs-prior/f1040--2025.pdf",
+          "catalog_url": "https://www.irs.gov/prior-year-forms-and-instructions?find=1040",
+          "dates": [
+            {
+              "value": "2025",
+              "meaning": "Revision Date",
+              "context": "prior catalog row: Form 1040"
+            }
+          ],
+          "catalog_fields": {
+            "Product Number": "Form 1040",
+            "Title": "U.S. Individual Income Tax Return",
+            "Revision Date": "2025"
+          },
+          "identity_basis": "Catalog product number, title, revision label, and document link; document body unverified."
+        },
+        "pages": [
+          {
+            "call_index": 0,
+            "source": {
+              "requested_url": "https://www.irs.gov/forms-instructions-and-publications?find=1040",
+              "url": "https://www.irs.gov/forms-instructions-and-publications?find=1040",
+              "retrieved_at_utc": "2026-10-30T05:22:16.687001+00:00",
+              "content_type": "text/html; charset=UTF-8",
+              "status_code": 200
+            },
+            "catalog": "current",
+            "rows_observed": 25,
+            "source_extent": "Showing 1 - 25 of 83",
+            "catalog_structure_recognized": true,
+            "next": {
+              "url": "https://www.irs.gov/forms-instructions-and-publications?find=1040&page=1",
+              "source_url": "https://www.irs.gov/forms-instructions-and-publications?find=1040&page=1",
+              "catalog": "current",
+              "query": "1040",
+              "tax_year": null
+            }
+          },
+          {
+            "call_index": 0,
+            "source": {
+              "requested_url": "https://www.irs.gov/prior-year-forms-and-instructions?find=1040",
+              "url": "https://www.irs.gov/prior-year-forms-and-instructions?find=1040",
+              "retrieved_at_utc": "2026-10-30T05:22:16.471541+00:00",
+              "content_type": "text/html; charset=UTF-8",
+              "status_code": 200
+            },
+            "catalog": "prior",
+            "rows_observed": 25,
+            "source_extent": "Showing 1 - 25 of 2329",
+            "catalog_structure_recognized": true,
+            "next": {
+              "url": "https://www.irs.gov/prior-year-forms-and-instructions?find=1040&page=1",
+              "source_url": "https://www.irs.gov/prior-year-forms-and-instructions?find=1040&page=1",
+              "catalog": "prior",
+              "query": "1040",
+              "tax_year": null
+            }
+          },
+          {
+            "call_index": 1,
+            "source": {
+              "requested_url": "https://www.irs.gov/forms-instructions-and-publications?find=1040&page=1",
+              "url": "https://www.irs.gov/forms-instructions-and-publications?find=1040&page=1",
+              "retrieved_at_utc": "2026-10-30T05:22:28.776498+00:00",
+              "content_type": "text/html; charset=UTF-8",
+              "status_code": 200
+            },
+            "catalog": "current",
+            "rows_observed": 25,
+            "source_extent": "Showing 26 - 50 of 83",
+            "catalog_structure_recognized": true,
+            "next": {
+              "url": "https://www.irs.gov/forms-instructions-and-publications?find=1040&page=2",
+              "source_url": "https://www.irs.gov/forms-instructions-and-publications?find=1040&page=2",
+              "catalog": "current",
+              "query": "1040",
+              "tax_year": null
+            }
+          },
+          {
+            "call_index": 2,
+            "source": {
+              "requested_url": "https://www.irs.gov/prior-year-forms-and-instructions?find=1040&page=1",
+              "url": "https://www.irs.gov/prior-year-forms-and-instructions?find=1040&page=1",
+              "retrieved_at_utc": "2026-10-30T05:22:30.149622+00:00",
+              "content_type": "text/html; charset=UTF-8",
+              "status_code": 200
+            },
+            "catalog": "prior",
+            "rows_observed": 25,
+            "source_extent": "Showing 26 - 50 of 2329",
+            "catalog_structure_recognized": true,
+            "next": {
+              "url": "https://www.irs.gov/prior-year-forms-and-instructions?find=1040&page=2",
+              "source_url": "https://www.irs.gov/prior-year-forms-and-instructions?find=1040&page=2",
+              "catalog": "prior",
+              "query": "1040",
+              "tax_year": null
+            }
+          }
+        ],
+        "observed_rows_by_catalog": {
+          "current": 50,
+          "prior": 50
+        },
+        "continuation": "Each source pages[].next passed unchanged with original query/catalog controls; continued current/prior calls return their reached catalog only, with earlier sibling results retained.",
+        "notices": [
+          {
+            "call_index": 0,
+            "notices": [
+              "Years reflect annual catalog Revision Date labels; tax-year applicability and document-body identity remain unverified.",
+              "current: 2 observed rows have month-dated or unqualified revision labels; tax-year applicability remains unverified."
+            ],
+            "extent": "Observed catalog pages only; source summaries and Next links retain pagination extent. Document bodies/PDF covers, linked instruction/correction bodies, and exhaustive correction coverage remain unverified."
+          },
+          {
+            "call_index": 1,
+            "notices": [
+              "Years reflect annual catalog Revision Date labels; tax-year applicability and document-body identity remain unverified."
+            ],
+            "extent": "Observed catalog pages only; source summaries and Next links retain pagination extent. Document bodies/PDF covers, linked instruction/correction bodies, and exhaustive correction coverage remain unverified."
+          },
+          {
+            "call_index": 2,
+            "notices": [
+              "Years reflect annual catalog Revision Date labels; tax-year applicability and document-body identity remain unverified."
+            ],
+            "extent": "Observed catalog pages only; source summaries and Next links retain pagination extent. Document bodies/PDF covers, linked instruction/correction bodies, and exhaustive correction coverage remain unverified."
+          }
+        ],
+        "client_context_closed": true
+      },
+      "limits": [
+        "Source extents count query 1040 rows across related products, not exact Form 1040 edition totals; Next remains after rows 26–50 of 83 current and 2329 prior rows.",
+        "Annual Revision Date labels, Posted Date, catalog membership, URLs, and acquisition clocks retain separate meanings; tax-year applicability remains unverified.",
+        "Catalog run acquired no PDF bytes. Later two-locator PDF observation has independent source/extraction/reading clocks and does not retroactively change catalog-only evidence.",
+        "Selected three-call continuation trial only; no exhaustive catalog, representative benchmark, aggregate accuracy, no-tool baseline, or model/provider claim."
+      ]
+    },
+    {
+      "id": "two-locator-pdf-reading-2026-10-30",
+      "question": "Do retained response bytes from selected current/prior revision-2025 Form 1040 locators match at observed acquisition clocks, and what printed product/year can existing independent text inspection establish?",
+      "method": "Registered get_irs_document calls, strict embedded-PDF receipt checks, direct retained-byte comparison, and independent local pypdf extraction followed by complete reading of both extracted page strings",
+      "declared_at_utc": "2026-10-30T05:33:40.939Z",
+      "started_at_utc": "2026-10-30T05:36:45.880256+00:00",
+      "completed_at_utc": "2026-10-30T05:43:05.854Z",
+      "source_commit": "7d5cea3290e284a09ef52422246fc30f08916733",
+      "versions": {
+        "retrieval": {
+          "python": "3.14.7",
+          "fastmcp": "4.0.11",
+          "mcp_sdk": "2.3.0",
+          "httpx": "0.28.1"
+        },
+        "extraction": {
+          "python": "3.14.7",
+          "pypdf": "6.18.0"
+        }
+      },
+      "source_proposal": "/proposed_next_cases/2",
+      "source_catalog_observation": "catalog-continuation-2026-10-30",
+      "calls": [
+        {
+          "tool": "get_irs_document",
+          "arguments": {
+            "document_url": "https://www.irs.gov/pub/irs-pdf/f1040.pdf"
+          },
+          "started_at_utc": "2026-10-30T05:36:46.716551+00:00",
+          "completed_at_utc": "2026-10-30T05:36:56.672251+00:00",
+          "elapsed_seconds": 9.955706400010968,
+          "is_error": false,
+          "source": {
+            "requested_url": "https://www.irs.gov/pub/irs-pdf/f1040.pdf",
+            "url": "https://www.irs.gov/pub/irs-pdf/f1040.pdf",
+            "retrieved_at_utc": "2026-10-30T05:36:50.204241+00:00",
+            "content_type": "application/pdf",
+            "status_code": 200
+          },
+          "resource_uri": "https://www.irs.gov/pub/irs-pdf/f1040.pdf",
+          "mime_type": "application/pdf",
+          "byte_count": 220237,
+          "sha256": "3d31c226df0d189ced80e039d01cf0f8820c1019681a0f0ca6264de277b7e982",
+          "acceptance": {
+            "strict_base64_decoding": true,
+            "source_requested_matches_input": true,
+            "final_source_matches_resource_uri": true,
+            "requested_final_equal": true,
+            "http_status_200": true,
+            "HTTP_media_pdf": true,
+            "resource_MIME_pdf": true,
+            "decoded_length_matches_metadata": true,
+            "PDF_signature": true
+          }
+        },
+        {
+          "tool": "get_irs_document",
+          "arguments": {
+            "document_url": "https://www.irs.gov/pub/irs-prior/f1040--2025.pdf"
+          },
+          "started_at_utc": "2026-10-30T05:36:56.684177+00:00",
+          "completed_at_utc": "2026-10-30T05:36:58.973348+00:00",
+          "elapsed_seconds": 2.2891735000011977,
+          "is_error": false,
+          "source": {
+            "requested_url": "https://www.irs.gov/pub/irs-prior/f1040--2025.pdf",
+            "url": "https://www.irs.gov/pub/irs-prior/f1040--2025.pdf",
+            "retrieved_at_utc": "2026-10-30T05:36:58.258547+00:00",
+            "content_type": "application/pdf",
+            "status_code": 200
+          },
+          "resource_uri": "https://www.irs.gov/pub/irs-prior/f1040--2025.pdf",
+          "mime_type": "application/pdf",
+          "byte_count": 220237,
+          "sha256": "3d31c226df0d189ced80e039d01cf0f8820c1019681a0f0ca6264de277b7e982",
+          "acceptance": {
+            "strict_base64_decoding": true,
+            "source_requested_matches_input": true,
+            "final_source_matches_resource_uri": true,
+            "requested_final_equal": true,
+            "http_status_200": true,
+            "HTTP_media_pdf": true,
+            "resource_MIME_pdf": true,
+            "decoded_length_matches_metadata": true,
+            "PDF_signature": true
+          }
+        }
+      ],
+      "observed": {
+        "direct_retained_byte_equality": true,
+        "compared_at_utc": "2026-10-30T05:36:59.008768+00:00",
+        "retained_bytes_each": 220237,
+        "sha256": "3d31c226df0d189ced80e039d01cf0f8820c1019681a0f0ca6264de277b7e982",
+        "extracted_byte_objects": 1,
+        "sibling_inspection_binding": "Both acquired retained byte objects compare equal directly; identifying-text reading of one object therefore binds to both selected receipts at their recorded clocks.",
+        "printed_product": "Form 1040",
+        "printed_title": "U.S. Individual Income Tax Return",
+        "printed_year": "2025",
+        "identity_evidence": "First-page header/title and Form 1040 (2025) footer; second-page Form 1040 (2025) Page 2 header and footer.",
+        "complete_extracted_strings_read": true,
+        "client_context_closed": true,
+        "source_date_roles": {
+          "catalog_revision_label": "2025",
+          "current_catalog_posted_date": "01/02/2026",
+          "printed_footer_created_label": "Created 9/5/25",
+          "PDF_CreationDate": "D:20260102072431-06'00'",
+          "PDF_ModDate": "D:20260102072431-06'00'",
+          "qualification": "Catalog labels, printed footer, PDF metadata assertions, retrieval, extraction, and reading clocks retain separate roles."
+        },
+        "file_observations": {
+          "opened_handle_before_after_fields_match": true,
+          "opened_handle_after_vs_path_after": {
+            "size_device_inode_mtime_match": true,
+            "ctime_comparison_differs": true
+          },
+          "post_extraction_retained_hashes_match_receipts": true,
+          "cause_of_ctime_difference": "unestablished"
+        },
+        "warnings": [
+          "Missing optional fontTools for CFF Type1 font encoding; coherent identifying text recovered, with full font-encoding and layout fidelity unassessed."
+        ]
+      },
+      "extraction": {
+        "started_at_utc": "2026-10-30T05:38:04.236075+00:00",
+        "completed_at_utc": "2026-10-30T05:38:05.115706+00:00",
+        "invocation_started_at_utc": "2026-10-30T05:38:04.236043+00:00",
+        "invocation_completed_at_utc": "2026-10-30T05:38:05.143684+00:00",
+        "invocation_elapsed_seconds": 0.9076444999955129,
+        "timing_scope": "Invocation UTC clocks and monotonic elapsed cover helper extraction and retained-output writing; helper UTC start/completion retain their own interval.",
+        "page_index_basis": "zero_based_pdf_page_order",
+        "selected_indices": [
+          0,
+          1
+        ],
+        "document_page_count": 2,
+        "pages": [
+          {
+            "page_index": 0,
+            "unicode_codepoints": 5524,
+            "text_utf8_bytes": 5544
+          },
+          {
+            "page_index": 1,
+            "unicode_codepoints": 4890,
+            "text_utf8_bytes": 4916
+          }
+        ]
+      },
+      "independent_reading": {
+        "presented_at_utc": "2026-10-30T05:40:31.808Z",
+        "reading_completed_attested_at_utc": "2026-10-30T05:43:05.854Z",
+        "scope": "Complete extracted page strings read; no rendering/layout or native model PDF-understanding assessment."
+      },
+      "previous_credit": {
+        "source_observation": "retained-pdf-local-reading-2026-10-27",
+        "scope": "Existing 2024 receipt and complete two-page independent reading retain original evidence; no old-2024 retrieval, extraction, or rereading performed."
+      },
+      "limits": [
+        "Equality compares only these two retained responses at separate recorded acquisition clocks; rolling current URL, prior URI, annual label, and catalog membership establish no universal/future equality or current-tax-year applicability.",
+        "Receipt, extraction, independent identifying-text reading, visual rendering, complete font encoding, native model understanding, and answer accuracy remain separate.",
+        "Opened-handle metadata matches before/after extraction, while path-after ctime comparison differs; no cause assigned. Retained bytes rehash unchanged.",
+        "Two selected document calls and one local extraction only; no provider/model, representative performance, aggregate accuracy, no-tool baseline, or hosted-platform acceptance claim."
+      ]
+    },
+    {
+      "id": "source-cued-irm-answer-2026-11-03",
+      "question": "Explain retained IRM 1.11.2.5.2 date rules, every returned parent/descendant navigation relationship, and exact native date fields; retain official Form 1040/2024 catalog and acquisition findings with their inspection limits.",
+      "method": "One native source-cued answer using retained public results and historical generated interpretation, followed by source-to-answer assessment",
+      "declared_at_utc": "2026-11-03T16:22:21.375303+00:00",
+      "started_at_utc": "2026-11-03T16:27:41.7176947Z",
+      "completed_at_utc": "2026-11-03T16:29:28.6424360Z",
+      "source_observation": "native-three-tool-answer-2026-10-27",
+      "comparison_observation": "source-cued-reconsideration-2026-10-28",
+      "source_proposal": "/proposed_next_cases/0",
+      "version_scope": "Native CLI version not recorded for current run; configured model describes selection rather than independent provider identity",
+      "configured_model": "gpt-oss-120b",
+      "observed": {
+        "semantic_findings": [
+          "Requested heading appears, but matched body URL ending #id77 and matched-title relationship remain absent beside navigation",
+          "Rule 3.A/B appear without shared specific-effective-date applicability condition, allowing unconditional reading of no-wildcard subsection rule despite general table permitting wildcard forms; required M&P processing-time qualification and filing-season context also remain omitted. Rule 4 insertion in both MT effective element and affected subsection dates appears separately",
+          "Editorial-only branch omits explicit condition requiring no substantive changes anywhere else in IRM section; unsupported whole-section date assignment remains absent",
+          "Opening heading date receives IRM effective date attribution, while source heading context identifies subsection date; separately attributed effective-date field has coincident value"
+        ],
+        "useful_changed_results": [
+          "Both labels, literal URLs, reached citations, and reached titles appear, including previously omitted descendant #id46 to 1.11.2.3.3 relationship",
+          "Both subsequent-substantive-change and no-subsequent-substantive-change outcomes appear for IPU and IGM",
+          "Catalog and prior PDF-acquisition facts retain receipt-only inspection boundary"
+        ],
+        "typography_and_assurance": {
+          "classification": "Typography and literal-assurance assessment, separate from semantic findings",
+          "spacing_observation": "ASCII spaces in displayed Manual Transmittal date become U+202F; date meaning remains unchanged by spacing alone",
+          "label_observation": "Exact Native Date Fields section shortens source meaning Manual Transmittal date to Manual Transmittal",
+          "answer_assurance": "All quoted text reproduced exactly; paraphrases labeled where present.",
+          "assurance_assessment": "Exact-reproduction assurance is unsupported: quoted table rows include paraphrases and quoted forms change despite explicit exact-form request. Whitespace variation alone supplies no broad semantic-defect conclusion.",
+          "source_pointer": "runs/2026-11-03/source-cued-irm/expected.json#/date_fields"
+        },
+        "mcp_calls": 0,
+        "command_calls": 0,
+        "native_exit_code": 0,
+        "native_reported_tokens": {
+          "input_tokens": 12536,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2351,
+          "reasoning_output_tokens": 853
+        }
+      },
+      "artifacts": {
+        "run": "runs/2026-11-03/source-cued-irm/run.json",
+        "answer": "runs/2026-11-03/source-cued-irm/answer.txt",
+        "source": "runs/2026-11-03/source-cued-irm/source-context.json",
+        "expected": "runs/2026-11-03/source-cued-irm/expected.json",
+        "assessment": "runs/2026-11-03/source-cued-irm/assessment.json"
+      },
+      "limits": [
+        "Targeted source-cued reconsideration using retained public returns; no fresh IRS acquisition, MCP dispatch, or PDF-content inspection",
+        "Prompt, supplied prior interpretation, context size, runtime, and provider variables were not isolated; local changed output supplies no causal model-improvement or universal transfer claim",
+        "Current source carrier omits local filesystem locators and historical generated answer; portable artifacts support source-to-answer review without complete execution replay",
+        "Typography alone supplies no semantic-error score; exact-reproduction assurance remains separately assessed against explicit exact-form request and quotation claims",
+        "One selected case only; no representative benchmark, controlled baseline, aggregate accuracy, adversarial robustness, or hosted-platform acceptance claim"
+      ]
+    },
+    {
+      "id": "actual-mcp-irm-2026-11-04",
+      "question": "Explain IRM 1.11.2.5.2 date rules, both navigation mismatches, and exact source-date fields",
+      "method": "One actual MCP stdio invocation of maintained server, followed by complete returned-source reading and comparison with retained November 3 source/expected fields",
+      "source_proposal": "/proposed_next_cases/0",
+      "source_observation": "native-three-tool-answer-2026-10-27",
+      "comparison_observation": "source-cued-irm-answer-2026-11-03",
+      "started_at_utc": "2026-11-05T00:22:14.084056+00:00",
+      "completed_at_utc": "2026-11-05T00:22:19.437045+00:00",
+      "execution_date_local": "2026-11-04",
+      "execution_timezone": "America/Denver",
+      "source_commit": "adaf7753cfa422a9cf1c002f8d41731eec51b18a",
+      "calls": [
+        {
+          "tool": "get_irm_passage",
+          "arguments": {"citation": "1.11.2.5.2"},
+          "elapsed_seconds": 5.352989,
+          "is_error": false,
+          "match_disposition": "matched"
+        }
+      ],
+      "observed": {
+        "source_relationships": [
+          "Matched requested body #id77, six ordered blocks, both separately attributed TOC/body mismatch records, and five date objects returned",
+          "Specified-date applicability, M&P processing-time and filing-season context, editorial-only no-substantive-change condition, and both IPU/IGM branches remain explicit",
+          "Coincident effective/subsection date values retain distinct source meanings; acquisition clocks remain separate",
+          "Matched identity, navigation, dates, and six block texts equal retained November 3 source; fresh schema additionally exposes empty links arrays"
+        ],
+        "mcp_calls": 1,
+        "model_calls": 0,
+        "client_context_closed": true,
+        "caller_exit_code": 0,
+        "source_status_code": 200,
+        "source_retrieved_at_utc": "2026-11-05T00:22:18.575187+00:00"
+      },
+      "artifacts": {
+        "run": "runs/2026-11-04/actual-mcp-irm/run.json",
+        "request": "runs/2026-11-04/actual-mcp-irm/request.json",
+        "source": "runs/2026-11-04/actual-mcp-irm/source-result.json",
+        "assessment": "runs/2026-11-04/actual-mcp-irm/assessment.json"
+      },
+      "limits": [
+        "Additional actual retrieval and source interpretation for existing IRM case; no new model answer, generated-answer pass, numeric score, or causal model-improvement claim",
+        "November 3 zero-MCP model run and assessment retain independent state; current returned qualifications establish availability rather than corrected model use",
+        "Linked destinations remain outside fetched passage extent; catalog/PDF observations retain earlier independent credit without current reacquisition",
+        "One selected local call supplies no representative benchmark, aggregate accuracy, broad latency distribution, hosted-platform acceptance, or organizer/judge acceptance"
+      ]
+    },
+    {
+      "id": "certara-public-irm-2026-11-04",
+      "question": "Explain retained IRM 1.11.2.5.2 date rules, every returned parent/descendant navigation relationship, and exact native date fields; retain official Form 1040/2024 catalog and acquisition findings with their inspection limits.",
+      "method": "One generic direct Chat Completions request using explicit public-only question/source context, followed by primary-source comparison of final answer",
+      "source_proposal": "/proposed_next_cases/0",
+      "source_observation": "actual-mcp-irm-2026-11-04",
+      "comparison_observation": "source-cued-irm-answer-2026-11-03",
+      "started_at_utc": "2026-11-05T00:40:07.5103196Z",
+      "completed_at_utc": "2026-11-05T00:40:29.4082600Z",
+      "execution_date_local": "2026-11-04",
+      "execution_timezone": "America/Denver",
+      "model_selection": {
+        "requested_alias": "gpt-oss-120b-codex",
+        "configured_upstream_model": "openai/gpt-oss-120b",
+        "completion_reported_model": "gpt-oss-120b-codex",
+        "reported_identity_scope": "Returned model field supplies no independent provider/model identity attestation"
+      },
+      "observed": {
+        "supported_coverage": [
+          "Seven descendant decision-table cases preserve source conditions and results",
+          "Effective dates retain same-or-later-than MT condition",
+          "Specific-date IRMs retain affected-subsection wildcard prohibition and date insertion",
+          "Section and subsection wildcard replacements retain distinct target dates",
+          "Revision dates remain illustrative examples rather than claimed observed PDF/IRM Index fields",
+          "Form1040/2024 catalog/acquisition/inspection evidence remains explicitly unavailable within supplied input; no wider absence claim"
+        ],
+        "remaining_findings": [
+          "Correct navigation table coexists with later unsupported parent/descendant links to higher-level catalog entries",
+          "Mandatory filing-season specific-effective-date requirement and substantive-change definition remain omitted",
+          "Claimed exact dates substitute U+2011 hyphens/U+202F spaces; quoted definition paraphrases retain separate fidelity finding"
+        ],
+        "question_wording_scope": "Hierarchy priming remains possible among several readings; causal contribution unmeasured",
+        "model_requests": 1,
+        "mcp_calls_during_model_run": 0,
+        "native_codex_context": false,
+        "model_tool_access": false,
+        "client_request_interval_seconds": 21.8979404,
+        "reported_usage": {
+          "completion_tokens": 2619,
+          "prompt_tokens": 5687,
+          "total_tokens": 8306
+        },
+        "finish_reason": "stop",
+        "client_exit_code": 0
+      },
+      "artifacts": {
+        "run": "runs/2026-11-04/certara-public-irm/run.json",
+        "request": "runs/2026-11-04/certara-public-irm/request.json",
+        "answer": "runs/2026-11-04/certara-public-irm/answer.txt",
+        "assessment": "runs/2026-11-04/certara-public-irm/assessment.json",
+        "assessment_notes": "runs/2026-11-04/certara-public-irm/assessment.md"
+      },
+      "limits": [
+        "One source-cued answer with changed client, route, instructions, and supplied context; no controlled improvement or aggregate pass claim",
+        "No model tool access or autonomous tool-use evaluation; earlier actual MCP observations retain separate execution evidence",
+        "Supplied packet contains public IRM material only; Form1040 catalog/acquisition absence stays input-local",
+        "No new source acquisition, linked-destination inspection, hosted acceptance, or internal-code-review completion follows"
+      ]
+    }
+  ],
+  "supporting_verification": [
+    {
+      "scope": "Implementation and protocol regression checks at commit 7627994667c98966d907512161cc4b7c91b8ca1c",
+      "observed": "120 tests and 41 subtests passed; Ruff lint and formatting passed",
+      "limits": "Regression checks do not establish representative agent answer accuracy"
+    },
+    {
+      "scope": "Noneditable installed-package validation for candidate landed as commit 5f3aa3ec88f080891fcf9c337d44a1c3221ccdfe",
+      "versions": {"python": "3.14.7", "fastmcp": "4.0.11", "mcp_sdk": "2.3.0"},
+      "observed": "Locked/offline export and hash-required runtime installation succeeded; 72 installed packages compatible; isolated site-packages imports, HTTP health 200, MCP initialization, and complete three-tool discovery passed",
+      "limits": "Native mirror-overridden locked sync refused lock update; successful export/install route remains distinct. No IRS tools called during packaging check; Linux Python 3.11 container build remains unexecuted."
+    }
+  ],
+  "security_considerations": [
+    "Selected tools read anonymous public IRS data; administrative hosting authentication and model-provider credentials serve separate purposes",
+    "Supported-origin and redirect validation, deployment TLS/proxy settings, optional timeout/byte budgets, and structured retrieval failures require their documented deployment scope",
+    "Public source text remains untrusted input; observed source-faithfulness comparisons do not establish adversarial or prompt-injection resistance",
+    "Selected native trials used isolated task contexts and restricted tool exposure; those observations do not establish every client or hosted environment"
+  ],
+  "lessons": [
+    "Successful tool dispatch, useful retrieval, faithful explanation, and PDF understanding need separate evidence",
+    "Preserve source identity, conditional date rules, literal forms, catalog continuation, and acquisition-versus-publication clocks through answer composition",
+    "Source-cued reconsideration can repair selected claims while omissions or unsupported changes remain",
+    "Locked dependency/package checks and local HTTP discovery do not establish target container or hosted-platform execution"
+  ],
+  "proposed_next_cases": [
+    {
+      "question": "Explain IRM 1.11.2.5.2 date rules, both navigation mismatches, and exact source-date fields",
+      "expected_checks": ["Correct requested body identity", "Both literal TOC/body relationships", "All reached IPU/IGM and specified-date conditions", "Source labels and quoted/code-form dates preserved; normalized paraphrases labelled"],
+      "proposed_metrics": ["Supported claims versus expected relationships", "Omitted conditions", "Unsupported claims", "Literal-field mismatches"]
+    },
+    {
+      "question": "Find selected Form 1040 editions across current/prior catalogs and follow observed continuation",
+      "expected_checks": ["Exact product/title/revision identity", "Independent catalog attribution", "Source-native pagination extent", "Catalog revision versus tax-year/PDF-content uncertainty"],
+      "proposed_metrics": ["Correct selections", "Continuation coverage within selected intent", "Unsupported completeness or edition claims"]
+    },
+    {
+      "question": "Acquire selected official PDF and distinguish receipt from independently inspected content",
+      "expected_checks": ["Requested/final/resource URI binding", "MIME and decoded-byte agreement", "Explicit inspection boundary", "Any later cover/year judgment tied to actual extraction/rendering"],
+      "proposed_metrics": ["Resource-binding failures", "Byte-count mismatches", "Unsupported PDF-understanding claims"]
+    },
+    {
+      "question": "Handle unsupported origins, retrieval failures, out-of-scope requests, and instruction-like retrieved text",
+      "expected_checks": ["Unsupported requests rejected within documented scope", "HTTP/TLS/media/budget failures distinguished from zero matches", "Successful sibling results preserved", "Retrieved text does not acquire instruction authority"],
+      "proposed_metrics": ["Correct failure classifications", "Unintended tool actions", "Lost sibling results", "Unsupported answer claims"]
+    },
+    {
+      "question": "Compare repeated representative IRS tasks with selected no-tool baseline under recorded conditions",
+      "expected_checks": ["Case set and expected answers selected before scoring", "Source/context/model versions recorded", "Repeated runs and baseline remain comparable", "Failed or ambiguous assessments retained"],
+      "proposed_metrics": ["Source-faithfulness results with explicit denominators", "Per-stage and total latency", "Tool-call counts", "Native reported token usage", "Run-to-run consistency"]
+    }
+  ],
+  "proposal_scope": "Starting cases remain expandable; no proposed case, repeat, baseline, or metric was executed during this documentation task. Dataset size, evaluator, model, acceptance criteria, and measurement procedure remain caller selections.",
+  "unmeasured": ["Representative aggregate accuracy", "Broad latency distribution", "Controlled tool-versus-no-tool benefit", "Adversarial robustness", "Native model PDF understanding", "Hosted-platform acceptance"]
+,
+  "agent_through_mcp_runs": [
+    {
+      "id": "live-agent-through-mcp-2026-11-16",
+      "local_date": "2026-11-16",
+      "local_timezone": "America/Denver",
+      "started_at_utc": "2026-11-17T01:04:12.649339+00:00",
+      "completed_at_utc": "2026-11-17T01:16:44.368653+00:00",
+      "method": "PydanticAI agent through actual stdio MCP tools; recorded returns, independent literal/artifact/source checks, Phoenix traces, and model judgments",
+      "generation_context": "Questions and caller procedure reached agent; retained reference answers reached evaluators only. Public IRS cases exclude private correspondence and session bodies.",
+      "configured_roles": {
+        "agent_and_judge_same_model_alias_and_endpoint": true,
+        "backend_revision": "unattested",
+        "comparison_scope": "Single configured route; no model ranking or statistical accuracy estimate"
+      },
+      "runtime": {
+        "python": "3.14.7",
+        "packages": {
+          "pydantic-ai-slim": "2.68.0",
+          "fastmcp-slim": "4.2.0",
+          "mcp": "2.3.0",
+          "openai": "3.51.0",
+          "arize-phoenix-evals": "3.10.0",
+          "arize-phoenix-otel": "0.17.3"
+        }
+      },
+      "model_settings": {
+        "temperature": 0
+      },
+      "execution": {
+        "client_exit": 0,
+        "cleanup": "completed",
+        "scope": "Completed execution preserves attained retrieval and answer failures independently"
+      },
+      "coverage": {
+        "domain_cases": 3,
+        "nonempty_generated_answers": 2,
+        "empty_generated_answers": 1,
+        "returned_domain_tool_results": 8,
+        "complete_pdf_deliveries": 5,
+        "scope": "Separate selected suite; earlier observations array retains 13 records and original meanings. Counts supply no answer-pass rate."
+      },
+      "cases": [
+        {
+          "id": "irm-body-date-fields",
+          "query": "Retrieve IRM 1.11.2.5.2. Distinguish matched body and nested subsection from supplied table-of-contents destinations. Reproduce each returned native date value verbatim with its source role and context, including distinct fields that share date text.",
+          "tool_returns": [
+            {
+              "name": "get_irm_passage",
+              "arguments": {
+                "citation": "1.11.2.5.2"
+              },
+              "returned": true
+            }
+          ],
+          "attained": "Answer preserves five date meanings, including separate effective/subsection roles sharing 06-09-2026. Matched parent body and mismatched TOC destinations are identified.",
+          "literal_findings": [
+            {
+              "source_value": "10-Jun-2026",
+              "source_role": "Page Last Reviewed or Updated",
+              "source_context": "Page Last Reviewed or Updated: 10-Jun-2026",
+              "reference_matches_current_tool_field": true,
+              "exact_value_present_in_answer": false,
+              "answer_value": "10‑Jun‑2026"
+            },
+            {
+              "source_value": "June 09, 2026",
+              "source_role": "Manual Transmittal date",
+              "source_context": "Manual Transmittal\nJune 09, 2026",
+              "reference_matches_current_tool_field": true,
+              "exact_value_present_in_answer": false,
+              "answer_value": "June 09, 2026"
+            },
+            {
+              "source_value": "06-09-2026",
+              "source_role": "IRM effective date",
+              "source_context": "Effective Date\n(06-09-2026)\nLucia Lykke\nDirector, Data Products and Insights\nResearch, Applied Analytics and Statistics (RAAS)",
+              "reference_matches_current_tool_field": true,
+              "exact_value_present_in_answer": false,
+              "answer_value": "06‑09‑2026"
+            },
+            {
+              "source_value": "06-09-2026",
+              "source_role": "Subsection date",
+              "source_context": "IRM 1.11.2.5.2 Determine IRM Dates: 1.11.2.5.2 (06-09-2026)",
+              "reference_matches_current_tool_field": true,
+              "exact_value_present_in_answer": false,
+              "answer_value": "06‑09‑2026"
+            },
+            {
+              "source_value": "09-13-2023",
+              "source_role": "Subsection date",
+              "source_context": "IRM 1.11.2.5.2.1 Determine the Subsection Date: 1.11.2.5.2.1 (09-13-2023)",
+              "reference_matches_current_tool_field": true,
+              "exact_value_present_in_answer": false,
+              "answer_value": "09‑13‑2023"
+            }
+          ],
+          "literal_scope": "Requested verbatim values changed ASCII hyphens/spaces to Unicode alternatives. Recognizable calendar meanings and separate roles remain supported; exact-character obligation failed.",
+          "relationship_defect": {
+            "claimed_nested_url": "https://www.irs.gov/irm/part1/irm_01-011-002#id46",
+            "observed_target_citation": "1.11.2.3.3",
+            "observed_target_title": "Identify the IRM Owner",
+            "matched_parent_body_url": "https://www.irs.gov/irm/part1/irm_01-011-002#id77",
+            "scope": "Answer reports navigation mismatch elsewhere, then assigns mismatched target to nested body. Returned blocks supply no separate supported nested anchor."
+          },
+          "model_judgments": {
+            "correctness": [
+              {
+                "label": "correct",
+                "score": null
+              }
+            ],
+            "scope": [
+              {
+                "label": "within_scope",
+                "score": null
+              }
+            ]
+          },
+          "source_review": "Both positive judge labels overlook literal substitutions and incorrect nested URL.",
+          "agent_span_seconds": 12.416759,
+          "reported_usage": {
+            "input_tokens": 6602,
+            "output_tokens": 1427
+          }
+        },
+        {
+          "id": "irm-filing-season-dates",
+          "query": "Using IRM 1.11.2.5.2 and nested subsection, explain date choices for filing-season procedures published December 15, 2026 and effective January 1, 2027. Give MT, effective, affected specified subsection, PDF revision, and index revision values/formats. Explain filing-season specificity, ordering, and processing-time requirements.",
+          "tool_returns": [
+            {
+              "name": "get_irm_passage",
+              "arguments": {
+                "citation": "1.11.2.5.2"
+              },
+              "returned": true
+            }
+          ],
+          "supported_application": {
+            "manual_transmittal": "December 15, 2026",
+            "effective": "01-01-2027",
+            "affected_specified_subsection": "01-01-2027",
+            "pdf_revision": "12-15-2026",
+            "index_revision": "12-2026",
+            "scope": "Caller-supplied hypothetical dates follow returned date rules. This query requests application, without verbatim-value obligation."
+          },
+          "source_review": {
+            "supported": "Filing-season specificity and same-or-later chronology are retained. Sufficient M&P processing time remains required.",
+            "unsupported": [
+              "Fabricated line citations, including 【1†L2-L5】, lack returned line-number coordinates.",
+              "Claimed two-week processing sufficiency lacks operational evidence.",
+              "Processing described as publication after MT conflicts with source defining MT as publication/posting date.",
+              "Claimed XML authoring sequence and automatic revision-element population exceed returned guidance."
+            ],
+            "qualification": "Affected specified subsection follows supplied specific-date rule; other substantive/editorial/IPU/IGM cases retain their own conditions."
+          },
+          "model_judgments": {
+            "correctness": [
+              {
+                "label": "correct",
+                "score": null
+              }
+            ],
+            "scope": [
+              {
+                "label": "unassessed",
+                "score": null
+              }
+            ]
+          },
+          "judgment_review": "Correctness judge accepts unsupported processing sufficiency despite recognizing fabricated citations. Scope judge identifies citation defects but conflates caller scenario years with source quotations.",
+          "agent_span_seconds": 19.3124,
+          "reported_usage": {
+            "input_tokens": 6640,
+            "output_tokens": 1494
+          }
+        },
+        {
+          "id": "form1040-catalog-document",
+          "query": "Find official prior Form 1040 with annual catalog Revision Date 2024, then retrieve PDF selected from catalog result. Report product/title/revision attribution, selected URL, and actual acquisition metadata. Explain what receipt establishes and what printed edition or document-content claims need further inspection.",
+          "catalog_selection": {
+            "product": "Form 1040",
+            "title": "U.S. Individual Income Tax Return",
+            "annual_revision_label": "2024",
+            "selected_url": "https://www.irs.gov/pub/irs-prior/f1040--2024.pdf",
+            "observed_rows": 25,
+            "source_summary": "Showing 1 - 25 of 2017",
+            "next_link_available": true,
+            "scope": "Requested row found; annual catalog label supplies no independent printed-edition or tax-applicability finding."
+          },
+          "pdf_deliveries": [
+            {
+              "requested_url": "https://www.irs.gov/pub/irs-prior/f1040--2024.pdf",
+              "source": {
+                "requested_url": "https://www.irs.gov/pub/irs-prior/f1040--2024.pdf",
+                "url": "https://www.irs.gov/pub/irs-prior/f1040--2024.pdf",
+                "retrieved_at_utc": "2026-11-17T01:11:08.127918+00:00",
+                "content_type": "application/pdf",
+                "status_code": 200
+              },
+              "byte_count": 163287,
+              "valid_base64": true,
+              "decoded_byte_count": 163287,
+              "pdf_signature": "%PDF-1.7",
+              "base64_characters": 217716
+            },
+            {
+              "requested_url": "https://www.irs.gov/pub/irs-prior/f1040--2024.pdf",
+              "source": {
+                "requested_url": "https://www.irs.gov/pub/irs-prior/f1040--2024.pdf",
+                "url": "https://www.irs.gov/pub/irs-prior/f1040--2024.pdf",
+                "retrieved_at_utc": "2026-11-17T01:11:12.481711+00:00",
+                "content_type": "application/pdf",
+                "status_code": 200
+              },
+              "byte_count": 163287,
+              "valid_base64": true,
+              "decoded_byte_count": 163287,
+              "pdf_signature": "%PDF-1.7",
+              "base64_characters": 217716
+            },
+            {
+              "requested_url": "https://www.irs.gov/pub/irs-prior/f1040--2024.pdf",
+              "source": {
+                "requested_url": "https://www.irs.gov/pub/irs-prior/f1040--2024.pdf",
+                "url": "https://www.irs.gov/pub/irs-prior/f1040--2024.pdf",
+                "retrieved_at_utc": "2026-11-17T01:11:14.906428+00:00",
+                "content_type": "application/pdf",
+                "status_code": 200
+              },
+              "byte_count": 163287,
+              "valid_base64": true,
+              "decoded_byte_count": 163287,
+              "pdf_signature": "%PDF-1.7",
+              "base64_characters": 217716
+            },
+            {
+              "requested_url": "https://www.irs.gov/pub/irs-prior/f1040--2024.pdf",
+              "source": {
+                "requested_url": "https://www.irs.gov/pub/irs-prior/f1040--2024.pdf",
+                "url": "https://www.irs.gov/pub/irs-prior/f1040--2024.pdf",
+                "retrieved_at_utc": "2026-11-17T01:11:19.307604+00:00",
+                "content_type": "application/pdf",
+                "status_code": 200
+              },
+              "byte_count": 163287,
+              "valid_base64": true,
+              "decoded_byte_count": 163287,
+              "pdf_signature": "%PDF-1.7",
+              "base64_characters": 217716
+            },
+            {
+              "requested_url": "https://www.irs.gov/pub/irs-prior/f1040--2024.pdf",
+              "source": {
+                "requested_url": "https://www.irs.gov/pub/irs-prior/f1040--2024.pdf",
+                "url": "https://www.irs.gov/pub/irs-prior/f1040--2024.pdf",
+                "retrieved_at_utc": "2026-11-17T01:11:26.422242+00:00",
+                "content_type": "application/pdf",
+                "status_code": 200
+              },
+              "byte_count": 163287,
+              "valid_base64": true,
+              "decoded_byte_count": 163287,
+              "pdf_signature": "%PDF-1.7",
+              "base64_characters": 217716
+            }
+          ],
+          "delivery_scope": "Five complete identical artifacts reached MCP client. Byte count, URI, MIME, signature, and full base64 decoding validate artifact receipts; printed edition and model content inspection remain unassessed.",
+          "generated_answer": "",
+          "generation_failure": {
+            "error_type": "ModelHTTPError",
+            "upstream_http_status": 413,
+            "disposition": "request_payload_too_large",
+            "scope": "Upstream request-size rejection; PDF modality incompatibility, IRS retrieval failure, universal threshold, and repeated-retrieval cause remain unestablished."
+          },
+          "client_boundary": "Installed SDK converted PDF resource into model-facing BinaryContent while omitting resource URI and structured acquisition metadata. Raw MCP records preserve those fields.",
+          "model_judgments": {
+            "correctness": [
+              {
+                "label": "correct",
+                "score": null
+              }
+            ],
+            "scope": [
+              {
+                "label": "unassessed",
+                "score": null
+              }
+            ]
+          },
+          "judgment_review": "Correctness label correct accompanies short unsupported rationale despite empty answer. Scope judge supplies replacement narrative and mislabels complete retained bytes as excerpt. Original judge input omitted generation failure; labels supply no answer-pass finding.",
+          "agent_span_seconds": 26.482122,
+          "reported_usage": {
+            "successful_model_span_prompt_token_sum": 25875,
+            "successful_model_span_completion_token_sum": 1265,
+            "largest_successful_prompt_tokens": 5276,
+            "scope": "Sums include repeated context. Failed-request input extent and judge usage remain unmeasured."
+          }
+        }
+      ],
+      "judgment_scope": "Categorical model outputs contain null numeric scores. Independent source checks qualify or contradict returned labels. Same-route judging supplies no independent-model validation.",
+      "raw_retention": "Original complete records, model messages, binary artifacts, source clocks, traces, and internal runtime receipts remain retained privately. Portable records omit credential/local endpoint paths and redundant PDF bodies.",
+      "post_run_scope": "Later evaluator or product repairs retain separate offline validation; recorded agent behavior and original judgments remain unchanged."
+    }
+  ]
+}
