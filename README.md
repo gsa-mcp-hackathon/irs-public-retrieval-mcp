@@ -203,7 +203,9 @@ Use optional route when otherwise passing runs encounter repeated Windows except
 
 [UPSTREAM-SOURCE.json](UPSTREAM-SOURCE.json) records official GSA starter revision. Initial import preserves exact upstream source; later domain changes remain ordinary Git history. Existing public `uv.lock` remains unchanged. Local IRS package supply and public/IBM package supply retain deployment-specific configuration while locked versions/artifacts remain shared.
 
-Upstream [Registry metadata example](server.example.json) retains starter namespace, repository, and remote endpoint values for reference. Publisher namespace, source repository URL, and deployed endpoint remain unbound for this prototype. Publication preparation requires verified metadata and Registry validation.
+Public source: [gsa-mcp-hackathon/irs-public-retrieval-mcp](https://github.com/gsa-mcp-hackathon/irs-public-retrieval-mcp).
+
+Upstream [Registry metadata example](server.example.json) retains starter namespace, repository, and remote endpoint values for reference. Publisher namespace and deployed endpoint remain unbound. Registry submission needs verified prototype metadata and Registry validation.
 
 Implementation reuses FastMCP, HTTPX, Pydantic and Python standard-library HTML parsing. IRM body and IRS catalog structures guide domain behavior. Existing unrelated example modules remain readable in source history/layout; exposed tool inventory contains implemented IRS tools.
 
