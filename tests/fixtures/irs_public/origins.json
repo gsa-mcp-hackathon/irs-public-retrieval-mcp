@@ -1,0 +1,74 @@
+{
+  "fixtures": [
+    {
+      "file": "irm-02-127-002-exhibit-3.html",
+      "source_url": "https://www.irs.gov/irm/part2/irm_02-127-002",
+      "capture_role": "Exact public HTML excerpt for Exhibit 2.127.2-3; original image, caption, description, and media-link markup retained. Tests supply separately identified synthetic document framing and part-index routing.",
+      "capture_started_at_utc": "2026-10-28T07:42:44.306765+00:00",
+      "capture_finished_at_utc": "2026-10-28T07:42:46.108846+00:00",
+      "source_byte_range": [302775, 304134],
+      "source_byte_range_units": "[start inclusive, end exclusive] UTF-8 source bytes",
+      "selected_body_ids": ["id126"]
+    },
+    {
+      "file": "irm-01-011-002.html",
+      "source_url": "https://www.irs.gov/irm/part1/irm_01-011-002",
+      "capture_role": "Retained public HTML acquired October 19\u201320, 2026; selected body/navigation spans; source wording/structure retained, line endings normalized, authored outer framing and omitted unrelated sections.",
+      "selected_body_ids": [
+        "id44",
+        "id77",
+        "id128"
+      ]
+    },
+    {
+      "file": "irm-02-008-009.html",
+      "source_url": "https://www.irs.gov/irm/part2/irm_02-008-009",
+      "capture_role": "Retained public HTML acquired October 19\u201320, 2026; selected body/navigation spans; source wording/structure retained, line endings normalized, authored outer framing and omitted unrelated sections.",
+      "selected_body_ids": [
+        "id11"
+      ]
+    },
+    {
+      "file": "irm-21-008-005r.html",
+      "source_url": "https://www.irs.gov/irm/part21/irm_21-008-005r",
+      "capture_role": "Retained public HTML acquired October 19\u201320, 2026; selected body/navigation spans; source wording/structure retained, line endings normalized, authored outer framing and omitted unrelated sections.",
+      "selected_body_ids": [
+        "id29"
+      ]
+    },
+    {
+      "file": "current-catalog.html",
+      "source_url": "https://www.irs.gov/forms-instructions-and-publications?find=1040",
+      "capture_role": "Retained October 19, 2026 public catalog; selected table, result extent, Next links; source wording/structure retained, line endings normalized; authored outer framing.",
+      "catalog_route_url": "https://www.irs.gov/forms-instructions-and-publications",
+      "capture_started_at_utc": "2026-10-19T17:09:36.309898+00:00",
+      "capture_finished_at_utc": "2026-10-19T17:09:38.559126+00:00"
+    },
+    {
+      "file": "current-catalog-page-2.html",
+      "source_url": "https://www.irs.gov/forms-instructions-and-publications?find=1040&page=1",
+      "capture_role": "Retained October 19, 2026 public catalog; selected table, result extent, Next links; source wording/structure retained, line endings normalized; authored outer framing.",
+      "catalog_route_url": "https://www.irs.gov/forms-instructions-and-publications",
+      "capture_started_at_utc": "2026-10-19T17:09:36.312171+00:00",
+      "capture_finished_at_utc": "2026-10-19T17:09:38.567259+00:00"
+    },
+    {
+      "file": "prior-catalog.html",
+      "source_url": "https://www.irs.gov/prior-year-forms-and-instructions?find=1040",
+      "capture_role": "Retained October 19, 2026 public catalog; selected table, result extent, Next links; source wording/structure retained, line endings normalized; authored outer framing.",
+      "catalog_route_url": "https://www.irs.gov/prior-year-forms-and-instructions",
+      "capture_started_at_utc": "2026-10-19T17:09:36.314120+00:00",
+      "capture_finished_at_utc": "2026-10-19T17:09:38.565430+00:00"
+    },
+    {
+      "file": "prior-instruction-catalog.html",
+      "source_url": "https://www.irs.gov/prior-year-forms-and-instructions?find=instructions+for+form+1040&page=0",
+      "capture_role": "Retained October 19, 2026 public catalog; selected table, result extent, Next links; source wording/structure retained, line endings normalized; authored outer framing.",
+      "catalog_route_url": "https://www.irs.gov/prior-year-forms-and-instructions",
+      "capture_started_at_utc": "2026-10-19T17:09:36.322251+00:00",
+      "capture_finished_at_utc": "2026-10-19T17:09:39.374645+00:00"
+    }
+  ],
+  "routing_scope": "Public part-index captures absent. Tests author separately labelled synthetic index HTML using observed body URL hrefs. Fixture calls establish parser/tool behavior, without fresh network, browser navigation or document/PDF/XML retrieval.",
+  "reference_pack": "esp-ai-evidence/comparisons/public-irm-form-reference-cases-20261020"
+}

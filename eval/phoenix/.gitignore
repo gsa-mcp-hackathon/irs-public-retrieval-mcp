@@ -1,0 +1,3 @@
+.venv/
+# Caller-selected indexes remain local; execution receipts record resolved versions.
+uv.lock
